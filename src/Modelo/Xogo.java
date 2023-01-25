@@ -5,6 +5,7 @@
 package Modelo;
 import java.util.ArrayList;
 import java.util.Iterator;
+import UI.VentanaPrincipal;
 /**
  *
  * @author a22samuelfn
@@ -19,6 +20,7 @@ public class Xogo {
     ArrayList<Cadrado> cadradoschan = new ArrayList<>();
     Iterator<Cadrado> iter;
     Ficha xogada;
+    VentanaPrincipal ventana;
     
     public void ePosicionValida(int x, int y){
         iter = cadradoschan.iterator();
