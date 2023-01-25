@@ -4,10 +4,17 @@
  */
 package Modelo;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author a22samuelfn
  */
 public abstract class Ficha {
     
+    ArrayList<Cadrado> cadrados = new ArrayList<>();
+
+    public ArrayList<Cadrado> getCadrados() {
+        return cadrados;
+    }
 }
