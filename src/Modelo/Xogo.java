@@ -22,7 +22,8 @@ public class Xogo {
     private void ePosicionValida(int x, int y){
         iter = pezas.iterator();
         while(iter.hasNext()){
-            
+            Cadrado temp = iter.next();
+            if(temp.getCoordenadas().contains())
         }
     }
     
