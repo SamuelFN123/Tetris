@@ -9,5 +9,5 @@ package Modelo;
  * @author a22samuelfn
  */
 public class FichaBarra extends Ficha{
-    
+    jLabel1 = new javax.swing.JLabel();
 }
