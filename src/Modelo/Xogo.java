@@ -16,14 +16,25 @@ public class Xogo {
     int MAX_X;
     int numeroLinas;
     boolean pausa;
-    ArrayList<Cadrado> pezas = new ArrayList<>();
+    ArrayList<Cadrado> cadradoschan = new ArrayList<>();
     Iterator<Cadrado> iter;
+    Ficha xogada;
     
-    private void ePosicionValida(int x, int y){
-        iter = pezas.iterator();
+    public void ePosicionValida(int x, int y){
+        iter = cadradoschan.iterator();
         while(iter.hasNext()){
             Cadrado temp = iter.next();
-            if(temp.getCoordenadas().contains())
+            if(temp.getCoordenadas().contentEquals("X: "+x+" Y: "+y)){
+                
+            }
+        }
+    }
+    
+    public void engadirFichaAoChan(){
+        
+        Iterator<Cadrado> cadradosPeza = xogada.getCadrados().iterator();
+        while(cadradosPeza.hasNext()){
+            cadradoschan.add(cadradosPeza.next());
         }
     }
     
