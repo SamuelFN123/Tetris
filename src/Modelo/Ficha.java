@@ -12,7 +12,7 @@ import java.util.ArrayList;
  */
 public abstract class Ficha {
     
-    ArrayList<Cadrado> cadrados = new ArrayList<>();
+    protected ArrayList<Cadrado> cadrados = new ArrayList<>();
 
     public ArrayList<Cadrado> getCadrados() {
         return cadrados;

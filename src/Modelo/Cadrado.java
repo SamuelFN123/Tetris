@@ -11,10 +11,10 @@ import javax.swing.JLabel;
  */
 public class Cadrado {
     
-    int x;
-    int y;
-    Color corRecheo;
-    JLabel Cadrado = new JLabel();
+    private int x;
+    private int y;
+    private Color corRecheo;
+    private JLabel Cadrado = new JLabel();
     
     public String getCoordenadas(){
         return "X: "+this.x+" Y: "+this.y;

@@ -12,22 +12,21 @@ import UI.VentanaPrincipal;
  */
 public class Xogo {
     
-    int LADO_CADRADO;
-    int MAX_Y;
-    int MAX_X;
-    int numeroLinas;
-    boolean pausa;
-    ArrayList<Cadrado> cadradoschan = new ArrayList<>();
-    Iterator<Cadrado> iter;
-    Ficha xogada;
-    VentanaPrincipal ventana;
+    private int LADO_CADRADO;
+    private int MAX_Y;
+    private int MAX_X;
+    private int numeroLinas;
+    private boolean pausa;
+    private ArrayList<Cadrado> cadradoschan = new ArrayList<>();
+    private Ficha xogada;
+    private VentanaPrincipal ventana;
     
     public void ePosicionValida(int x, int y){
-        iter = cadradoschan.iterator();
+        Iterator<Cadrado> iter = cadradoschan.iterator();
         while(iter.hasNext()){
             Cadrado temp = iter.next();
             if(temp.getCoordenadas().contentEquals("X: "+x+" Y: "+y)){
-                
+                engadirFichaAoChan();
             }
         }
     }
