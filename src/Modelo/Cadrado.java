@@ -52,11 +52,7 @@ public class Cadrado {
         this.Cadrado = Cadrado;
     }
 
-    public Cadrado(int x, int y, Color corRecheo) {
-        this.x = x;
-        this.y = y;
-        this.corRecheo = corRecheo;
-    }
+
     
     
 }
