@@ -34,7 +34,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         PantallaJuego = new javax.swing.JDialog();
         FondoNombres = new javax.swing.JPanel();
         SiguienteFicha = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        TiempoEtiqueta = new javax.swing.JLabel();
+        SalirJuego = new javax.swing.JButton();
+        PausarBoton = new javax.swing.JButton();
         Puntos = new javax.swing.JPanel();
         PuntosLabel = new javax.swing.JLabel();
         LineasEliminadas = new javax.swing.JPanel();
@@ -42,6 +44,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         PanelJuego = new javax.swing.JPanel();
         Cuadrado = new javax.swing.JLabel();
         PantallaAjustes = new javax.swing.JDialog();
+        BotonCambiarColor = new javax.swing.JButton();
+        BotonDificultad = new javax.swing.JButton();
+        BotonSalirAjustes = new javax.swing.JButton();
+        PantallaDificultad = new javax.swing.JDialog();
+        MarcadorDificultad = new javax.swing.JSlider();
+        BotonAceptarDificultad = new javax.swing.JButton();
+        BotonSalirDificultad = new javax.swing.JButton();
+        PantallaCambiarDeColor = new javax.swing.JDialog();
+        jButton1 = new javax.swing.JButton();
         jColorChooser1 = new javax.swing.JColorChooser();
         Inicio = new javax.swing.JPanel();
         Jugar = new javax.swing.JButton();
@@ -50,11 +61,20 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         Titulo = new javax.swing.JLabel();
 
         PantallaJuego.setBackground(new java.awt.Color(33, 202, 243));
-        PantallaJuego.setMinimumSize(new java.awt.Dimension(340, 376));
+        PantallaJuego.setMinimumSize(new java.awt.Dimension(500, 500));
 
         FondoNombres.setBackground(new java.awt.Color(0, 0, 0));
 
-        jLabel1.setText("00:00:00");
+        TiempoEtiqueta.setText("00:00:00");
+
+        SalirJuego.setText("Salir");
+        SalirJuego.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SalirJuegoActionPerformed(evt);
+            }
+        });
+
+        PausarBoton.setText("| |");
 
         javax.swing.GroupLayout SiguienteFichaLayout = new javax.swing.GroupLayout(SiguienteFicha);
         SiguienteFicha.setLayout(SiguienteFichaLayout);
@@ -62,15 +82,24 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             SiguienteFichaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SiguienteFichaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addComponent(TiempoEtiqueta, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(SiguienteFichaLayout.createSequentialGroup()
+                .addComponent(SalirJuego, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(PausarBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         SiguienteFichaLayout.setVerticalGroup(
             SiguienteFichaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SiguienteFichaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addComponent(TiempoEtiqueta, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(SiguienteFichaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(SalirJuego)
+                    .addComponent(PausarBoton))
+                .addGap(0, 6, Short.MAX_VALUE))
         );
 
         PuntosLabel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -131,11 +160,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             .addGroup(FondoNombresLayout.createSequentialGroup()
                 .addGap(51, 51, 51)
                 .addComponent(SiguienteFicha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(88, 88, 88)
                 .addComponent(Puntos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(LineasEliminadas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         PanelJuego.setPreferredSize(new java.awt.Dimension(300, 300));
@@ -175,21 +204,142 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             .addComponent(FondoNombres, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(PantallaJuegoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(PanelJuego, javax.swing.GroupLayout.DEFAULT_SIZE, 364, Short.MAX_VALUE)
+                .addComponent(PanelJuego, javax.swing.GroupLayout.DEFAULT_SIZE, 377, Short.MAX_VALUE)
                 .addContainerGap())
         );
+
+        PantallaAjustes.setMinimumSize(new java.awt.Dimension(500, 500));
+
+        BotonCambiarColor.setText("Cambiar color de fondo");
+        BotonCambiarColor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonCambiarColorActionPerformed(evt);
+            }
+        });
+
+        BotonDificultad.setText("dificultad");
+        BotonDificultad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonDificultadActionPerformed(evt);
+            }
+        });
+
+        BotonSalirAjustes.setText("Salir");
+        BotonSalirAjustes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonSalirAjustesActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout PantallaAjustesLayout = new javax.swing.GroupLayout(PantallaAjustes.getContentPane());
         PantallaAjustes.getContentPane().setLayout(PantallaAjustesLayout);
         PantallaAjustesLayout.setHorizontalGroup(
             PantallaAjustesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PantallaAjustesLayout.createSequentialGroup()
-                .addComponent(jColorChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 646, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 6, Short.MAX_VALUE))
+                .addGroup(PantallaAjustesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PantallaAjustesLayout.createSequentialGroup()
+                        .addGap(109, 109, 109)
+                        .addComponent(BotonCambiarColor))
+                    .addGroup(PantallaAjustesLayout.createSequentialGroup()
+                        .addGap(140, 140, 140)
+                        .addGroup(PantallaAjustesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(BotonDificultad, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(PantallaAjustesLayout.createSequentialGroup()
+                                .addGap(11, 11, 11)
+                                .addComponent(BotonSalirAjustes)))))
+                .addContainerGap(120, Short.MAX_VALUE))
         );
         PantallaAjustesLayout.setVerticalGroup(
             PantallaAjustesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jColorChooser1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
+            .addGroup(PantallaAjustesLayout.createSequentialGroup()
+                .addGap(94, 94, 94)
+                .addComponent(BotonCambiarColor, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(BotonDificultad, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(BotonSalirAjustes)
+                .addContainerGap(64, Short.MAX_VALUE))
+        );
+
+        PantallaDificultad.setMinimumSize(new java.awt.Dimension(500, 500));
+
+        MarcadorDificultad.setMajorTickSpacing(1);
+        MarcadorDificultad.setMaximum(10);
+        MarcadorDificultad.setMinorTickSpacing(1);
+        MarcadorDificultad.setPaintLabels(true);
+        MarcadorDificultad.setPaintTicks(true);
+
+        BotonAceptarDificultad.setText("Aceptar");
+        BotonAceptarDificultad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonAceptarDificultadActionPerformed(evt);
+            }
+        });
+
+        BotonSalirDificultad.setText("Salir");
+        BotonSalirDificultad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonSalirDificultadActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout PantallaDificultadLayout = new javax.swing.GroupLayout(PantallaDificultad.getContentPane());
+        PantallaDificultad.getContentPane().setLayout(PantallaDificultadLayout);
+        PantallaDificultadLayout.setHorizontalGroup(
+            PantallaDificultadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PantallaDificultadLayout.createSequentialGroup()
+                .addGroup(PantallaDificultadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PantallaDificultadLayout.createSequentialGroup()
+                        .addGap(89, 89, 89)
+                        .addComponent(MarcadorDificultad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PantallaDificultadLayout.createSequentialGroup()
+                        .addGap(145, 145, 145)
+                        .addGroup(PantallaDificultadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(BotonAceptarDificultad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(BotonSalirDificultad, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE))))
+                .addContainerGap(111, Short.MAX_VALUE))
+        );
+        PantallaDificultadLayout.setVerticalGroup(
+            PantallaDificultadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PantallaDificultadLayout.createSequentialGroup()
+                .addGap(92, 92, 92)
+                .addComponent(MarcadorDificultad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addComponent(BotonAceptarDificultad)
+                .addGap(40, 40, 40)
+                .addComponent(BotonSalirDificultad)
+                .addContainerGap(44, Short.MAX_VALUE))
+        );
+
+        PantallaCambiarDeColor.setMinimumSize(new java.awt.Dimension(500, 500));
+
+        jButton1.setText("Salir");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout PantallaCambiarDeColorLayout = new javax.swing.GroupLayout(PantallaCambiarDeColor.getContentPane());
+        PantallaCambiarDeColor.getContentPane().setLayout(PantallaCambiarDeColorLayout);
+        PantallaCambiarDeColorLayout.setHorizontalGroup(
+            PantallaCambiarDeColorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PantallaCambiarDeColorLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jColorChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PantallaCambiarDeColorLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(273, 273, 273))
+        );
+        PantallaCambiarDeColorLayout.setVerticalGroup(
+            PantallaCambiarDeColorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PantallaCambiarDeColorLayout.createSequentialGroup()
+                .addComponent(jColorChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton1)
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -204,6 +354,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         Ajustes.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         Ajustes.setText("Ajustes");
+        Ajustes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AjustesActionPerformed(evt);
+            }
+        });
 
         Salir.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         Salir.setText("Salir");
@@ -276,6 +431,46 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_SalirActionPerformed
 
+    private void BotonCambiarColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonCambiarColorActionPerformed
+        // TODO add your handling code here:
+        PantallaCambiarDeColor.setVisible(true);
+    }//GEN-LAST:event_BotonCambiarColorActionPerformed
+
+    private void BotonAceptarDificultadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAceptarDificultadActionPerformed
+        // TODO add your handling code here:
+        PantallaDificultad.setVisible(false);
+    }//GEN-LAST:event_BotonAceptarDificultadActionPerformed
+
+    private void BotonSalirDificultadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSalirDificultadActionPerformed
+        // TODO add your handling code here:
+        PantallaDificultad.setVisible(false);
+    }//GEN-LAST:event_BotonSalirDificultadActionPerformed
+
+    private void SalirJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirJuegoActionPerformed
+        // TODO add your handling code here:
+        PantallaJuego.setVisible(false);
+    }//GEN-LAST:event_SalirJuegoActionPerformed
+
+    private void AjustesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AjustesActionPerformed
+        // TODO add your handling code here:
+        PantallaAjustes.setVisible(true);
+    }//GEN-LAST:event_AjustesActionPerformed
+
+    private void BotonSalirAjustesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSalirAjustesActionPerformed
+        // TODO add your handling code here:
+        PantallaAjustes.setVisible(false);
+    }//GEN-LAST:event_BotonSalirAjustesActionPerformed
+
+    private void BotonDificultadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonDificultadActionPerformed
+        // TODO add your handling code here:
+        PantallaDificultad.setVisible(true);
+    }//GEN-LAST:event_BotonDificultadActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        PantallaCambiarDeColor.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -313,21 +508,32 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Ajustes;
+    private javax.swing.JButton BotonAceptarDificultad;
+    private javax.swing.JButton BotonCambiarColor;
+    private javax.swing.JButton BotonDificultad;
+    private javax.swing.JButton BotonSalirAjustes;
+    private javax.swing.JButton BotonSalirDificultad;
     private javax.swing.JLabel Cuadrado;
     private javax.swing.JPanel FondoNombres;
     private javax.swing.JPanel Inicio;
     private javax.swing.JButton Jugar;
     private javax.swing.JPanel LineasEliminadas;
     private javax.swing.JLabel LineasEliminadasLabel;
+    private javax.swing.JSlider MarcadorDificultad;
     private javax.swing.JPanel PanelJuego;
     private javax.swing.JDialog PantallaAjustes;
+    private javax.swing.JDialog PantallaCambiarDeColor;
+    private javax.swing.JDialog PantallaDificultad;
     private javax.swing.JDialog PantallaJuego;
+    private javax.swing.JButton PausarBoton;
     private javax.swing.JPanel Puntos;
     private javax.swing.JLabel PuntosLabel;
     private javax.swing.JButton Salir;
+    private javax.swing.JButton SalirJuego;
     private javax.swing.JPanel SiguienteFicha;
+    private javax.swing.JLabel TiempoEtiqueta;
     private javax.swing.JLabel Titulo;
+    private javax.swing.JButton jButton1;
     private javax.swing.JColorChooser jColorChooser1;
-    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
