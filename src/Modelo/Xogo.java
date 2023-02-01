@@ -33,10 +33,10 @@ public class Xogo {
     
     public void engadirFichaAoChan(){
         
-        Iterator<Cadrado> cadradosPeza = xogada.getCadrados().iterator();
-        while(cadradosPeza.hasNext()){
-            cadradoschan.add(cadradosPeza.next());
+        for (int i = 0; i < xogada.getCadrados().size(); i++) {
+            xogada.getCadrados().get(i).setX(xogada.getCadrados().get(i).getX()+5);
         }
+        
     }
     
 }

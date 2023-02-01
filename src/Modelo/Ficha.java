@@ -4,7 +4,7 @@
  */
 package Modelo;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 
 /**
@@ -13,35 +13,32 @@ import java.util.Iterator;
  */
 public abstract class Ficha {
     
-    protected ArrayList<Cadrado> cadrados = new ArrayList<>();
+    protected HashMap<Integer,Cadrado> cadrados = new HashMap<>();
 
-    public ArrayList<Cadrado> getCadrados() {
+    public HashMap<Integer, Cadrado> getCadrados() {
         return cadrados;
     }
+
+    
     
     public boolean moverDereita(){
-        Iterator<Cadrado> iter = this.cadrados.iterator();
-        while(iter.hasNext()){
-            Cadrado tmp = iter.next();
-            tmp.setX(tmp.getX()+50);
+        
+        for (int i = 0; i < this.cadrados.size(); i++) {
+            this.cadrados.get(i).setX(this.cadrados.get(i).getX()+50);
         }
         return true;
     }
     
     public boolean moverEsquerda(){
-        Iterator<Cadrado> iter = this.cadrados.iterator();
-        while(iter.hasNext()){
-            Cadrado tmp = iter.next();
-            tmp.setX(tmp.getX()-50);
+        for (int i = 0; i < this.cadrados.size(); i++) {
+            this.cadrados.get(i).setX(this.cadrados.get(i).getX()-50);
         }
         return true;
     }
 
     public boolean moverAbaixo(){
-        Iterator<Cadrado> iter = this.cadrados.iterator();
-        while(iter.hasNext()){
-            Cadrado tmp = iter.next();
-            tmp.setY(tmp.getY()+50);
+        for (int i = 0; i < this.cadrados.size(); i++) {
+            this.cadrados.get(i).setY(this.cadrados.get(i).getY()+50);
         }
         return true;
     }
