@@ -34,7 +34,7 @@ public class Xogo {
     public void engadirFichaAoChan(){
         
         for (int i = 0; i < xogada.getCadrados().size(); i++) {
-            xogada.getCadrados().get(i).setX(xogada.getCadrados().get(i).getX()+5);
+            cadradoschan.add(xogada.getCadrados().get(i));
         }
         
     }
