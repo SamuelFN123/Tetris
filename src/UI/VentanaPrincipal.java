@@ -4,17 +4,22 @@
  */
 package UI;
 
+import java.util.Timer;
+import java.util.TimerTask;
 /**
  *
  * @author a22manuelmf
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
-
+    Timer tiempo;
+   
     /**
      * Creates new form VentanaPrincipal
      */
     public VentanaPrincipal() {
         initComponents();
+        Cuadrado.setOpaque(true);
+        tiempo = new Timer();
     }
 
     /**
@@ -29,11 +34,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         PantallaJuego = new javax.swing.JDialog();
         FondoNombres = new javax.swing.JPanel();
         SiguienteFicha = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         Puntos = new javax.swing.JPanel();
         PuntosLabel = new javax.swing.JLabel();
         LineasEliminadas = new javax.swing.JPanel();
         LineasEliminadasLabel = new javax.swing.JLabel();
         PanelJuego = new javax.swing.JPanel();
+        Cuadrado = new javax.swing.JLabel();
+        PantallaAjustes = new javax.swing.JDialog();
+        jColorChooser1 = new javax.swing.JColorChooser();
         Inicio = new javax.swing.JPanel();
         Jugar = new javax.swing.JButton();
         Ajustes = new javax.swing.JButton();
@@ -41,19 +50,27 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         Titulo = new javax.swing.JLabel();
 
         PantallaJuego.setBackground(new java.awt.Color(33, 202, 243));
-        PantallaJuego.setPreferredSize(new java.awt.Dimension(340, 376));
+        PantallaJuego.setMinimumSize(new java.awt.Dimension(340, 376));
 
         FondoNombres.setBackground(new java.awt.Color(0, 0, 0));
+
+        jLabel1.setText("00:00:00");
 
         javax.swing.GroupLayout SiguienteFichaLayout = new javax.swing.GroupLayout(SiguienteFicha);
         SiguienteFicha.setLayout(SiguienteFichaLayout);
         SiguienteFichaLayout.setHorizontalGroup(
             SiguienteFichaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 120, Short.MAX_VALUE)
+            .addGroup(SiguienteFichaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         SiguienteFichaLayout.setVerticalGroup(
             SiguienteFichaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 73, Short.MAX_VALUE)
+            .addGroup(SiguienteFichaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         PuntosLabel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -121,15 +138,25 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addContainerGap(63, Short.MAX_VALUE))
         );
 
+        PanelJuego.setPreferredSize(new java.awt.Dimension(300, 300));
+
+        Cuadrado.setBackground(new java.awt.Color(1, 123, 156));
+
         javax.swing.GroupLayout PanelJuegoLayout = new javax.swing.GroupLayout(PanelJuego);
         PanelJuego.setLayout(PanelJuegoLayout);
         PanelJuegoLayout.setHorizontalGroup(
             PanelJuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 203, Short.MAX_VALUE)
+            .addGroup(PanelJuegoLayout.createSequentialGroup()
+                .addContainerGap(176, Short.MAX_VALUE)
+                .addComponent(Cuadrado, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(89, 89, 89))
         );
         PanelJuegoLayout.setVerticalGroup(
             PanelJuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(PanelJuegoLayout.createSequentialGroup()
+                .addGap(131, 131, 131)
+                .addComponent(Cuadrado, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout PantallaJuegoLayout = new javax.swing.GroupLayout(PantallaJuego.getContentPane());
@@ -137,14 +164,32 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         PantallaJuegoLayout.setHorizontalGroup(
             PantallaJuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PantallaJuegoLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(PanelJuego, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(FondoNombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(FondoNombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PantallaJuegoLayout.setVerticalGroup(
             PantallaJuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(FondoNombres, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(PanelJuego, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(PantallaJuegoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(PanelJuego, javax.swing.GroupLayout.DEFAULT_SIZE, 364, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout PantallaAjustesLayout = new javax.swing.GroupLayout(PantallaAjustes.getContentPane());
+        PantallaAjustes.getContentPane().setLayout(PantallaAjustesLayout);
+        PantallaAjustesLayout.setHorizontalGroup(
+            PantallaAjustesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PantallaAjustesLayout.createSequentialGroup()
+                .addComponent(jColorChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 646, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 6, Short.MAX_VALUE))
+        );
+        PantallaAjustesLayout.setVerticalGroup(
+            PantallaAjustesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jColorChooser1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -162,6 +207,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         Salir.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         Salir.setText("Salir");
+        Salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SalirActionPerformed(evt);
+            }
+        });
 
         Titulo.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
         Titulo.setText("TETRIS 2.1\"prov\"");
@@ -218,7 +268,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void JugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JugarActionPerformed
         // TODO add your handling code here:
         PantallaJuego.setVisible(true);
+        
     }//GEN-LAST:event_JugarActionPerformed
+
+    private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_SalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -257,17 +313,21 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Ajustes;
+    private javax.swing.JLabel Cuadrado;
     private javax.swing.JPanel FondoNombres;
     private javax.swing.JPanel Inicio;
     private javax.swing.JButton Jugar;
     private javax.swing.JPanel LineasEliminadas;
     private javax.swing.JLabel LineasEliminadasLabel;
     private javax.swing.JPanel PanelJuego;
+    private javax.swing.JDialog PantallaAjustes;
     private javax.swing.JDialog PantallaJuego;
     private javax.swing.JPanel Puntos;
     private javax.swing.JLabel PuntosLabel;
     private javax.swing.JButton Salir;
     private javax.swing.JPanel SiguienteFicha;
     private javax.swing.JLabel Titulo;
+    private javax.swing.JColorChooser jColorChooser1;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
