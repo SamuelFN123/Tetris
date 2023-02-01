@@ -4,19 +4,22 @@
  */
 package UI;
 
-import java.awt.Color;
-
+import java.util.Timer;
+import java.util.TimerTask;
 /**
  *
  * @author a22manuelmf
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
-
+    Timer tiempo;
+   
     /**
      * Creates new form VentanaPrincipal
      */
     public VentanaPrincipal() {
         initComponents();
+        Cuadrado.setOpaque(true);
+        tiempo = new Timer();
     }
 
     /**
@@ -55,6 +58,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         BotonAceptarColores = new javax.swing.JButton();
         BotonSalirColores = new javax.swing.JButton();
         PanelColores = new javax.swing.JColorChooser();
+        Inicio = new javax.swing.JPanel();
+        Jugar = new javax.swing.JButton();
+        Ajustes = new javax.swing.JButton();
+        Salir = new javax.swing.JButton();
+        Titulo = new javax.swing.JLabel();
 
         PantallaJuego.setBackground(new java.awt.Color(33, 202, 243));
         PantallaJuego.setMinimumSize(new java.awt.Dimension(500, 500));
@@ -397,15 +405,77 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        Jugar.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        Jugar.setText("Jugar");
+        Jugar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JugarActionPerformed(evt);
+            }
+        });
+
+        Ajustes.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        Ajustes.setText("Ajustes");
+        Ajustes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AjustesActionPerformed(evt);
+            }
+        });
+
+        Salir.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        Salir.setText("Salir");
+        Salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SalirActionPerformed(evt);
+            }
+        });
+
+        Titulo.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
+        Titulo.setText("TETRIS 2.1\"prov\"");
+
+        javax.swing.GroupLayout InicioLayout = new javax.swing.GroupLayout(Inicio);
+        Inicio.setLayout(InicioLayout);
+        InicioLayout.setHorizontalGroup(
+            InicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(InicioLayout.createSequentialGroup()
+                .addGroup(InicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(InicioLayout.createSequentialGroup()
+                        .addGap(78, 78, 78)
+                        .addGroup(InicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(Salir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Ajustes, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
+                            .addComponent(Jugar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(InicioLayout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addComponent(Titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(54, Short.MAX_VALUE))
+        );
+        InicioLayout.setVerticalGroup(
+            InicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InicioLayout.createSequentialGroup()
+                .addContainerGap(31, Short.MAX_VALUE)
+                .addComponent(Titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(Jugar, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(Ajustes, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(Salir, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(51, 51, 51))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(Inicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(Inicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -470,6 +540,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         LineasEliminadas.setBackground(PanelColores.getColor());
         PanelAjustes.setBackground(PanelColores.getColor());
         PanelDificultad.setBackground(PanelColores.getColor());
+        Inicio.setBackground(PanelColores.getColor());
         PanelColoresFondo.setBackground(PanelColores.getColor());
     }//GEN-LAST:event_BotonAceptarColoresActionPerformed
 
@@ -516,6 +587,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Ajustes;
     private javax.swing.JButton BotonAceptarColores;
     private javax.swing.JButton BotonAceptarDificultad;
     private javax.swing.JButton BotonCambiarColor;
@@ -525,6 +597,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton BotonSalirDificultad;
     private javax.swing.JLabel Cuadrado;
     private javax.swing.JPanel FondoNombres;
+    private javax.swing.JPanel Inicio;
+    private javax.swing.JButton Jugar;
     private javax.swing.JPanel LineasEliminadas;
     private javax.swing.JLabel LineasEliminadasLabel;
     private javax.swing.JSlider MarcadorDificultad;
@@ -540,8 +614,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton PausarBoton;
     private javax.swing.JPanel Puntos;
     private javax.swing.JLabel PuntosLabel;
+    private javax.swing.JButton Salir;
     private javax.swing.JButton SalirJuego;
     private javax.swing.JPanel SiguienteFicha;
     private javax.swing.JLabel TiempoEtiqueta;
+    private javax.swing.JLabel Titulo;
     // End of variables declaration//GEN-END:variables
 }
