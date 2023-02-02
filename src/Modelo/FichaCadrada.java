@@ -10,6 +10,19 @@ package Modelo;
  */
 public class FichaCadrada extends Ficha{
     
+    public FichaCadrada(){
+        for (int i = 0; i < 4; i++) {
+            this.cadrados.put(i, new Cadrado(java.awt.Color.red));
+        }
+    }
+    
+    private void posicionar(){
+        this.cadrados.get(0).darPosicion(100, 100);
+        this.cadrados.get(1).darPosicion(120, 100);
+        this.cadrados.get(2).darPosicion(100, 80);
+        this.cadrados.get(3).darPosicion(120, 80);
+    }
+    
     public boolean rotar(){
         return true;
     }

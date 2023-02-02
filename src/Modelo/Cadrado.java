@@ -3,21 +3,23 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Modelo;
+
 import java.awt.Color;
 import javax.swing.JLabel;
+
 /**
  *
  * @author a22samuelfn
  */
 public class Cadrado {
-    
+
     private int x;
     private int y;
     private Color corRecheo;
     private JLabel Cadrado = new JLabel();
-    
-    public String getCoordenadas(){
-        return "X: "+this.x+" Y: "+this.y;
+
+    public Cadrado(Color corRecheo) {
+        this.corRecheo = corRecheo;
     }
 
     public int getX() {
@@ -36,23 +38,17 @@ public class Cadrado {
         this.y = y;
     }
 
-    public Color getCorRecheo() {
-        return corRecheo;
+    public String getCoordenadas() {
+        return "X: " + this.x + " Y: " + this.y;
     }
 
-    public void setCorRecheo(Color corRecheo) {
-        this.corRecheo = corRecheo;
+    public void darPosicion(int x, int y) {
+        this.x = x;
+        this.y = y;
     }
 
     public JLabel getCadrado() {
         return Cadrado;
     }
 
-    public void setCadrado(JLabel Cadrado) {
-        this.Cadrado = Cadrado;
-    }
-
-
-    
-    
 }

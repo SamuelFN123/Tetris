@@ -7,12 +7,14 @@ package UI;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.awt.Color;
+import Modelo.Xogo;
 /**
  *
  * @author a22manuelmf
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
     Timer tiempo;
+    Xogo xogo = new Xogo();
    
     /**
      * Creates new form VentanaPrincipal
@@ -582,8 +584,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     
     public void pintarCadrado(javax.swing.JLabel cadrado){
         PanelJuego.add(cadrado);
-        cadrado.setBounds(100, 100, 50, 50);
-        cadrado.setBackground(Color.red);
+        cadrado.setBounds(100, 100, 20, 20);
+        cadrado.setBackground(cadrado.getBackground());
         cadrado.setOpaque(true);
         }
     
