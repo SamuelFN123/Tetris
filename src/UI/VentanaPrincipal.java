@@ -6,6 +6,7 @@ package UI;
 
 import java.util.Timer;
 import java.util.TimerTask;
+import java.awt.Color;
 /**
  *
  * @author a22manuelmf
@@ -580,10 +581,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }
     
     public void pintarCadrado(javax.swing.JLabel cadrado){
-        /*jPanel1.add(cadrado);
+        PanelJuego.add(cadrado);
         cadrado.setBounds(100, 100, 50, 50);
         cadrado.setBackground(Color.red);
-        cadrado.setOpaque(true);*/
+        cadrado.setOpaque(true);
         }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
