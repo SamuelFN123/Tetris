@@ -3,24 +3,30 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package UI;
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
+import javax.swing.SwingConstants;
+import javax.swing.Timer;
+import Modelo.Xogo;
 
-import java.util.Timer;
-import java.util.TimerTask;
 /**
  *
  * @author a22manuelmf
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
-    Timer tiempo;
-   
+       public Xogo xogo;
+       public Timer timer;
+       int segundos =0;
+       int minutos=0;
     /**
      * Creates new form VentanaPrincipal
      */
     public VentanaPrincipal() {
         initComponents();
-        Cuadrado.setOpaque(true);
-        tiempo = new Timer();
+        timerTicks();
+        timer.start();
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -543,7 +549,32 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         Inicio.setBackground(PanelColores.getColor());
         PanelColoresFondo.setBackground(PanelColores.getColor());
     }//GEN-LAST:event_BotonAceptarColoresActionPerformed
+    public void moveKeyDetection(KeyEvent evt) {
+        /*!!!!!!!
+        
+        Consider changing to xogoPlaceholKeyTyped(java.awt.event.KeyEvent evt);
+        
+        !!!!!!!*/
+        
+        if(evt.getKeyChar() == 'a'){
+            //Move left
+            //xogo.moverFichaEsquerda();
+            
+        } else if(evt.getKeyChar() == 'd'){
+            //Move right
+           // xogo.moverFichaDereita();
+            
+        } else if(evt.getKeyChar() == 'w'){
+            //Rotate 
+           // xogo.rotarFicha();
+            
+        } else if(evt.getKeyChar() == 's'){
+            //Move down
+           // xogo.moverFichaAbaixo();
 
+            
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -578,6 +609,27 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
     }
+    private void timerTicks(){
+        this.timer = new Timer(500, (ActionEvent e) ->{
+            
+           //  xogo.moverFichaAbaixo();
+           // xogo.fichaActual.updateLabelPos();
+             
+        });
+        this.timer = new Timer(500, (ActionEvent e) ->{
+            
+           //  xogo.moverFichaAbaixo();
+           segundos++;
+            
+            if(segundos==60){
+                segundos=0;
+                minutos++;
+            }
+            TiempoEtiqueta.setText("0:"+minutos+":"+segundos);
+             
+        });
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Ajustes;
