@@ -39,7 +39,7 @@ public class Cadrado {
     }
 
     public String getCoordenadas() {
-        return "X: " + this.x + " Y: " + this.y;
+        return this.x +","+ this.y;
     }
 
     public void darPosicion(int x, int y) {

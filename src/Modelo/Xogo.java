@@ -23,14 +23,29 @@ public class Xogo {
     private Ficha fichaActual;
     private VentanaPrincipal ventanaPrincipal;
 
-    public void ePosicionValida(int x, int y) {
+    public boolean ePosicionValida(int x, int y) {
+
+        if (!(dentroTablero(x, y))) {
+            return false;
+        }
+
         Iterator<Cadrado> iter = cadradoschan.iterator();
         while (iter.hasNext()) {
-            Cadrado temp = iter.next();
-            if (temp.getCoordenadas().contentEquals("X: " + x + " Y: " + y)) {
-                engadirFichaAoChan();
+            Cadrado tmp = iter.next();
+            if (obterCoordenadaX(tmp) == x && obterCoordenadaY(tmp) == y) {
+                return false;
             }
         }
+        return true;
+    }
+
+    private boolean dentroTablero(int x, int y) {
+        if (x > MAX_X) {
+            return false;
+        } else if (y > MAX_Y) {
+            return false;
+        }
+        return true;
     }
 
     public void engadirFichaAoChan() {
@@ -48,4 +63,66 @@ public class Xogo {
         }
     }
 
+    public void moverFichaDereita() {
+        int cordx;
+        int cordy;
+        boolean valido = true;
+        for (int i = 0; i < 4; i++) {
+            cordx = obterCoordenadaX(fichaActual.getCadrados().get(i)) + LADO_CADRADO;
+            cordy = obterCoordenadaY(fichaActual.getCadrados().get(i));
+            if(!(ePosicionValida(cordx, cordy))){
+                valido=false;
+            }
+        }
+        if(valido){
+            fichaActual.moverDereita();
+        }
+    }
+    
+    public void moverFichaEsquerda() {
+        int cordx;
+        int cordy;
+        boolean valido = true;
+        for (int i = 0; i < 4; i++) {
+            cordx = obterCoordenadaX(fichaActual.getCadrados().get(i)) - LADO_CADRADO;
+            cordy = obterCoordenadaY(fichaActual.getCadrados().get(i));
+            if(!(ePosicionValida(cordx, cordy))){
+                valido=false;
+            }
+        }
+        if(valido){
+            fichaActual.moverEsquerda();
+        }
+    }
+    
+    public void moverFichaAbaixo() {
+        int cordx;
+        int cordy;
+        boolean valido = true;
+        for (int i = 0; i < 4; i++) {
+            cordx = obterCoordenadaX(fichaActual.getCadrados().get(i));
+            cordy = obterCoordenadaY(fichaActual.getCadrados().get(i))+ LADO_CADRADO;
+            if(!(ePosicionValida(cordx, cordy))){
+                valido=false;
+            }
+        }
+        if(valido){
+            fichaActual.moverAbaixo();
+        }
+    }
+    private int obterCoordenadaX(Cadrado cadradoDaFicha) {
+        String coordx;
+        int indexComa = cadradoDaFicha.getCoordenadas().indexOf(",");
+        coordx = cadradoDaFicha.getCoordenadas().substring(0, indexComa);
+        int cordx = Integer.parseInt(coordx);
+        return cordx;
+    }
+
+    private int obterCoordenadaY(Cadrado cadradoDaFicha) {
+        String coordy;
+        int indexComa = cadradoDaFicha.getCoordenadas().indexOf(",");
+        coordy = cadradoDaFicha.getCoordenadas().substring(indexComa);
+        int cordy = Integer.parseInt(coordy);
+        return cordy;
+    }
 }
