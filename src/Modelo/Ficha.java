@@ -4,7 +4,8 @@
  */
 package Modelo;
 
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 
 /**
  *
@@ -12,9 +13,36 @@ import java.util.ArrayList;
  */
 public abstract class Ficha {
     
-    ArrayList<Cadrado> cadrados = new ArrayList<>();
+    protected HashMap<Integer,Cadrado> cadrados = new HashMap<>();
 
-    public ArrayList<Cadrado> getCadrados() {
+    public HashMap<Integer, Cadrado> getCadrados() {
         return cadrados;
     }
+
+    
+    
+    public boolean moverDereita(){
+        
+        for (int i = 0; i < this.cadrados.size(); i++) {
+            this.cadrados.get(i).setX(this.cadrados.get(i).getX()+50);
+        }
+        return true;
+    }
+    
+    public boolean moverEsquerda(){
+        for (int i = 0; i < this.cadrados.size(); i++) {
+            this.cadrados.get(i).setX(this.cadrados.get(i).getX()-50);
+        }
+        return true;
+    }
+
+    public boolean moverAbaixo(){
+        for (int i = 0; i < this.cadrados.size(); i++) {
+            this.cadrados.get(i).setY(this.cadrados.get(i).getY()+50);
+        }
+        return true;
+    }
+    
+    public abstract boolean rotar();
+
 }

@@ -10,4 +10,7 @@ package Modelo;
  */
 public class FichaL extends Ficha{
     
+    public boolean rotar(){
+        return true;
+    }
 }

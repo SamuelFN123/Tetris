@@ -9,5 +9,8 @@ package Modelo;
  * @author a22samuelfn
  */
 public class FichaBarra extends Ficha{
-
+    
+    public boolean rotar(){
+        return true;
+    }
 }
