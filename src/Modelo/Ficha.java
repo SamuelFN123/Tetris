@@ -4,45 +4,48 @@
  */
 package Modelo;
 
-import java.util.HashMap;
 import java.util.Iterator;
+import java.util.ArrayList;
 
 /**
  *
  * @author a22samuelfn
  */
 public abstract class Ficha {
-    
-    protected HashMap<Integer,Cadrado> cadrados = new HashMap<>();
 
-    public HashMap<Integer, Cadrado> getCadrados() {
+    protected ArrayList<Cadrado> cadrados = new ArrayList<>();
+
+    public ArrayList<Cadrado> getCadrados() {
         return cadrados;
     }
 
-    
-    
-    public boolean moverDereita(){
-        
-        for (int i = 0; i < this.cadrados.size(); i++) {
-            this.cadrados.get(i).setX(this.cadrados.get(i).getX()+50);
-        }
-        return true;
-    }
-    
-    public boolean moverEsquerda(){
-        for (int i = 0; i < this.cadrados.size(); i++) {
-            this.cadrados.get(i).setX(this.cadrados.get(i).getX()-50);
+    public boolean moverDereita() {
+        Iterator<Cadrado> iter = cadrados.iterator();
+        while (iter.hasNext()) {
+            Cadrado tmp = iter.next();
+            tmp.setX(tmp.getX() + 50);
         }
         return true;
     }
 
-    public boolean moverAbaixo(){
-        for (int i = 0; i < this.cadrados.size(); i++) {
-            this.cadrados.get(i).setY(this.cadrados.get(i).getY()+50);
+    public boolean moverEsquerda() {
+        Iterator<Cadrado> iter = cadrados.iterator();
+        while (iter.hasNext()) {
+            Cadrado tmp = iter.next();
+            tmp.setX(tmp.getX() - 50);
         }
         return true;
     }
-    
+
+    public boolean moverAbaixo() {
+        Iterator<Cadrado> iter = cadrados.iterator();
+        while (iter.hasNext()) {
+            Cadrado tmp = iter.next();
+            tmp.setY(tmp.getY() + 50);
+        }
+        return true;
+    }
+
     public abstract boolean rotar();
 
 }
