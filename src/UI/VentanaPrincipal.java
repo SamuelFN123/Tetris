@@ -436,7 +436,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
 
         Titulo.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
-        Titulo.setText("TETRIS 2.1\"prov\"");
+        Titulo.setText("TETRIS ");
 
         javax.swing.GroupLayout InicioLayout = new javax.swing.GroupLayout(Inicio);
         Inicio.setLayout(InicioLayout);
@@ -451,14 +451,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                             .addComponent(Ajustes, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
                             .addComponent(Jugar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(InicioLayout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(Titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(54, Short.MAX_VALUE))
+                        .addGap(95, 95, 95)
+                        .addComponent(Titulo)))
+                .addContainerGap(82, Short.MAX_VALUE))
         );
         InicioLayout.setVerticalGroup(
             InicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InicioLayout.createSequentialGroup()
-                .addContainerGap(31, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(Jugar, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -473,9 +473,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(Inicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(Inicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -623,7 +621,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
            // xogo.fichaActual.updateLabelPos();
              
         });
-        this.timer = new Timer(500, (ActionEvent e) ->{
+        this.timer = new Timer(1000, (ActionEvent e) ->{
             
            //  xogo.moverFichaAbaixo();
            segundos++;
@@ -637,7 +635,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
     }
     
-
+  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Ajustes;
     private javax.swing.JButton BotonAceptarColores;

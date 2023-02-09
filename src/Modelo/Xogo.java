@@ -95,7 +95,32 @@ public class Xogo {
         boolean continua = true;
         int cordx = obterCoordenadaX(fichaActual.getCadrados().get(1));
         int cordy = obterCoordenadaY(fichaActual.getCadrados().get(1));
-        return true;
+        continua = ePosicionValida(cordx, cordy - LADO_CADRADO);
+        if (continua) {
+            continua = ePosicionValida(cordx + LADO_CADRADO, cordy - LADO_CADRADO);
+            if (continua) {
+                continua = ePosicionValida(cordx + LADO_CADRADO, cordy);
+                if (continua) {
+                    continua = ePosicionValida(cordx + LADO_CADRADO, cordy + LADO_CADRADO);
+                    if (continua) {
+                        continua = ePosicionValida(cordx, cordy - LADO_CADRADO);
+                        if (continua) {
+                            continua = ePosicionValida(cordx - LADO_CADRADO, cordy - LADO_CADRADO);
+                            if (continua) {
+                                continua = ePosicionValida(cordx - LADO_CADRADO, cordy);
+                                if (continua) {
+                                    continua = ePosicionValida(cordx - LADO_CADRADO, cordy - LADO_CADRADO);
+                                    return continua;
+                                }else{
+                                    return continua;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return continua;
     }
 
     private boolean comprobarBarraPos0() {
@@ -193,7 +218,7 @@ public class Xogo {
     private int obterCoordenadaY(Cadrado cadradoDaFicha) {
         String coordy;
         int indexComa = cadradoDaFicha.getCoordenadas().indexOf(",");
-        coordy = cadradoDaFicha.getCoordenadas().substring(indexComa);
+        coordy = cadradoDaFicha.getCoordenadas().substring(indexComa + 1);
         int cordy = Integer.parseInt(coordy);
         return cordy;
     }
