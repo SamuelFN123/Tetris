@@ -23,14 +23,29 @@ public class Xogo {
     private Ficha fichaActual;
     private VentanaPrincipal ventanaPrincipal;
 
-    public void ePosicionValida(int x, int y) {
+    public boolean ePosicionValida(int x, int y) {
+
+        if (!(dentroTablero(x, y))) {
+            return false;
+        }
+
         Iterator<Cadrado> iter = cadradoschan.iterator();
         while (iter.hasNext()) {
-            Cadrado temp = iter.next();
-            if (temp.getCoordenadas().contentEquals("X: " + x + " Y: " + y)) {
-                engadirFichaAoChan();
+            Cadrado tmp = iter.next();
+            if (obterCoordenadaX(tmp) == x && obterCoordenadaY(tmp) == y) {
+                return false;
             }
         }
+        return true;
+    }
+
+    private boolean dentroTablero(int x, int y) {
+        if (x > MAX_X || x < 0) {
+            return false;
+        } else if (y > MAX_Y || y < 0) {
+            return false;
+        }
+        return true;
     }
 
     public void engadirFichaAoChan() {
@@ -48,4 +63,163 @@ public class Xogo {
         }
     }
 
+    public void rotarFicha() {
+
+    }
+
+    private boolean comprobar() {
+
+        if (fichaActual instanceof FichaCadrada) {
+            return true;
+
+        } else {
+
+            if (fichaActual instanceof FichaBarra) {
+
+                if (comprobarBarraPos0()) {
+                    return comprobarBarraPos1();
+
+                } else {
+                    return false;
+                }
+
+            } else {
+
+                return comprobarAlrededor();
+            }
+        }
+    }
+
+    private boolean comprobarAlrededor() {
+
+        boolean continua = true;
+        int cordx = obterCoordenadaX(fichaActual.getCadrados().get(1));
+        int cordy = obterCoordenadaY(fichaActual.getCadrados().get(1));
+        continua = ePosicionValida(cordx, cordy - LADO_CADRADO);
+        if (continua) {
+            continua = ePosicionValida(cordx + LADO_CADRADO, cordy - LADO_CADRADO);
+            if (continua) {
+                continua = ePosicionValida(cordx + LADO_CADRADO, cordy);
+                if (continua) {
+                    continua = ePosicionValida(cordx + LADO_CADRADO, cordy + LADO_CADRADO);
+                    if (continua) {
+                        continua = ePosicionValida(cordx, cordy - LADO_CADRADO);
+                        if (continua) {
+                            continua = ePosicionValida(cordx - LADO_CADRADO, cordy - LADO_CADRADO);
+                            if (continua) {
+                                continua = ePosicionValida(cordx - LADO_CADRADO, cordy);
+                                if (continua) {
+                                    continua = ePosicionValida(cordx - LADO_CADRADO, cordy - LADO_CADRADO);
+                                    return continua;
+                                }else{
+                                    return continua;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return continua;
+    }
+
+    private boolean comprobarBarraPos0() {
+
+        boolean continua = true;
+        int cordx = obterCoordenadaX(fichaActual.getCadrados().get(1));
+        int cordy = obterCoordenadaY(fichaActual.getCadrados().get(1));
+        //posiocion 0 cadrado 0
+        continua = ePosicionValida(cordx, cordy - LADO_CADRADO);
+        //posiocion 0 cadrado 2
+        if (continua) {
+            continua = ePosicionValida(cordx, cordy + LADO_CADRADO);
+            //posiocion 0 cadrado 3
+            if (continua) {
+                continua = ePosicionValida(cordx, cordy + 2 * LADO_CADRADO);
+            }
+        }
+        return continua;
+    }
+
+    private boolean comprobarBarraPos1() {
+
+        boolean continua = true;
+        int cordx = obterCoordenadaX(fichaActual.getCadrados().get(1));
+        int cordy = obterCoordenadaY(fichaActual.getCadrados().get(1));
+        //posiocion 1 cadrado 0
+        continua = ePosicionValida(cordx - LADO_CADRADO, cordy);
+        //posiocion 1 cadrado 2
+        if (continua) {
+            continua = ePosicionValida(cordx + LADO_CADRADO, cordy);
+            //posiocion 1 cadrado 3
+            if (continua) {
+                continua = ePosicionValida(cordx + 2 * LADO_CADRADO, cordy);
+            }
+        }
+        return continua;
+    }
+
+    public void moverFichaDereita() {
+        int cordx;
+        int cordy;
+        boolean valido = true;
+        for (int i = 0; i < 4 && valido; i++) {
+            cordx = obterCoordenadaX(fichaActual.getCadrados().get(i)) + LADO_CADRADO;
+            cordy = obterCoordenadaY(fichaActual.getCadrados().get(i));
+            if (!(ePosicionValida(cordx, cordy))) {
+                valido = false;
+            }
+        }
+        if (valido) {
+            fichaActual.moverDereita();
+        }
+    }
+
+    public void moverFichaEsquerda() {
+        int cordx;
+        int cordy;
+        boolean valido = true;
+        for (int i = 0; i < 4 && valido; i++) {
+            cordx = obterCoordenadaX(fichaActual.getCadrados().get(i)) - LADO_CADRADO;
+            cordy = obterCoordenadaY(fichaActual.getCadrados().get(i));
+            if (!(ePosicionValida(cordx, cordy))) {
+                valido = false;
+            }
+        }
+        if (valido) {
+            fichaActual.moverEsquerda();
+        }
+    }
+
+    public void moverFichaAbaixo() {
+        int cordx;
+        int cordy;
+        boolean valido = true;
+        for (int i = 0; i < 4 && valido; i++) {
+            cordx = obterCoordenadaX(fichaActual.getCadrados().get(i));
+            cordy = obterCoordenadaY(fichaActual.getCadrados().get(i)) + LADO_CADRADO;
+            if (!(ePosicionValida(cordx, cordy))) {
+                valido = false;
+            }
+        }
+        if (valido) {
+            fichaActual.moverAbaixo();
+        }
+    }
+
+    private int obterCoordenadaX(Cadrado cadradoDaFicha) {
+        String coordx;
+        int indexComa = cadradoDaFicha.getCoordenadas().indexOf(",");
+        coordx = cadradoDaFicha.getCoordenadas().substring(0, indexComa);
+        int cordx = Integer.parseInt(coordx);
+        return cordx;
+    }
+
+    private int obterCoordenadaY(Cadrado cadradoDaFicha) {
+        String coordy;
+        int indexComa = cadradoDaFicha.getCoordenadas().indexOf(",");
+        coordy = cadradoDaFicha.getCoordenadas().substring(indexComa + 1);
+        int cordy = Integer.parseInt(coordy);
+        return cordy;
+    }
 }

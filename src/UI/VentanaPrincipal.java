@@ -8,8 +8,7 @@ import java.awt.event.KeyEvent;
 import javax.swing.SwingConstants;
 import javax.swing.Timer;
 import Modelo.Xogo;
-import java.awt.Color;
-import Modelo.Xogo;
+
 /**
  *
  * @author a22manuelmf
@@ -583,6 +582,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             
         }
     }
+    
+    public void pintarCadrado(javax.swing.JLabel cadrado){
+        PanelJuego.add(cadrado);
+        cadrado.setBounds(100, 100, 20, 20);
+        cadrado.setBackground(cadrado.getBackground());
+        cadrado.setOpaque(true);
+        }
     /**
      * @param args the command line arguments
      */
@@ -638,15 +644,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
     }
     
-
-    
-    public void pintarCadrado(javax.swing.JLabel cadrado){
-        PanelJuego.add(cadrado);
-        cadrado.setBounds(100, 100, 20, 20);
-        cadrado.setBackground(cadrado.getBackground());
-        cadrado.setOpaque(true);
-        }
-    
+  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Ajustes;
     private javax.swing.JButton BotonAceptarColores;
