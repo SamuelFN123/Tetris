@@ -6,7 +6,6 @@ package Modelo;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import UI.VentanaPrincipal;
 
 /**
  *
@@ -18,10 +17,17 @@ public class Xogo {
     private int MAX_Y;
     private int MAX_X;
     private int numeroLinas;
-    private boolean pausa;
+    private boolean pausa=false;
     private ArrayList<Cadrado> cadradoschan = new ArrayList<>();
     private Ficha fichaActual;
-    private VentanaPrincipal ventanaPrincipal;
+
+    public boolean isPausa() {
+        return pausa;
+    }
+
+    public void setPausa(boolean pausa) {
+        this.pausa = pausa;
+    }
 
     public boolean ePosicionValida(int x, int y) {
 
@@ -58,9 +64,9 @@ public class Xogo {
 
     public void xenerarNovaFicha() {
         fichaActual = new FichaCadrada();
-        for (int i = 0; i < 4; i++) {
-            ventanaPrincipal.pintarCadrado(fichaActual.getCadrados().get(i).getCadrado());
-        }
+        //for (int i = 0; i < 4; i++) {
+        //    ventanaPrincipal.pintarCadrado(fichaActual.getCadrados().get(i).getCadrado());
+        //}
     }
 
     public void rotarFicha() {
@@ -95,6 +101,8 @@ public class Xogo {
         boolean continua = true;
         int cordx = obterCoordenadaX(fichaActual.getCadrados().get(1));
         int cordy = obterCoordenadaY(fichaActual.getCadrados().get(1));
+        
+        
         continua = ePosicionValida(cordx, cordy - LADO_CADRADO);
         if (continua) {
             continua = ePosicionValida(cordx + LADO_CADRADO, cordy - LADO_CADRADO);
