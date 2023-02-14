@@ -178,10 +178,13 @@ public class Xogo {
         int cordx;
         int cordy;
         boolean valido = true;
+
         for (int i = 0; i < 4 && valido; i++) {
+
             cordx = obterCoordenadaX(fichaActual.getCadrados().get(i)) + LADO_CADRADO;
             cordy = obterCoordenadaY(fichaActual.getCadrados().get(i));
             if (!(ePosicionValida(cordx, cordy))) {
+
                 valido = false;
             }
         }
@@ -194,10 +197,13 @@ public class Xogo {
         int cordx;
         int cordy;
         boolean valido = true;
+
         for (int i = 0; i < 4 && valido; i++) {
+
             cordx = obterCoordenadaX(fichaActual.getCadrados().get(i)) - LADO_CADRADO;
             cordy = obterCoordenadaY(fichaActual.getCadrados().get(i));
             if (!(ePosicionValida(cordx, cordy))) {
+
                 valido = false;
             }
         }
@@ -210,15 +216,75 @@ public class Xogo {
         int cordx;
         int cordy;
         boolean valido = true;
+
         for (int i = 0; i < 4 && valido; i++) {
+
             cordx = obterCoordenadaX(fichaActual.getCadrados().get(i));
             cordy = obterCoordenadaY(fichaActual.getCadrados().get(i)) + LADO_CADRADO;
             if (!(ePosicionValida(cordx, cordy))) {
+
                 valido = false;
             }
         }
         if (valido) {
             fichaActual.moverAbaixo();
+        }
+    }
+
+    public void borrarLinasCompletas() {
+
+        int mismaY = 0;
+        Iterator<Cadrado> iter = cadradoschan.iterator();
+        Iterator<Cadrado> iter2 = cadradoschan.iterator();
+
+        while (iter.hasNext()) {
+
+            Cadrado tmp = iter.next();
+            while (iter2.hasNext()) {
+
+                Cadrado tmp2 = iter2.next();
+                if (obterCoordenadaY(tmp) == obterCoordenadaY(tmp2)) {
+
+                    mismaY++;
+                    if (mismaY == MAX_X / LADO_CADRADO) {
+
+                        borrarLina();
+                        mismaY=0;
+                    }
+                }
+                mismaY = 0;
+            }
+        }
+    }
+
+    public void borrarLina() {
+
+        ArrayList<Cadrado> mismaY = new ArrayList<>();
+        
+        Iterator<Cadrado> iter = cadradoschan.iterator();
+        Iterator<Cadrado> iter2 = cadradoschan.iterator();
+
+        while (iter.hasNext()) {
+
+            Cadrado tmp = iter.next();
+            while (iter2.hasNext()) {
+
+                Cadrado tmp2 = iter2.next();
+                if (obterCoordenadaY(tmp) == obterCoordenadaY(tmp2)) {
+
+                    mismaY.add(tmp);
+                    mismaY.add(tmp2);
+                    if (mismaY.size() == MAX_X / LADO_CADRADO) {
+                        
+                        Iterator<Cadrado> borrar = mismaY.iterator();
+                        while(borrar.hasNext()){
+                            Cadrado borrado = borrar.next();
+                            //ventanaPrincipal.borrarCadrado(borrado)
+                        }
+                    }
+                }
+                mismaY.clear();
+            }
         }
     }
 
