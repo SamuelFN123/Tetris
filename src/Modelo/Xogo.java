@@ -17,7 +17,7 @@ public class Xogo {
     private int MAX_Y;
     private int MAX_X;
     private int numeroLinas;
-    private boolean pausa=false;
+    private boolean pausa = false;
     private ArrayList<Cadrado> cadradoschan = new ArrayList<>();
     private Ficha fichaActual;
 
@@ -63,10 +63,19 @@ public class Xogo {
     }
 
     public void xenerarNovaFicha() {
-        fichaActual = new FichaCadrada();
-        //for (int i = 0; i < 4; i++) {
-        //    ventanaPrincipal.pintarCadrado(fichaActual.getCadrados().get(i).getCadrado());
-        //}
+
+        int Ficha = (int) Math.floor(Math.random() * (4) + 1);
+        switch (Ficha) {
+            case 1 ->
+                fichaActual = new FichaCadrada();
+            case 2 ->
+                fichaActual = new FichaBarra();
+            case 3 ->
+                fichaActual = new FichaT();
+            case 4 ->
+                fichaActual = new FichaL();
+        }
+
     }
 
     public void rotarFicha() {
@@ -90,7 +99,6 @@ public class Xogo {
                 }
 
             } else {
-
                 return comprobarAlrededor();
             }
         }
@@ -101,8 +109,7 @@ public class Xogo {
         boolean continua = true;
         int cordx = obterCoordenadaX(fichaActual.getCadrados().get(1));
         int cordy = obterCoordenadaY(fichaActual.getCadrados().get(1));
-        
-        
+
         continua = ePosicionValida(cordx, cordy - LADO_CADRADO);
         if (continua) {
             continua = ePosicionValida(cordx + LADO_CADRADO, cordy - LADO_CADRADO);
@@ -119,7 +126,7 @@ public class Xogo {
                                 if (continua) {
                                     continua = ePosicionValida(cordx - LADO_CADRADO, cordy - LADO_CADRADO);
                                     return continua;
-                                }else{
+                                } else {
                                     return continua;
                                 }
                             }
