@@ -16,6 +16,10 @@ public class FichaCadrada extends Ficha{
         }
         posicionInicial();
     }
+
+    public int getPosicion() {
+        return -1;
+    }
     
     private void posicionInicial(){
         this.cadrados.get(0).darPosicion(100, 100);

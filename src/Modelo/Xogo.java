@@ -79,7 +79,9 @@ public class Xogo {
     }
 
     public void rotarFicha() {
-
+        if(comprobar()){
+            fichaActual.rotar();
+        }
     }
 
     private boolean comprobar() {
@@ -106,36 +108,84 @@ public class Xogo {
 
     private boolean comprobarAlrededor() {
 
+        int quePosicion = fichaActual.getPosicion();
+
+        boolean continua = comprobarPosicion(quePosicion);
+        return continua;
+    }
+
+    private boolean comprobarPosicion(int posicion) {
+
         boolean continua;
         int cordx = obterCoordenadaX(fichaActual.getCadrados().get(1));
         int cordy = obterCoordenadaY(fichaActual.getCadrados().get(1));
+        switch (posicion) {
+            case 0 -> {
 
-        continua = ePosicionValida(cordx, cordy - LADO_CADRADO);
-        if (continua) {
-            continua = ePosicionValida(cordx + LADO_CADRADO, cordy - LADO_CADRADO);
-            if (continua) {
-                continua = ePosicionValida(cordx + LADO_CADRADO, cordy);
-                if (continua) {
-                    continua = ePosicionValida(cordx + LADO_CADRADO, cordy + LADO_CADRADO);
+                continua = ePosicionValida(cordx - LADO_CADRADO, cordy);
+                if (continua && fichaActual instanceof FichaL) {
+
+                    continua = ePosicionValida(cordx + LADO_CADRADO, cordy);
                     if (continua) {
-                        continua = ePosicionValida(cordx, cordy - LADO_CADRADO);
-                        if (continua) {
-                            continua = ePosicionValida(cordx - LADO_CADRADO, cordy - LADO_CADRADO);
-                            if (continua) {
-                                continua = ePosicionValida(cordx - LADO_CADRADO, cordy);
-                                if (continua) {
-                                    continua = ePosicionValida(cordx - LADO_CADRADO, cordy - LADO_CADRADO);
-                                    return continua;
-                                } else {
-                                    return continua;
-                                }
-                            }
-                        }
+
+                        continua = ePosicionValida(cordx + LADO_CADRADO, cordy - LADO_CADRADO);
                     }
+                    return continua;
+
+                } else {
+                    return continua;
+                }
+            }
+            case 1 -> {
+                
+                continua = ePosicionValida(cordx, cordy - LADO_CADRADO);
+                if (continua && fichaActual instanceof FichaL) {
+
+                    continua = ePosicionValida(cordx - LADO_CADRADO, cordy  - LADO_CADRADO);
+                    if (continua) {
+
+                        continua = ePosicionValida(cordx + LADO_CADRADO, cordy - LADO_CADRADO);
+                    }
+                    return continua;
+
+                } else {
+                    return continua;
+                }
+            }
+            case 2 -> {
+                
+                continua = ePosicionValida(cordx + LADO_CADRADO, cordy);
+                if (continua && fichaActual instanceof FichaL) {
+
+                    continua = ePosicionValida(cordx - LADO_CADRADO, cordy);
+                    if (continua) {
+
+                        continua = ePosicionValida(cordx - LADO_CADRADO, cordy + LADO_CADRADO);
+                    }
+                    return continua;
+
+                } else {
+                    return continua;
+                }
+            }
+            case 3 -> {
+                
+                continua = ePosicionValida(cordx, cordy + LADO_CADRADO);
+                if (continua && fichaActual instanceof FichaL) {
+
+                    continua = ePosicionValida(cordx, cordy - LADO_CADRADO);
+                    if (continua) {
+
+                        continua = ePosicionValida(cordx + LADO_CADRADO, cordy + LADO_CADRADO);
+                    }
+                    return continua;
+
+                } else {
+                    return continua;
                 }
             }
         }
-        return continua;
+        return true;
     }
 
     private boolean comprobarBarraPos0() {
@@ -249,7 +299,7 @@ public class Xogo {
                     if (mismaY == MAX_X / LADO_CADRADO) {
 
                         borrarLina();
-                        mismaY=0;
+                        mismaY = 0;
                     }
                 }
             }
@@ -260,7 +310,7 @@ public class Xogo {
     public void borrarLina() {
 
         ArrayList<Cadrado> mismaY = new ArrayList<>();
-        
+
         Iterator<Cadrado> iter = cadradoschan.iterator();
         Iterator<Cadrado> iter2 = cadradoschan.iterator();
 
@@ -275,9 +325,9 @@ public class Xogo {
                     mismaY.add(tmp);
                     mismaY.add(tmp2);
                     if (mismaY.size() == MAX_X / LADO_CADRADO) {
-                        
+
                         Iterator<Cadrado> borrar = mismaY.iterator();
-                        while(borrar.hasNext()){
+                        while (borrar.hasNext()) {
                             Cadrado borrado = borrar.next();
                             //ventanaPrincipal.borrarCadrado(borrado)
                         }

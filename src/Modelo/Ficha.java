@@ -47,5 +47,6 @@ public abstract class Ficha {
     }
 
     public abstract boolean rotar();
+    public abstract int getPosicion();
 
 }

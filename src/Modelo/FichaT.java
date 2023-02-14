@@ -10,11 +10,18 @@ package Modelo;
  */
 public class FichaT extends Ficha{
     
+    int posicion;
+    
     public FichaT(){
         for (int i = 0; i < 4; i++) {
             this.cadrados.add(new Cadrado(java.awt.Color.red));
         }
         posicionInicial();
+        posicion=0;
+    }
+    
+    public int getPosicion() {
+        return posicion;
     }
     
     private void posicionInicial(){
