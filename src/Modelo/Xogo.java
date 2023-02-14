@@ -106,7 +106,7 @@ public class Xogo {
 
     private boolean comprobarAlrededor() {
 
-        boolean continua = true;
+        boolean continua;
         int cordx = obterCoordenadaX(fichaActual.getCadrados().get(1));
         int cordy = obterCoordenadaY(fichaActual.getCadrados().get(1));
 
@@ -140,7 +140,7 @@ public class Xogo {
 
     private boolean comprobarBarraPos0() {
 
-        boolean continua = true;
+        boolean continua;
         int cordx = obterCoordenadaX(fichaActual.getCadrados().get(1));
         int cordy = obterCoordenadaY(fichaActual.getCadrados().get(1));
         //posiocion 0 cadrado 0
@@ -158,7 +158,7 @@ public class Xogo {
 
     private boolean comprobarBarraPos1() {
 
-        boolean continua = true;
+        boolean continua;
         int cordx = obterCoordenadaX(fichaActual.getCadrados().get(1));
         int cordy = obterCoordenadaY(fichaActual.getCadrados().get(1));
         //posiocion 1 cadrado 0
@@ -252,8 +252,8 @@ public class Xogo {
                         mismaY=0;
                     }
                 }
-                mismaY = 0;
             }
+            mismaY = 0;
         }
     }
 
