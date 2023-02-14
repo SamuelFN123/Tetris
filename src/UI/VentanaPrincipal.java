@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package UI;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import javax.swing.SwingConstants;
@@ -14,10 +15,13 @@ import Modelo.Xogo;
  * @author a22manuelmf
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
-       public Xogo xogo;
-       public Timer timer;
-       int segundos =0;
-       int minutos=0;
+
+    public Xogo xogo;
+    public Timer timer;
+    public Timer timerContador;
+    int segundos = 0;
+    int minutos = 0;
+
     /**
      * Creates new form VentanaPrincipal
      */
@@ -26,7 +30,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         timerTicks();
         timer.start();
     }
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -42,7 +45,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         SiguienteFicha = new javax.swing.JPanel();
         TiempoEtiqueta = new javax.swing.JLabel();
         SalirJuego = new javax.swing.JButton();
-        BotonPausa = new javax.swing.JToggleButton();
+        PausarBoton = new javax.swing.JButton();
         Puntos = new javax.swing.JPanel();
         PuntosLabel = new javax.swing.JLabel();
         LineasEliminadas = new javax.swing.JPanel();
@@ -84,12 +87,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        BotonPausa.setText("| |");
-        BotonPausa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonPausaActionPerformed(evt);
-            }
-        });
+        PausarBoton.setText("| |");
 
         javax.swing.GroupLayout SiguienteFichaLayout = new javax.swing.GroupLayout(SiguienteFicha);
         SiguienteFicha.setLayout(SiguienteFichaLayout);
@@ -98,11 +96,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             .addGroup(SiguienteFichaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(TiempoEtiqueta, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(SiguienteFichaLayout.createSequentialGroup()
                 .addComponent(SalirJuego, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BotonPausa, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(PausarBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         SiguienteFichaLayout.setVerticalGroup(
@@ -113,7 +111,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(SiguienteFichaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(SalirJuego)
-                    .addComponent(BotonPausa))
+                    .addComponent(PausarBoton))
                 .addGap(0, 6, Short.MAX_VALUE))
         );
 
@@ -493,7 +491,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void JugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JugarActionPerformed
         // TODO add your handling code here:
         PantallaJuego.setVisible(true);
-        
+        xogo.xenerarNovaFicha();
+        for (int i = 0; i < 4; i++) {
+ 
+        }
     }//GEN-LAST:event_JugarActionPerformed
 
     private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
@@ -555,6 +556,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void BotonPausaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonPausaActionPerformed
         // TODO add your handling code here:
+        timer.stop();
+        //xogo.setPausa(true);
     }//GEN-LAST:event_BotonPausaActionPerformed
     public void moveKeyDetection(KeyEvent evt) {
         /*!!!!!!!
@@ -562,33 +565,37 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         Consider changing to xogoPlaceholKeyTyped(java.awt.event.KeyEvent evt);
         
         !!!!!!!*/
-        
-        if(evt.getKeyChar() == 'a'){
-            //Move left
-            //xogo.moverFichaEsquerda();
-            
-        } else if(evt.getKeyChar() == 'd'){
-            //Move right
-           // xogo.moverFichaDereita();
-            
-        } else if(evt.getKeyChar() == 'w'){
-            //Rotate 
-           // xogo.rotarFicha();
-            
-        } else if(evt.getKeyChar() == 's'){
-            //Move down
-           // xogo.moverFichaAbaixo();
-
-            
+ /*       (xogo.isPausa()) {
         }
+        else{
+
+            if (evt.getKeyChar() == 'a') {
+                //Move left
+                xogo.moverFichaEsquerda();
+
+            } else if (evt.getKeyChar() == 'd') {
+                //Move right
+                xogo.moverFichaDereita();
+
+            } else if (evt.getKeyChar() == 'w') {
+                //Rotate 
+                //xogo.rotarFicha();
+
+            } else if (evt.getKeyChar() == 's') {
+                //Move down
+                xogo.moverFichaAbaixo();
+
+            }
+        }*/
     }
-    
-    public void pintarCadrado(javax.swing.JLabel cadrado){
+
+    public void pintarCadrado(javax.swing.JLabel cadrado) {
         PanelJuego.add(cadrado);
         cadrado.setBounds(100, 100, 20, 20);
         cadrado.setBackground(cadrado.getBackground());
         cadrado.setOpaque(true);
-        }
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -623,35 +630,34 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
     }
-    private void timerTicks(){
-        this.timer = new Timer(500, (ActionEvent e) ->{
-            
-           //  xogo.moverFichaAbaixo();
-           // xogo.fichaActual.updateLabelPos();
-             
+
+    private void timerTicks() {
+        this.timer = new Timer(1000, (ActionEvent e) -> {
+
+            xogo.moverFichaAbaixo();
+            // xogo.fichaActual.updateLabelPos();
         });
-        this.timer = new Timer(1000, (ActionEvent e) ->{
-            
-           //  xogo.moverFichaAbaixo();
-           segundos++;
-            
-            if(segundos==60){
-                segundos=0;
+        this.timerContador = new Timer(1000, (ActionEvent e) -> {
+
+            //  xogo.moverFichaAbaixo();
+            segundos++;
+
+            if (segundos == 60) {
+                segundos = 0;
                 minutos++;
             }
-            TiempoEtiqueta.setText("0:"+minutos+":"+segundos);
-             
+            TiempoEtiqueta.setText("0:" + minutos + ":" + segundos);
+
         });
     }
-    
-  
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Ajustes;
     private javax.swing.JButton BotonAceptarColores;
     private javax.swing.JButton BotonAceptarDificultad;
     private javax.swing.JButton BotonCambiarColor;
     private javax.swing.JButton BotonDificultad;
-    private javax.swing.JToggleButton BotonPausa;
     private javax.swing.JButton BotonSalirAjustes;
     private javax.swing.JButton BotonSalirColores;
     private javax.swing.JButton BotonSalirDificultad;
@@ -671,6 +677,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JDialog PantallaCambiarDeColor;
     private javax.swing.JDialog PantallaDificultad;
     private javax.swing.JDialog PantallaJuego;
+    private javax.swing.JButton PausarBoton;
     private javax.swing.JPanel Puntos;
     private javax.swing.JLabel PuntosLabel;
     private javax.swing.JButton Salir;
