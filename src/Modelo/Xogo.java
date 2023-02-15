@@ -79,7 +79,7 @@ public class Xogo {
     }
 
     public void rotarFicha() {
-        if(comprobar()){
+        if (comprobar()) {
             fichaActual.rotar();
         }
     }
@@ -119,71 +119,94 @@ public class Xogo {
         int cordy = obterCoordenadaY(fichaActual.getCadrados().get(1));
         switch (posicion) {
             case 0 -> {
-
-                continua = ePosicionValida(cordx - LADO_CADRADO, cordy);
-                if (continua && fichaActual instanceof FichaL) {
-
-                    continua = ePosicionValida(cordx + LADO_CADRADO, cordy);
-                    if (continua) {
-
-                        continua = ePosicionValida(cordx + LADO_CADRADO, cordy - LADO_CADRADO);
-                    }
-                    return continua;
-
-                } else {
-                    return continua;
-                }
+                return comprobarPosicion0(cordx, cordy);
             }
             case 1 -> {
-                
-                continua = ePosicionValida(cordx, cordy - LADO_CADRADO);
-                if (continua && fichaActual instanceof FichaL) {
-
-                    continua = ePosicionValida(cordx - LADO_CADRADO, cordy  - LADO_CADRADO);
-                    if (continua) {
-
-                        continua = ePosicionValida(cordx + LADO_CADRADO, cordy - LADO_CADRADO);
-                    }
-                    return continua;
-
-                } else {
-                    return continua;
-                }
+                return comprobarPosicion1(cordx, cordy);
             }
             case 2 -> {
-                
-                continua = ePosicionValida(cordx + LADO_CADRADO, cordy);
-                if (continua && fichaActual instanceof FichaL) {
 
-                    continua = ePosicionValida(cordx - LADO_CADRADO, cordy);
-                    if (continua) {
-
-                        continua = ePosicionValida(cordx - LADO_CADRADO, cordy + LADO_CADRADO);
-                    }
-                    return continua;
-
-                } else {
-                    return continua;
-                }
+                return comprobarPosicion2(cordx, cordy);
             }
             case 3 -> {
-                
-                continua = ePosicionValida(cordx, cordy + LADO_CADRADO);
-                if (continua && fichaActual instanceof FichaL) {
-
-                    continua = ePosicionValida(cordx, cordy - LADO_CADRADO);
-                    if (continua) {
-
-                        continua = ePosicionValida(cordx + LADO_CADRADO, cordy + LADO_CADRADO);
-                    }
-                    return continua;
-
-                } else {
-                    return continua;
-                }
+                return comprobarPosicion3(cordx, cordy);
+            }
+            default -> {
+                return false;
             }
         }
-        return false;
+    }
+
+    private boolean comprobarPosicion3(int cordx, int cordy) {
+        
+        boolean continua;
+        continua = ePosicionValida(cordx, cordy + LADO_CADRADO);
+        if (continua && fichaActual instanceof FichaL) {
+
+            continua = ePosicionValida(cordx, cordy - LADO_CADRADO);
+            if (continua) {
+
+                continua = ePosicionValida(cordx + LADO_CADRADO, cordy + LADO_CADRADO);
+            }
+            return continua;
+
+        } else {
+            return continua;
+        }
+    }
+
+    private boolean comprobarPosicion2(int cordx, int cordy) {
+        
+        boolean continua;
+        continua = ePosicionValida(cordx + LADO_CADRADO, cordy);
+        if (continua && fichaActual instanceof FichaL) {
+
+            continua = ePosicionValida(cordx - LADO_CADRADO, cordy);
+            if (continua) {
+
+                continua = ePosicionValida(cordx - LADO_CADRADO, cordy + LADO_CADRADO);
+            }
+            return continua;
+
+        } else {
+            return continua;
+        }
+    }
+
+    private boolean comprobarPosicion1(int cordx, int cordy) {
+        
+        boolean continua;
+        continua = ePosicionValida(cordx, cordy - LADO_CADRADO);
+        if (continua && fichaActual instanceof FichaL) {
+
+            continua = ePosicionValida(cordx - LADO_CADRADO, cordy - LADO_CADRADO);
+            if (continua) {
+
+                continua = ePosicionValida(cordx + LADO_CADRADO, cordy - LADO_CADRADO);
+            }
+            return continua;
+
+        } else {
+            return continua;
+        }
+    }
+
+    private boolean comprobarPosicion0(int cordx, int cordy) {
+        
+        boolean continua;
+        continua = ePosicionValida(cordx - LADO_CADRADO, cordy);
+        if (continua && fichaActual instanceof FichaL) {
+
+            continua = ePosicionValida(cordx + LADO_CADRADO, cordy);
+            if (continua) {
+
+                continua = ePosicionValida(cordx + LADO_CADRADO, cordy - LADO_CADRADO);
+            }
+            return continua;
+
+        } else {
+            return continua;
+        }
     }
 
     private boolean comprobarBarraPos0() {
@@ -323,7 +346,7 @@ public class Xogo {
                     mismaY.add(tmp);
                     mismaY.add(tmp2);
                     if (mismaY.size() == MAX_X / LADO_CADRADO) {
-                        
+
                         numeroLinas++;
                         Iterator<Cadrado> borrar = mismaY.iterator();
                         while (borrar.hasNext()) {
