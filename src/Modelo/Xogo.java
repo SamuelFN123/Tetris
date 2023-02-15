@@ -13,7 +13,7 @@ import java.util.Iterator;
  */
 public class Xogo {
 
-    private final int LADO_CADRADO = 20;
+    public final static int LADO_CADRADO = 20;
     private int MAX_Y;
     private int MAX_X;
     private int numeroLinas;
@@ -325,7 +325,8 @@ public class Xogo {
                     mismaY.add(tmp);
                     mismaY.add(tmp2);
                     if (mismaY.size() == MAX_X / LADO_CADRADO) {
-
+                        
+                        numeroLinas++;
                         Iterator<Cadrado> borrar = mismaY.iterator();
                         while (borrar.hasNext()) {
                             Cadrado borrado = borrar.next();

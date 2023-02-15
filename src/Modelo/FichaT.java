@@ -32,6 +32,67 @@ public class FichaT extends Ficha{
     }
     
     public boolean rotar(){
+        switch (posicion) {
+            case 0 -> {
+                return rotar0();
+            }
+            case 1 -> {
+                return rotar1();
+            }
+            case 2 -> {
+                return rotar2();
+            }
+            case 3 -> {
+                return rotar3();
+            }
+            default -> {
+                return false;
+            }
+        }
+
+    }
+
+    private boolean rotar0() {
+
+        this.cadrados.get(0).darPosicion(this.cadrados.get(0).getX() - Xogo.LADO_CADRADO, this.cadrados.get(0).getY() + Xogo.LADO_CADRADO);
+
+        this.cadrados.get(2).darPosicion(this.cadrados.get(2).getX() + Xogo.LADO_CADRADO, this.cadrados.get(2).getY() - Xogo.LADO_CADRADO);
+
+        this.cadrados.get(3).darPosicion(this.cadrados.get(3).getX() - Xogo.LADO_CADRADO, this.cadrados.get(3).getY() + Xogo.LADO_CADRADO);
+
+        return true;
+    }
+    
+    private boolean rotar1() {
+
+        this.cadrados.get(0).darPosicion(this.cadrados.get(0).getX() + Xogo.LADO_CADRADO, this.cadrados.get(0).getY() - Xogo.LADO_CADRADO);
+
+        this.cadrados.get(2).darPosicion(this.cadrados.get(2).getX() - Xogo.LADO_CADRADO, this.cadrados.get(2).getY() + Xogo.LADO_CADRADO);
+
+        this.cadrados.get(3).darPosicion(this.cadrados.get(3).getX() - Xogo.LADO_CADRADO, this.cadrados.get(3).getY()- Xogo.LADO_CADRADO);
+
+        return true;
+    }
+    
+    private boolean rotar2() {
+
+        this.cadrados.get(0).darPosicion(this.cadrados.get(0).getX() - Xogo.LADO_CADRADO, this.cadrados.get(0).getY() + Xogo.LADO_CADRADO);
+
+        this.cadrados.get(2).darPosicion(this.cadrados.get(2).getX() + Xogo.LADO_CADRADO, this.cadrados.get(2).getY() - Xogo.LADO_CADRADO);
+
+        this.cadrados.get(3).darPosicion(this.cadrados.get(3).getX() + Xogo.LADO_CADRADO, this.cadrados.get(3).getY() - Xogo.LADO_CADRADO);
+
+        return true;
+    }
+    
+    private boolean rotar3() {
+
+        this.cadrados.get(0).darPosicion(this.cadrados.get(0).getX() + Xogo.LADO_CADRADO, this.cadrados.get(0).getY() - Xogo.LADO_CADRADO);
+
+        this.cadrados.get(2).darPosicion(this.cadrados.get(2).getX() - Xogo.LADO_CADRADO, this.cadrados.get(2).getY() + Xogo.LADO_CADRADO);
+
+        this.cadrados.get(3).darPosicion(this.cadrados.get(3).getX() + Xogo.LADO_CADRADO, this.cadrados.get(3).getY() + Xogo.LADO_CADRADO);
+
         return true;
     }
 }
