@@ -185,7 +185,7 @@ public class Xogo {
                 }
             }
         }
-        return true;
+        return false;
     }
 
     private boolean comprobarBarraPos0() {
