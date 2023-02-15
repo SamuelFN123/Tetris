@@ -93,11 +93,11 @@ public class Xogo {
 
             if (fichaActual instanceof FichaBarra) {
 
-                if (comprobarBarraPos0()) {
+                if (fichaActual.getPosicion() == 0) {
                     return comprobarBarraPos1();
 
                 } else {
-                    return false;
+                    return comprobarBarraPos0();
                 }
 
             } else {
@@ -108,9 +108,7 @@ public class Xogo {
 
     private boolean comprobarAlrededor() {
 
-        int quePosicion = fichaActual.getPosicion();
-
-        boolean continua = comprobarPosicion(quePosicion);
+        boolean continua = comprobarPosicion(fichaActual.getPosicion());
         return continua;
     }
 

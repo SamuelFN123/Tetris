@@ -21,7 +21,11 @@ public class FichaBarra extends Ficha {
     }
 
     public int getPosicion() {
-        return -1;
+        if (posicion0) {
+            return 0;
+        } else {
+            return 1;
+        }
     }
 
     private void posicionInicial() {
@@ -60,7 +64,7 @@ public class FichaBarra extends Ficha {
         this.cadrados.get(0).darPosicion(this.cadrados.get(0).getX() + Xogo.LADO_CADRADO, this.cadrados.get(0).getY() - Xogo.LADO_CADRADO);
 
         this.cadrados.get(2).darPosicion(this.cadrados.get(2).getX() - Xogo.LADO_CADRADO, this.cadrados.get(2).getY() + Xogo.LADO_CADRADO);
-    
+
         this.cadrados.get(3).darPosicion(this.cadrados.get(3).getX() - 2 * Xogo.LADO_CADRADO, this.cadrados.get(3).getY() + 2 * Xogo.LADO_CADRADO);
         return true;
     }
