@@ -114,7 +114,6 @@ public class Xogo {
 
     private boolean comprobarPosicion(int posicion) {
 
-        boolean continua;
         int cordx = obterCoordenadaX(fichaActual.getCadrados().get(1));
         int cordy = obterCoordenadaY(fichaActual.getCadrados().get(1));
         switch (posicion) {
@@ -125,7 +124,6 @@ public class Xogo {
                 return comprobarPosicion1(cordx, cordy);
             }
             case 2 -> {
-
                 return comprobarPosicion2(cordx, cordy);
             }
             case 3 -> {
