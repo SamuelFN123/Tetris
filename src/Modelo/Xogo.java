@@ -6,6 +6,7 @@ package Modelo;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import UI.VentanaPrincipal;
 
 /**
  *
@@ -20,7 +21,12 @@ public class Xogo {
     private boolean pausa = false;
     private ArrayList<Cadrado> cadradoschan = new ArrayList<>();
     private Ficha fichaActual;
+    private VentanaPrincipal ventana;
 
+    public Xogo(VentanaPrincipal ventana) {
+        this.ventana = ventana;
+    }
+         
     public boolean isPausa() {
         return pausa;
     }
