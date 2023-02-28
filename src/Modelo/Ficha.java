@@ -20,6 +20,7 @@ public abstract class Ficha {
     }
 
     public boolean moverDereita() {
+        
         Iterator<Cadrado> iter = cadrados.iterator();
         while (iter.hasNext()) {
             Cadrado tmp = iter.next();
@@ -29,6 +30,7 @@ public abstract class Ficha {
     }
 
     public boolean moverEsquerda() {
+        
         Iterator<Cadrado> iter = cadrados.iterator();
         while (iter.hasNext()) {
             Cadrado tmp = iter.next();
@@ -38,6 +40,7 @@ public abstract class Ficha {
     }
 
     public boolean moverAbaixo() {
+        
         Iterator<Cadrado> iter = cadrados.iterator();
         while (iter.hasNext()) {
             Cadrado tmp = iter.next();
