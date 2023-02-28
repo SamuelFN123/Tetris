@@ -497,6 +497,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         }
         timerTicks();
         timer.start();
+        timerContador.start();
     }//GEN-LAST:event_JugarActionPerformed
 
     private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
@@ -559,6 +560,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void BotonPausaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonPausaActionPerformed
         // TODO add your handling code here:
         timer.stop();
+        timerContador.stop();
         xogo.setPausa(true);
     }//GEN-LAST:event_BotonPausaActionPerformed
     public void moveKeyDetection(KeyEvent evt) {
@@ -645,7 +647,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
             //  xogo.moverFichaAbaixo();
             segundos++;
-
+            
             if (segundos == 60) {
                 segundos = 0;
                 minutos++;
