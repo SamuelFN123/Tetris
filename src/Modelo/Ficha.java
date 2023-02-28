@@ -23,7 +23,7 @@ public abstract class Ficha {
         Iterator<Cadrado> iter = cadrados.iterator();
         while (iter.hasNext()) {
             Cadrado tmp = iter.next();
-            tmp.setX(tmp.getX() + 50);
+            tmp.setX(tmp.getX() + Xogo.LADO_CADRADO);
         }
         return true;
     }
@@ -32,7 +32,7 @@ public abstract class Ficha {
         Iterator<Cadrado> iter = cadrados.iterator();
         while (iter.hasNext()) {
             Cadrado tmp = iter.next();
-            tmp.setX(tmp.getX() - 50);
+            tmp.setX(tmp.getX() - Xogo.LADO_CADRADO);
         }
         return true;
     }
@@ -41,7 +41,7 @@ public abstract class Ficha {
         Iterator<Cadrado> iter = cadrados.iterator();
         while (iter.hasNext()) {
             Cadrado tmp = iter.next();
-            tmp.setY(tmp.getY() + 50);
+            tmp.setY(tmp.getY() + Xogo.LADO_CADRADO);
         }
         return true;
     }

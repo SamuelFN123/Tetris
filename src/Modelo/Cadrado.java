@@ -29,7 +29,7 @@ public class Cadrado {
     
     public void setX(int x) {
         this.x = x;
-        this.lblCadrado.setBounds(x, y, Xogo.LADO_CADRADO, Xogo.LADO_CADRADO);
+        this.lblCadrado.setLocation(x, y);
     }
     
     public int getY() {
@@ -38,7 +38,7 @@ public class Cadrado {
     
     public void setY(int y) {
         this.y = y;
-        this.lblCadrado.setBounds(x, y, Xogo.LADO_CADRADO, Xogo.LADO_CADRADO);
+        this.lblCadrado.setLocation(x, y);
     }
     
     public String getCoordenadas() {

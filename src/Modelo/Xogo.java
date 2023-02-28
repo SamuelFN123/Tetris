@@ -44,6 +44,9 @@ public class Xogo {
         if (!(dentroTablero(x, y))) {
             return false;
         }
+        if(!chocaFichaCoChan()){
+            return false;
+        }
 
         Iterator<Cadrado> iter = cadradoschan.iterator();
         while (iter.hasNext()) {
@@ -373,6 +376,13 @@ public class Xogo {
     }
 
     public boolean chocaFichaCoChan() {
+        
+        for (int i = 0; i < 4; i++) {
+            if(fichaActual.getCadrados().get(i).getY()==MAX_Y){
+                return true;
+            }
+        }
+        
         Iterator<Cadrado> iter = cadradoschan.iterator();
         boolean estaNoChan = false;
         while (iter.hasNext()) {
