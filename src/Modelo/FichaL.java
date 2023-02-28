@@ -26,9 +26,9 @@ public class FichaL extends Ficha {
 
     private void posicionInicial() {
         this.cadrados.get(0).darPosicion(100, 100);
-        this.cadrados.get(1).darPosicion(100, 120);
-        this.cadrados.get(2).darPosicion(100, 140);
-        this.cadrados.get(3).darPosicion(120, 140);
+        this.cadrados.get(1).darPosicion(this.cadrados.get(0).getX(), this.cadrados.get(0).getY() + Xogo.LADO_CADRADO);
+        this.cadrados.get(2).darPosicion(this.cadrados.get(0).getX(), this.cadrados.get(0).getY() + 2 * Xogo.LADO_CADRADO);
+        this.cadrados.get(3).darPosicion(this.cadrados.get(0).getX() + Xogo.LADO_CADRADO, this.cadrados.get(0).getY() + 2 * Xogo.LADO_CADRADO);
     }
 
     public boolean rotar() {
@@ -62,7 +62,7 @@ public class FichaL extends Ficha {
 
         return true;
     }
-    
+
     private boolean rotar1() {
 
         this.cadrados.get(0).darPosicion(this.cadrados.get(0).getX() + Xogo.LADO_CADRADO, this.cadrados.get(0).getY() + Xogo.LADO_CADRADO);
@@ -73,7 +73,7 @@ public class FichaL extends Ficha {
 
         return true;
     }
-    
+
     private boolean rotar2() {
 
         this.cadrados.get(0).darPosicion(this.cadrados.get(0).getX() + Xogo.LADO_CADRADO, this.cadrados.get(0).getY() - Xogo.LADO_CADRADO);
@@ -84,7 +84,7 @@ public class FichaL extends Ficha {
 
         return true;
     }
-    
+
     private boolean rotar3() {
 
         this.cadrados.get(0).darPosicion(this.cadrados.get(0).getX() - Xogo.LADO_CADRADO, this.cadrados.get(0).getY() - Xogo.LADO_CADRADO);

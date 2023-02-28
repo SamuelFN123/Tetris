@@ -30,7 +30,7 @@ public class Xogo {
     public Xogo(VentanaPrincipal ventana) {
         this.ventana = ventana;
     }
-         
+
     public boolean isPausa() {
         return pausa;
     }
@@ -76,16 +76,16 @@ public class Xogo {
 
         int Ficha = (int) Math.floor(Math.random() * (4) + 1);
         switch (Ficha) {
-            case 1 ->{
+            case 1 -> {
                 fichaActual = new FichaCadrada();
             }
-            case 2 ->{
+            case 2 -> {
                 fichaActual = new FichaBarra();
             }
-            case 3 ->{
+            case 3 -> {
                 fichaActual = new FichaT();
             }
-            case 4 ->{
+            case 4 -> {
                 fichaActual = new FichaL();
             }
         }
@@ -150,7 +150,7 @@ public class Xogo {
     }
 
     private boolean comprobarPosicion3(int cordx, int cordy) {
-        
+
         boolean continua;
         continua = ePosicionValida(cordx, cordy + LADO_CADRADO);
         if (continua && fichaActual instanceof FichaL) {
@@ -168,7 +168,7 @@ public class Xogo {
     }
 
     private boolean comprobarPosicion2(int cordx, int cordy) {
-        
+
         boolean continua;
         continua = ePosicionValida(cordx + LADO_CADRADO, cordy);
         if (continua && fichaActual instanceof FichaL) {
@@ -186,7 +186,7 @@ public class Xogo {
     }
 
     private boolean comprobarPosicion1(int cordx, int cordy) {
-        
+
         boolean continua;
         continua = ePosicionValida(cordx, cordy - LADO_CADRADO);
         if (continua && fichaActual instanceof FichaL) {
@@ -204,7 +204,7 @@ public class Xogo {
     }
 
     private boolean comprobarPosicion0(int cordx, int cordy) {
-        
+
         boolean continua;
         continua = ePosicionValida(cordx - LADO_CADRADO, cordy);
         if (continua && fichaActual instanceof FichaL) {
@@ -371,23 +371,23 @@ public class Xogo {
             }
         }
     }
-    
-    public boolean chocaFichaCoChan(){
+
+    public boolean chocaFichaCoChan() {
         Iterator<Cadrado> iter = cadradoschan.iterator();
-        boolean estaNoChan=false;
-        while(iter.hasNext()){
+        boolean estaNoChan = false;
+        while (iter.hasNext()) {
             Cadrado tmp = iter.next();
             for (int i = 0; i < 4 && !estaNoChan; i++) {
-                if(obterCoordenadaY(fichaActual.getCadrados().get(i))==obterCoordenadaY(tmp)){
-                    
+                if (obterCoordenadaY(fichaActual.getCadrados().get(i)) == obterCoordenadaY(tmp)) {
+
                     for (int j = 0; j < 4; j++) {
                         cadradoschan.add(fichaActual.getCadrados().get(j));
                     }
-                    estaNoChan=true;
+                    estaNoChan = true;
                 }
-                
+
             }
-            
+
         }
         return estaNoChan;
     }
