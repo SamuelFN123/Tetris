@@ -27,8 +27,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
      */
     public VentanaPrincipal() {
         initComponents();
-        timerTicks();
-        timer.start();
+        
     }
 
     /**
@@ -491,10 +490,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void JugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JugarActionPerformed
         // TODO add your handling code here:
         PantallaJuego.setVisible(true);
+        xogo = new Xogo(this);
         xogo.xenerarNovaFicha();
         for (int i = 0; i < 4; i++) {
- 
+            pintarCadrado(xogo.getFichaActual().getCadrados().get(i).getCadrado());
         }
+        timerTicks();
+        timer.start();
     }//GEN-LAST:event_JugarActionPerformed
 
     private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
@@ -591,8 +593,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     public void pintarCadrado(javax.swing.JLabel cadrado) {
         PanelJuego.add(cadrado);
-        cadrado.setBounds(100, 100, 20, 20);
-        cadrado.setBackground(cadrado.getBackground());
         cadrado.setOpaque(true);
     }
 
@@ -635,6 +635,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         this.timer = new Timer(1000, (ActionEvent e) -> {
 
             xogo.moverFichaAbaixo();
+            for (int i = 0; i < 4; i++) {
+                pintarCadrado(xogo.getFichaActual().getCadrados().get(i).getCadrado());
+            }
             // xogo.fichaActual.updateLabelPos();
         });
         this.timerContador = new Timer(1000, (ActionEvent e) -> {

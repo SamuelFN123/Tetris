@@ -12,7 +12,7 @@ public class FichaCadrada extends Ficha{
     
     public FichaCadrada(){
         for (int i = 0; i < 4; i++) {
-            this.cadrados.add(new Cadrado(java.awt.Color.red));
+            this.cadrados.add(new Cadrado(java.awt.Color.blue));
         }
         posicionInicial();
     }

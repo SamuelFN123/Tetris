@@ -23,6 +23,10 @@ public class Xogo {
     private Ficha fichaActual;
     private VentanaPrincipal ventana;
 
+    public Ficha getFichaActual() {
+        return fichaActual;
+    }
+
     public Xogo(VentanaPrincipal ventana) {
         this.ventana = ventana;
     }
@@ -72,14 +76,18 @@ public class Xogo {
 
         int Ficha = (int) Math.floor(Math.random() * (4) + 1);
         switch (Ficha) {
-            case 1 ->
+            case 1 ->{
                 fichaActual = new FichaCadrada();
-            case 2 ->
+            }
+            case 2 ->{
                 fichaActual = new FichaBarra();
-            case 3 ->
+            }
+            case 3 ->{
                 fichaActual = new FichaT();
-            case 4 ->
+            }
+            case 4 ->{
                 fichaActual = new FichaL();
+            }
         }
 
     }
