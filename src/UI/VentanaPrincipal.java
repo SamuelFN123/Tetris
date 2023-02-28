@@ -559,7 +559,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void BotonPausaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonPausaActionPerformed
         // TODO add your handling code here:
         timer.stop();
-        //xogo.setPausa(true);
+        xogo.setPausa(true);
     }//GEN-LAST:event_BotonPausaActionPerformed
     public void moveKeyDetection(KeyEvent evt) {
         /*!!!!!!!
@@ -638,6 +638,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             for (int i = 0; i < 4; i++) {
                 pintarCadrado(xogo.getFichaActual().getCadrados().get(i).getCadrado());
             }
+            System.out.println("Probando");
             // xogo.fichaActual.updateLabelPos();
         });
         this.timerContador = new Timer(1000, (ActionEvent e) -> {

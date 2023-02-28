@@ -13,8 +13,8 @@ import javax.swing.JLabel;
  */
 public class Cadrado {
     
-    private int x;
-    private int y;
+    private int X;
+    private int Y;
     private Color corRecheo;
     private JLabel lblCadrado = new JLabel();
     
@@ -24,31 +24,31 @@ public class Cadrado {
     }
     
     public int getX() {
-        return x;
+        return X;
     }
     
     public void setX(int x) {
-        this.x = x;
-        this.lblCadrado.setLocation(x, y);
+        this.X = x;
+        this.lblCadrado.setBounds(X, Y, Xogo.LADO_CADRADO, Xogo.LADO_CADRADO);
     }
     
     public int getY() {
-        return y;
+        return Y;
     }
     
     public void setY(int y) {
-        this.y = y;
-        this.lblCadrado.setLocation(x, y);
+        this.Y = y;
+        this.lblCadrado.setBounds(X, Y, Xogo.LADO_CADRADO, Xogo.LADO_CADRADO);
     }
     
     public String getCoordenadas() {
-        return this.x + "," + this.y;
+        return this.X + "," + this.Y;
     }
     
     public void darPosicion(int x, int y) {
-        this.x = x;
-        this.y = y;
-        this.lblCadrado.setBounds(x, y, Xogo.LADO_CADRADO, Xogo.LADO_CADRADO);
+        this.X = x;
+        this.Y = y;
+        this.lblCadrado.setBounds(X, Y, Xogo.LADO_CADRADO, Xogo.LADO_CADRADO);
     }
     
     public JLabel getCadrado() {
