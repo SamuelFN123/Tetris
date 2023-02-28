@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package UI;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import javax.swing.SwingConstants;
@@ -14,10 +15,13 @@ import Modelo.Xogo;
  * @author a22manuelmf
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
-       public Xogo xogo;
-       public Timer timer;
-       int segundos =0;
-       int minutos=0;
+
+    public Xogo xogo;
+    public Timer timer;
+    public Timer timerContador;
+    int segundos = 0;
+    int minutos = 0;
+
     /**
      * Creates new form VentanaPrincipal
      */
@@ -26,7 +30,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         timerTicks();
         timer.start();
     }
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -488,7 +491,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void JugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JugarActionPerformed
         // TODO add your handling code here:
         PantallaJuego.setVisible(true);
-        
+        xogo.xenerarNovaFicha();
+        for (int i = 0; i < 4; i++) {
+ 
+        }
     }//GEN-LAST:event_JugarActionPerformed
 
     private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
@@ -547,39 +553,49 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         Inicio.setBackground(PanelColores.getColor());
         PanelColoresFondo.setBackground(PanelColores.getColor());
     }//GEN-LAST:event_BotonAceptarColoresActionPerformed
+
+    private void BotonPausaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonPausaActionPerformed
+        // TODO add your handling code here:
+        timer.stop();
+        //xogo.setPausa(true);
+    }//GEN-LAST:event_BotonPausaActionPerformed
     public void moveKeyDetection(KeyEvent evt) {
         /*!!!!!!!
         
         Consider changing to xogoPlaceholKeyTyped(java.awt.event.KeyEvent evt);
         
         !!!!!!!*/
-        
-        if(evt.getKeyChar() == 'a'){
-            //Move left
-            //xogo.moverFichaEsquerda();
-            
-        } else if(evt.getKeyChar() == 'd'){
-            //Move right
-           // xogo.moverFichaDereita();
-            
-        } else if(evt.getKeyChar() == 'w'){
-            //Rotate 
-           // xogo.rotarFicha();
-            
-        } else if(evt.getKeyChar() == 's'){
-            //Move down
-           // xogo.moverFichaAbaixo();
-
-            
+ /*       (xogo.isPausa()) {
         }
+        else{
+
+            if (evt.getKeyChar() == 'a') {
+                //Move left
+                xogo.moverFichaEsquerda();
+
+            } else if (evt.getKeyChar() == 'd') {
+                //Move right
+                xogo.moverFichaDereita();
+
+            } else if (evt.getKeyChar() == 'w') {
+                //Rotate 
+                //xogo.rotarFicha();
+
+            } else if (evt.getKeyChar() == 's') {
+                //Move down
+                xogo.moverFichaAbaixo();
+
+            }
+        }*/
     }
-    
-    public void pintarCadrado(javax.swing.JLabel cadrado){
+
+    public void pintarCadrado(javax.swing.JLabel cadrado) {
         PanelJuego.add(cadrado);
         cadrado.setBounds(100, 100, 20, 20);
         cadrado.setBackground(cadrado.getBackground());
         cadrado.setOpaque(true);
-        }
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -614,28 +630,28 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
     }
-    private void timerTicks(){
-        this.timer = new Timer(500, (ActionEvent e) ->{
-            
-           //  xogo.moverFichaAbaixo();
-           // xogo.fichaActual.updateLabelPos();
-             
+
+    private void timerTicks() {
+        this.timer = new Timer(1000, (ActionEvent e) -> {
+
+            xogo.moverFichaAbaixo();
+            // xogo.fichaActual.updateLabelPos();
         });
-        this.timer = new Timer(1000, (ActionEvent e) ->{
-            
-           //  xogo.moverFichaAbaixo();
-           segundos++;
-            
-            if(segundos==60){
-                segundos=0;
+        this.timerContador = new Timer(1000, (ActionEvent e) -> {
+
+            //  xogo.moverFichaAbaixo();
+            segundos++;
+
+            if (segundos == 60) {
+                segundos = 0;
                 minutos++;
             }
-            TiempoEtiqueta.setText("0:"+minutos+":"+segundos);
-             
+            TiempoEtiqueta.setText("0:" + minutos + ":" + segundos);
+
         });
     }
-    
-  
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Ajustes;
     private javax.swing.JButton BotonAceptarColores;
