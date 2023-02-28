@@ -363,6 +363,26 @@ public class Xogo {
             }
         }
     }
+    
+    public boolean chocaFichaCoChan(){
+        Iterator<Cadrado> iter = cadradoschan.iterator();
+        boolean estaNoChan=false;
+        while(iter.hasNext()){
+            Cadrado tmp = iter.next();
+            for (int i = 0; i < 4 && !estaNoChan; i++) {
+                if(obterCoordenadaY(fichaActual.getCadrados().get(i))==obterCoordenadaY(tmp)){
+                    
+                    for (int j = 0; j < 4; j++) {
+                        cadradoschan.add(fichaActual.getCadrados().get(j));
+                    }
+                    estaNoChan=true;
+                }
+                
+            }
+            
+        }
+        return estaNoChan;
+    }
 
     private int obterCoordenadaX(Cadrado cadradoDaFicha) {
         String coordx;
