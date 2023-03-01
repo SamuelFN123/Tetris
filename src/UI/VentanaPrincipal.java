@@ -557,9 +557,17 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void BotonPausaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonPausaActionPerformed
         // TODO add your handling code here:
-        timer.stop();
-        timerContador.stop();
-        xogo.setPausa(true);
+        if(BotonPausa.isSelected()){
+            timer.stop();
+            timerContador.stop();
+            xogo.setPausa(true);
+        }
+        else{
+            timer.start();
+            timerContador.start();
+            xogo.setPausa(false);
+        }
+        
     }//GEN-LAST:event_BotonPausaActionPerformed
     public void moveKeyDetection(KeyEvent evt) {
         /*!!!!!!!
