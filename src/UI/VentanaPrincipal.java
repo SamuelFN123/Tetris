@@ -44,13 +44,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         SiguienteFicha = new javax.swing.JPanel();
         TiempoEtiqueta = new javax.swing.JLabel();
         SalirJuego = new javax.swing.JButton();
-        PausarBoton = new javax.swing.JButton();
+        BotonPausa = new javax.swing.JToggleButton();
         Puntos = new javax.swing.JPanel();
         PuntosLabel = new javax.swing.JLabel();
         LineasEliminadas = new javax.swing.JPanel();
         LineasEliminadasLabel = new javax.swing.JLabel();
         PanelJuego = new javax.swing.JPanel();
-        Cuadrado = new javax.swing.JLabel();
         PantallaAjustes = new javax.swing.JDialog();
         PanelAjustes = new javax.swing.JPanel();
         BotonCambiarColor = new javax.swing.JButton();
@@ -86,7 +85,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        PausarBoton.setText("| |");
+        BotonPausa.setText("| |");
+        BotonPausa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonPausaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout SiguienteFichaLayout = new javax.swing.GroupLayout(SiguienteFicha);
         SiguienteFicha.setLayout(SiguienteFichaLayout);
@@ -95,11 +99,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             .addGroup(SiguienteFichaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(TiempoEtiqueta, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
             .addGroup(SiguienteFichaLayout.createSequentialGroup()
                 .addComponent(SalirJuego, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(PausarBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BotonPausa, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         SiguienteFichaLayout.setVerticalGroup(
@@ -110,7 +114,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(SiguienteFichaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(SalirJuego)
-                    .addComponent(PausarBoton))
+                    .addComponent(BotonPausa))
                 .addGap(0, 6, Short.MAX_VALUE))
         );
 
@@ -179,25 +183,18 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        PanelJuego.setFocusCycleRoot(true);
         PanelJuego.setPreferredSize(new java.awt.Dimension(300, 300));
-
-        Cuadrado.setBackground(new java.awt.Color(1, 123, 156));
 
         javax.swing.GroupLayout PanelJuegoLayout = new javax.swing.GroupLayout(PanelJuego);
         PanelJuego.setLayout(PanelJuegoLayout);
         PanelJuegoLayout.setHorizontalGroup(
             PanelJuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelJuegoLayout.createSequentialGroup()
-                .addContainerGap(176, Short.MAX_VALUE)
-                .addComponent(Cuadrado, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(89, 89, 89))
+            .addGap(0, 300, Short.MAX_VALUE)
         );
         PanelJuegoLayout.setVerticalGroup(
             PanelJuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelJuegoLayout.createSequentialGroup()
-                .addGap(131, 131, 131)
-                .addComponent(Cuadrado, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout PantallaJuegoLayout = new javax.swing.GroupLayout(PantallaJuego.getContentPane());
@@ -490,6 +487,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void JugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JugarActionPerformed
         // TODO add your handling code here:
         PantallaJuego.setVisible(true);
+        PantallaJuego.setFocusable(true);
         xogo = new Xogo(this);
         xogo.xenerarNovaFicha();
         for (int i = 0; i < 4; i++) {
@@ -640,7 +638,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             for (int i = 0; i < 4; i++) {
                 pintarCadrado(xogo.getFichaActual().getCadrados().get(i).getCadrado());
             }
-            System.out.println("Probando");
+            
             // xogo.fichaActual.updateLabelPos();
         });
         this.timerContador = new Timer(1000, (ActionEvent e) -> {
@@ -664,10 +662,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton BotonAceptarDificultad;
     private javax.swing.JButton BotonCambiarColor;
     private javax.swing.JButton BotonDificultad;
+    private javax.swing.JToggleButton BotonPausa;
     private javax.swing.JButton BotonSalirAjustes;
     private javax.swing.JButton BotonSalirColores;
     private javax.swing.JButton BotonSalirDificultad;
-    private javax.swing.JLabel Cuadrado;
     private javax.swing.JPanel FondoNombres;
     private javax.swing.JPanel Inicio;
     private javax.swing.JButton Jugar;
@@ -683,7 +681,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JDialog PantallaCambiarDeColor;
     private javax.swing.JDialog PantallaDificultad;
     private javax.swing.JDialog PantallaJuego;
-    private javax.swing.JButton PausarBoton;
     private javax.swing.JPanel Puntos;
     private javax.swing.JLabel PuntosLabel;
     private javax.swing.JButton Salir;
