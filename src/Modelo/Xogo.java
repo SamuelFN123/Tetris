@@ -45,13 +45,14 @@ public class Xogo {
             return false;
         }
         if (chocaFichaCoChan()) {
-            return true;
+            return false;
         }
 
         Iterator<Cadrado> iter = cadradoschan.iterator();
         while (iter.hasNext()) {
             Cadrado tmp = iter.next();
             if (obterCoordenadaX(tmp) == x && obterCoordenadaY(tmp) == y) {
+                engadirFichaAoChan();
                 return false;
             }
         }
@@ -62,6 +63,7 @@ public class Xogo {
         if (x >= MAX_X || x < 0) {
             return false;
         } else if (y >= MAX_Y || y < 0) {
+            engadirFichaAoChan();
             return false;
         }
         return true;
@@ -72,7 +74,7 @@ public class Xogo {
         for (int i = 0; i < fichaActual.getCadrados().size(); i++) {
             cadradoschan.add(fichaActual.getCadrados().get(i));
         }
-
+        xenerarNovaFicha();
     }
 
     public void xenerarNovaFicha() {
@@ -384,23 +386,22 @@ public class Xogo {
         }
         //Comprobamos se choca con otra ficha
         Iterator<Cadrado> iter = cadradoschan.iterator();
-        boolean estaNoChan = false;
-        while (iter.hasNext() && !estaNoChan) {//recorremos os cadrados no solo
+        while (iter.hasNext()) {//recorremos os cadrados no solo
             Cadrado tmp = iter.next();
-            for (int i = 0; i < 4 && !estaNoChan; i++) {// recorremos os cadrados da ficha
+            for (int i = 0; i < 4; i++) {// recorremos os cadrados da ficha
                 if (obterCoordenadaY(fichaActual.getCadrados().get(i)) == obterCoordenadaY(tmp)) {
                     //  ↑↑  Comprobamos se y da cadrado da ficha actual é igual o y do cadrado que comprobamos
                     for (int j = 0; j < 4; j++) {
                         //  ↑↑  se coincide añadimos os cadrados da ficha ao chan
                         cadradoschan.add(fichaActual.getCadrados().get(j));
                     }
-                    estaNoChan = true;
+                    return true;
                 }
 
             }
 
         }
-        return estaNoChan;
+        return false;
     }
 
     private int obterCoordenadaX(Cadrado cadradoDaFicha) {

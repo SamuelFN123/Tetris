@@ -4,6 +4,7 @@
   <NonVisualComponents>
     <Container class="javax.swing.JDialog" name="PantallaJuego">
       <Properties>
+        <Property name="defaultCloseOperation" type="int" value="2"/>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="f3" green="ca" red="21" type="rgb"/>
         </Property>
@@ -553,6 +554,10 @@
   </Layout>
   <SubComponents>
     <Container class="javax.swing.JPanel" name="Inicio">
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+        <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value=""/>
+      </AccessibilityProperties>
 
       <Layout>
         <DimensionLayout dim="0">

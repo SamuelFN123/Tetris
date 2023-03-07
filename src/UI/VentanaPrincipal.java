@@ -5,8 +5,6 @@
 package UI;
 
 import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
-import javax.swing.SwingConstants;
 import javax.swing.Timer;
 import Modelo.Xogo;
 
@@ -71,6 +69,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         Salir = new javax.swing.JButton();
         Titulo = new javax.swing.JLabel();
 
+        PantallaJuego.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         PantallaJuego.setBackground(new java.awt.Color(33, 202, 243));
         PantallaJuego.setMaximumSize(new java.awt.Dimension(500, 550));
         PantallaJuego.setMinimumSize(new java.awt.Dimension(500, 550));
@@ -493,6 +492,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        Inicio.getAccessibleContext().setAccessibleName("");
+        Inicio.getAccessibleContext().setAccessibleDescription("");
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -510,6 +512,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             timer.start();
             timerContador.start();
         }
+        this.setVisible(false);
     }//GEN-LAST:event_JugarActionPerformed
 
     private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
@@ -535,6 +538,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void SalirJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirJuegoActionPerformed
         // TODO add your handling code here:
         PantallaJuego.setVisible(false);
+        this.setVisible(true);
     }//GEN-LAST:event_SalirJuegoActionPerformed
 
     private void AjustesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AjustesActionPerformed
