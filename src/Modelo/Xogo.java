@@ -15,8 +15,8 @@ import UI.VentanaPrincipal;
 public class Xogo {
 
     public final static int LADO_CADRADO = 20;
-    private int MAX_Y;
-    private int MAX_X;
+    private int MAX_Y = 500;
+    private int MAX_X = 300;
     private int numeroLinas;
     private boolean pausa = false;
     private ArrayList<Cadrado> cadradoschan = new ArrayList<>();
@@ -44,8 +44,8 @@ public class Xogo {
         if (!(dentroTablero(x, y))) {
             return false;
         }
-        if (!chocaFichaCoChan()) {
-            return false;
+        if (chocaFichaCoChan()) {
+            return true;
         }
 
         Iterator<Cadrado> iter = cadradoschan.iterator();
@@ -59,9 +59,9 @@ public class Xogo {
     }
 
     private boolean dentroTablero(int x, int y) {
-        if (x > MAX_X || x < 0) {
+        if (x >= MAX_X || x < 0) {
             return false;
-        } else if (y > MAX_Y || y < 0) {
+        } else if (y >= MAX_Y || y < 0) {
             return false;
         }
         return true;
@@ -376,21 +376,22 @@ public class Xogo {
     }
 
     public boolean chocaFichaCoChan() {
-
+        //Comproba se choca co borde do panel
         for (int i = 0; i < 4; i++) {
             if (fichaActual.getCadrados().get(i).getY() == MAX_Y) {
                 return true;
             }
         }
-
+        //Comprobamos se choca con otra ficha
         Iterator<Cadrado> iter = cadradoschan.iterator();
         boolean estaNoChan = false;
-        while (iter.hasNext()) {
+        while (iter.hasNext() && !estaNoChan) {//recorremos os cadrados no solo
             Cadrado tmp = iter.next();
-            for (int i = 0; i < 4 && !estaNoChan; i++) {
+            for (int i = 0; i < 4 && !estaNoChan; i++) {// recorremos os cadrados da ficha
                 if (obterCoordenadaY(fichaActual.getCadrados().get(i)) == obterCoordenadaY(tmp)) {
-
+                    //  ↑↑  Comprobamos se y da cadrado da ficha actual é igual o y do cadrado que comprobamos
                     for (int j = 0; j < 4; j++) {
+                        //  ↑↑  se coincide añadimos os cadrados da ficha ao chan
                         cadradoschan.add(fichaActual.getCadrados().get(j));
                     }
                     estaNoChan = true;

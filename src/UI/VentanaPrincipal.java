@@ -72,9 +72,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         Titulo = new javax.swing.JLabel();
 
         PantallaJuego.setBackground(new java.awt.Color(33, 202, 243));
-        PantallaJuego.setMinimumSize(new java.awt.Dimension(500, 500));
+        PantallaJuego.setMaximumSize(new java.awt.Dimension(500, 550));
+        PantallaJuego.setMinimumSize(new java.awt.Dimension(500, 550));
+        PantallaJuego.setPreferredSize(new java.awt.Dimension(500, 550));
+        PantallaJuego.setResizable(false);
 
         FondoNombres.setBackground(new java.awt.Color(0, 0, 0));
+        FondoNombres.setMaximumSize(new java.awt.Dimension(162, 500));
+        FondoNombres.setMinimumSize(new java.awt.Dimension(162, 500));
+        FondoNombres.setPreferredSize(new java.awt.Dimension(162, 500));
 
         TiempoEtiqueta.setText("00:00:00");
 
@@ -180,11 +186,19 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addComponent(Puntos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(LineasEliminadas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(117, Short.MAX_VALUE))
         );
 
+        PanelJuego.setBackground(new java.awt.Color(0, 51, 51));
         PanelJuego.setFocusCycleRoot(true);
-        PanelJuego.setPreferredSize(new java.awt.Dimension(300, 300));
+        PanelJuego.setMaximumSize(new java.awt.Dimension(300, 500));
+        PanelJuego.setMinimumSize(new java.awt.Dimension(300, 500));
+        PanelJuego.setPreferredSize(new java.awt.Dimension(300, 500));
+        PanelJuego.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                PanelJuegoKeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout PanelJuegoLayout = new javax.swing.GroupLayout(PanelJuego);
         PanelJuego.setLayout(PanelJuegoLayout);
@@ -194,7 +208,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         );
         PanelJuegoLayout.setVerticalGroup(
             PanelJuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 500, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout PantallaJuegoLayout = new javax.swing.GroupLayout(PantallaJuego.getContentPane());
@@ -202,19 +216,17 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         PantallaJuegoLayout.setHorizontalGroup(
             PantallaJuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PantallaJuegoLayout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(PanelJuego, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(FondoNombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         PantallaJuegoLayout.setVerticalGroup(
             PantallaJuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(FondoNombres, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(PantallaJuegoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(PanelJuego, javax.swing.GroupLayout.DEFAULT_SIZE, 377, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(PanelJuego, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
+            .addComponent(FondoNombres, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         PantallaAjustes.setMinimumSize(new java.awt.Dimension(500, 500));
@@ -487,15 +499,17 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void JugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JugarActionPerformed
         // TODO add your handling code here:
         PantallaJuego.setVisible(true);
-        PantallaJuego.setFocusable(true);
+        PanelJuego.setFocusable(true);
         xogo = new Xogo(this);
         xogo.xenerarNovaFicha();
         for (int i = 0; i < 4; i++) {
             pintarCadrado(xogo.getFichaActual().getCadrados().get(i).getCadrado());
         }
-        timerTicks();
-        timer.start();
-        timerContador.start();
+        if (timer == null || !timer.isRunning()) {
+            timerTicks();
+            timer.start();
+            timerContador.start();
+        }
     }//GEN-LAST:event_JugarActionPerformed
 
     private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
@@ -557,51 +571,59 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void BotonPausaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonPausaActionPerformed
         // TODO add your handling code here:
-        if(BotonPausa.isSelected()){
+        if (BotonPausa.isSelected()) {
             timer.stop();
             timerContador.stop();
             xogo.setPausa(true);
-        }
-        else{
+        } else {
             timer.start();
             timerContador.start();
             xogo.setPausa(false);
+            PanelJuego.requestFocus();
         }
-        
     }//GEN-LAST:event_BotonPausaActionPerformed
-    public void moveKeyDetection(KeyEvent evt) {
-        /*!!!!!!!
+
+    private void PanelJuegoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PanelJuegoKeyPressed
         
-        Consider changing to xogoPlaceholKeyTyped(java.awt.event.KeyEvent evt);
-        
-        !!!!!!!*/
- /*       (xogo.isPausa()) {
+        if(xogo.isPausa()) {
         }
         else{
 
             if (evt.getKeyChar() == 'a') {
-                //Move left
+                
                 xogo.moverFichaEsquerda();
+                for (int i = 0; i < 4; i++) {
+                pintarCadrado(xogo.getFichaActual().getCadrados().get(i).getCadrado());
+            }
 
             } else if (evt.getKeyChar() == 'd') {
-                //Move right
+                
                 xogo.moverFichaDereita();
+                for (int i = 0; i < 4; i++) {
+                pintarCadrado(xogo.getFichaActual().getCadrados().get(i).getCadrado());
+            }
 
             } else if (evt.getKeyChar() == 'w') {
                 //Rotate 
                 //xogo.rotarFicha();
 
             } else if (evt.getKeyChar() == 's') {
-                //Move down
+                
                 xogo.moverFichaAbaixo();
+                for (int i = 0; i < 4; i++) {
+                pintarCadrado(xogo.getFichaActual().getCadrados().get(i).getCadrado());
+            }
 
             }
-        }*/
-    }
+        }
+    }//GEN-LAST:event_PanelJuegoKeyPressed
 
     public void pintarCadrado(javax.swing.JLabel cadrado) {
-        PanelJuego.add(cadrado);
+        
+            PanelJuego.add(cadrado);
+        
         cadrado.setOpaque(true);
+        PanelJuego.updateUI();
     }
 
     /**
@@ -646,14 +668,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             for (int i = 0; i < 4; i++) {
                 pintarCadrado(xogo.getFichaActual().getCadrados().get(i).getCadrado());
             }
-            
+
             // xogo.fichaActual.updateLabelPos();
         });
         this.timerContador = new Timer(1000, (ActionEvent e) -> {
 
             //  xogo.moverFichaAbaixo();
             segundos++;
-            
+
             if (segundos == 60) {
                 segundos = 0;
                 minutos++;
