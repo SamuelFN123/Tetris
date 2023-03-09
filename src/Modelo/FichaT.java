@@ -34,15 +34,19 @@ public class FichaT extends Ficha{
     public boolean rotar(){
         switch (posicion) {
             case 0 -> {
+                posicion=1;
                 return rotar0();
             }
             case 1 -> {
+                posicion=2;
                 return rotar1();
             }
             case 2 -> {
+                posicion=3;
                 return rotar2();
             }
             case 3 -> {
+                posicion=0;
                 return rotar3();
             }
             default -> {

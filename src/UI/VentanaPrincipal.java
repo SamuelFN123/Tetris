@@ -500,8 +500,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void JugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JugarActionPerformed
         // TODO add your handling code here:
+        PanelJuego.removeAll();
         PantallaJuego.setVisible(true);
         PanelJuego.setFocusable(true);
+        PanelJuego.requestFocus();
+        segundos = 0;
+        minutos = 0;
+        TiempoEtiqueta.setText("0:" + minutos + ":" + segundos);
         xogo = new Xogo(this);
         xogo.xenerarNovaFicha();
         for (int i = 0; i < 4; i++) {
@@ -512,7 +517,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             timer.start();
             timerContador.start();
         }
-        this.setVisible(false);
     }//GEN-LAST:event_JugarActionPerformed
 
     private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
@@ -538,7 +542,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void SalirJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirJuegoActionPerformed
         // TODO add your handling code here:
         PantallaJuego.setVisible(false);
-        this.setVisible(true);
+        timer.stop();
+        timerContador.stop();
     }//GEN-LAST:event_SalirJuegoActionPerformed
 
     private void AjustesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AjustesActionPerformed
@@ -588,44 +593,42 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_BotonPausaActionPerformed
 
     private void PanelJuegoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PanelJuegoKeyPressed
-        
-        if(xogo.isPausa()) {
-        }
-        else{
+
+        if (xogo.isPausa()) {
+        } else {
 
             if (evt.getKeyChar() == 'a') {
-                
+
                 xogo.moverFichaEsquerda();
                 for (int i = 0; i < 4; i++) {
-                pintarCadrado(xogo.getFichaActual().getCadrados().get(i).getCadrado());
-            }
+                    pintarCadrado(xogo.getFichaActual().getCadrados().get(i).getCadrado());
+                }
 
             } else if (evt.getKeyChar() == 'd') {
-                
+
                 xogo.moverFichaDereita();
                 for (int i = 0; i < 4; i++) {
-                pintarCadrado(xogo.getFichaActual().getCadrados().get(i).getCadrado());
-            }
+                    pintarCadrado(xogo.getFichaActual().getCadrados().get(i).getCadrado());
+                }
 
             } else if (evt.getKeyChar() == 'w') {
-                //Rotate 
-                //xogo.rotarFicha();
+                xogo.rotarFicha();
 
             } else if (evt.getKeyChar() == 's') {
-                
+
                 xogo.moverFichaAbaixo();
                 for (int i = 0; i < 4; i++) {
-                pintarCadrado(xogo.getFichaActual().getCadrados().get(i).getCadrado());
-            }
+                    pintarCadrado(xogo.getFichaActual().getCadrados().get(i).getCadrado());
+                }
 
             }
         }
     }//GEN-LAST:event_PanelJuegoKeyPressed
 
     public void pintarCadrado(javax.swing.JLabel cadrado) {
-        
-            PanelJuego.add(cadrado);
-        
+
+        PanelJuego.add(cadrado);
+
         cadrado.setOpaque(true);
         PanelJuego.updateUI();
     }

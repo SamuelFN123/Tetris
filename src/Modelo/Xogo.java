@@ -52,7 +52,7 @@ public class Xogo {
         while (iter.hasNext()) {
             Cadrado tmp = iter.next();
             if (obterCoordenadaX(tmp) == x && obterCoordenadaY(tmp) == y) {
-                engadirFichaAoChan();
+                
                 return false;
             }
         }
@@ -199,7 +199,7 @@ public class Xogo {
             continua = ePosicionValida(cordx - LADO_CADRADO, cordy - LADO_CADRADO);
             if (continua) {
 
-                continua = ePosicionValida(cordx + LADO_CADRADO, cordy - LADO_CADRADO);
+                continua = ePosicionValida(cordx, cordy + LADO_CADRADO);
             }
             return continua;
 
@@ -381,20 +381,19 @@ public class Xogo {
         //Comproba se choca co borde do panel
         for (int i = 0; i < 4; i++) {
             if (fichaActual.getCadrados().get(i).getY() == MAX_Y) {
+                engadirFichaAoChan();
                 return true;
             }
         }
-        //Comprobamos se choca con otra ficha
+        //Comprobamos se choca cos cadrados do chan
         Iterator<Cadrado> iter = cadradoschan.iterator();
         while (iter.hasNext()) {//recorremos os cadrados no solo
             Cadrado tmp = iter.next();
             for (int i = 0; i < 4; i++) {// recorremos os cadrados da ficha
-                if (obterCoordenadaY(fichaActual.getCadrados().get(i)) == obterCoordenadaY(tmp)) {
+                if (obterCoordenadaY(fichaActual.getCadrados().get(i)) == obterCoordenadaY(tmp)-LADO_CADRADO && obterCoordenadaX(fichaActual.getCadrados().get(i)) == obterCoordenadaX(tmp) ) {
                     //  ↑↑  Comprobamos se y da cadrado da ficha actual é igual o y do cadrado que comprobamos
-                    for (int j = 0; j < 4; j++) {
-                        //  ↑↑  se coincide añadimos os cadrados da ficha ao chan
-                        cadradoschan.add(fichaActual.getCadrados().get(j));
-                    }
+                        //  ↓↓  se coincide añadimos os cadrados da ficha ao chan
+                        engadirFichaAoChan();
                     return true;
                 }
 

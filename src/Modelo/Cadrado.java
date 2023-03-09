@@ -5,6 +5,7 @@
 package Modelo;
 
 import java.awt.Color;
+import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 
 /**
@@ -22,6 +23,7 @@ public class Cadrado {
         this.corRecheo = corRecheo;
         this.lblCadrado.setBackground(corRecheo);
         this.lblCadrado.setSize(Xogo.LADO_CADRADO, Xogo.LADO_CADRADO);
+        this.lblCadrado.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY));
     }
     
     public int getX() {
