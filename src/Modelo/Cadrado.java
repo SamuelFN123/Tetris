@@ -56,7 +56,7 @@ public class Cadrado {
         this.lblCadrado.setBounds(X, Y, Xogo.LADO_CADRADO, Xogo.LADO_CADRADO);
     }
     
-    public JLabel getCadrado() {
+    public JLabel getlBlCadrado() {
         return lblCadrado;
     }
     

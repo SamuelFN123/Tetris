@@ -510,7 +510,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         xogo = new Xogo(this);
         xogo.xenerarNovaFicha();
         for (int i = 0; i < 4; i++) {
-            pintarCadrado(xogo.getFichaActual().getCadrados().get(i).getCadrado());
+            pintarCadrado(xogo.getFichaActual().getCadrados().get(i).getlBlCadrado());
         }
         if (timer == null || !timer.isRunning()) {
             timerTicks();
@@ -601,14 +601,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
                 xogo.moverFichaEsquerda();
                 for (int i = 0; i < 4; i++) {
-                    pintarCadrado(xogo.getFichaActual().getCadrados().get(i).getCadrado());
+                    pintarCadrado(xogo.getFichaActual().getCadrados().get(i).getlBlCadrado());
                 }
 
             } else if (evt.getKeyChar() == 'd') {
 
                 xogo.moverFichaDereita();
                 for (int i = 0; i < 4; i++) {
-                    pintarCadrado(xogo.getFichaActual().getCadrados().get(i).getCadrado());
+                    pintarCadrado(xogo.getFichaActual().getCadrados().get(i).getlBlCadrado());
                 }
 
             } else if (evt.getKeyChar() == 'w') {
@@ -618,7 +618,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
                 xogo.moverFichaAbaixo();
                 for (int i = 0; i < 4; i++) {
-                    pintarCadrado(xogo.getFichaActual().getCadrados().get(i).getCadrado());
+                    pintarCadrado(xogo.getFichaActual().getCadrados().get(i).getlBlCadrado());
                 }
 
             }
@@ -673,7 +673,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
             xogo.moverFichaAbaixo();
             for (int i = 0; i < 4; i++) {
-                pintarCadrado(xogo.getFichaActual().getCadrados().get(i).getCadrado());
+                pintarCadrado(xogo.getFichaActual().getCadrados().get(i).getlBlCadrado());
             }
 
             // xogo.fichaActual.updateLabelPos();
