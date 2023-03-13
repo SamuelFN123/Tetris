@@ -16,6 +16,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     public Xogo xogo;
     public Timer timer;
+    private int timerDelay = 1000;
     public Timer timerContador;
     int segundos = 0;
     int minutos = 0;
@@ -70,6 +71,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         Titulo = new javax.swing.JLabel();
 
         PantallaJuego.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        PantallaJuego.setTitle("Tetris");
         PantallaJuego.setBackground(new java.awt.Color(33, 202, 243));
         PantallaJuego.setMaximumSize(new java.awt.Dimension(500, 550));
         PantallaJuego.setMinimumSize(new java.awt.Dimension(500, 550));
@@ -228,6 +230,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             .addComponent(FondoNombres, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
+        PantallaAjustes.setTitle("Tetris");
         PantallaAjustes.setMinimumSize(new java.awt.Dimension(500, 500));
 
         BotonCambiarColor.setText("Cambiar color de fondo");
@@ -295,6 +298,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        PantallaDificultad.setTitle("Tetris");
         PantallaDificultad.setMinimumSize(new java.awt.Dimension(500, 500));
 
         BotonSalirDificultad.setText("Salir");
@@ -316,6 +320,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         MarcadorDificultad.setMinorTickSpacing(1);
         MarcadorDificultad.setPaintLabels(true);
         MarcadorDificultad.setPaintTicks(true);
+        MarcadorDificultad.setValue(1);
 
         javax.swing.GroupLayout PanelDificultadLayout = new javax.swing.GroupLayout(PanelDificultad);
         PanelDificultad.setLayout(PanelDificultadLayout);
@@ -359,6 +364,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        PantallaCambiarDeColor.setTitle("Tetris");
         PantallaCambiarDeColor.setMinimumSize(new java.awt.Dimension(500, 500));
 
         PanelColoresFondo.setMinimumSize(new java.awt.Dimension(500, 500));
@@ -420,6 +426,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Tetris");
 
         Jugar.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         Jugar.setText("Jugar");
@@ -530,8 +537,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_BotonCambiarColorActionPerformed
 
     private void BotonAceptarDificultadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAceptarDificultadActionPerformed
-        // TODO add your handling code here:
+
         PantallaDificultad.setVisible(false);
+        timerDelay -= MarcadorDificultad.getValue() * 50;
     }//GEN-LAST:event_BotonAceptarDificultadActionPerformed
 
     private void BotonSalirDificultadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSalirDificultadActionPerformed
@@ -594,33 +602,18 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void PanelJuegoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PanelJuegoKeyPressed
 
-        if (xogo.isPausa()) {
-        } else {
-
+        if (!xogo.isPausa()) {
             if (evt.getKeyChar() == 'a') {
-
                 xogo.moverFichaEsquerda();
-                for (int i = 0; i < 4; i++) {
-                    pintarCadrado(xogo.getFichaActual().getCadrados().get(i).getlBlCadrado());
-                }
 
             } else if (evt.getKeyChar() == 'd') {
-
                 xogo.moverFichaDereita();
-                for (int i = 0; i < 4; i++) {
-                    pintarCadrado(xogo.getFichaActual().getCadrados().get(i).getlBlCadrado());
-                }
 
             } else if (evt.getKeyChar() == 'w') {
                 xogo.rotarFicha();
 
             } else if (evt.getKeyChar() == 's') {
-
                 xogo.moverFichaAbaixo();
-                for (int i = 0; i < 4; i++) {
-                    pintarCadrado(xogo.getFichaActual().getCadrados().get(i).getlBlCadrado());
-                }
-
             }
         }
     }//GEN-LAST:event_PanelJuegoKeyPressed
@@ -669,7 +662,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }
 
     private void timerTicks() {
-        this.timer = new Timer(1000, (ActionEvent e) -> {
+        this.timer = new Timer(timerDelay, (ActionEvent e) -> {
 
             xogo.moverFichaAbaixo();
             for (int i = 0; i < 4; i++) {

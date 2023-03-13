@@ -16,6 +16,7 @@ public class Xogo {
 
     public final static int LADO_CADRADO = 20;
     private int MAX_Y = 500;
+    //Linea perder 100Y
     private int MAX_X = 300;
     private int numeroLinas;
     private boolean pausa = false;
@@ -48,9 +49,9 @@ public class Xogo {
             return false;
         }
 
-        Iterator<Cadrado> iter = cadradoschan.iterator();
-        while (iter.hasNext()) {
-            Cadrado tmp = iter.next();
+        Iterator<Cadrado> chan = cadradoschan.iterator();
+        while (chan.hasNext()) {
+            Cadrado tmp = chan.next();
             if (obterCoordenadaX(tmp) == x && obterCoordenadaY(tmp) == y) {
                 
                 return false;
@@ -386,9 +387,9 @@ public class Xogo {
             }
         }
         //Comprobamos se choca cos cadrados do chan
-        Iterator<Cadrado> iter = cadradoschan.iterator();
-        while (iter.hasNext()) {//recorremos os cadrados no solo
-            Cadrado tmp = iter.next();
+        Iterator<Cadrado> chan = cadradoschan.iterator();
+        while (chan.hasNext()) {//recorremos os cadrados no solo
+            Cadrado tmp = chan.next();
             for (int i = 0; i < 4; i++) {// recorremos os cadrados da ficha
                 if (obterCoordenadaY(fichaActual.getCadrados().get(i)) == obterCoordenadaY(tmp)-LADO_CADRADO && obterCoordenadaX(fichaActual.getCadrados().get(i)) == obterCoordenadaX(tmp) ) {
                     //  ↑↑  Comprobamos se y da cadrado da ficha actual é igual o y do cadrado que comprobamos

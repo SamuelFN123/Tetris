@@ -21,9 +21,9 @@ public abstract class Ficha {
 
     public boolean moverDereita() {
         
-        Iterator<Cadrado> iter = cadrados.iterator();
-        while (iter.hasNext()) {
-            Cadrado tmp = iter.next();
+        Iterator<Cadrado> lblCadrado = cadrados.iterator();
+        while (lblCadrado.hasNext()) {
+            Cadrado tmp = lblCadrado.next();
             tmp.setX(tmp.getX() + Xogo.LADO_CADRADO);
         }
         return true;
@@ -31,9 +31,9 @@ public abstract class Ficha {
 
     public boolean moverEsquerda() {
         
-        Iterator<Cadrado> iter = cadrados.iterator();
-        while (iter.hasNext()) {
-            Cadrado tmp = iter.next();
+        Iterator<Cadrado> lblCadrado = cadrados.iterator();
+        while (lblCadrado.hasNext()) {
+            Cadrado tmp = lblCadrado.next();
             tmp.setX(tmp.getX() - Xogo.LADO_CADRADO);
         }
         return true;
@@ -41,9 +41,9 @@ public abstract class Ficha {
 
     public boolean moverAbaixo() {
         
-        Iterator<Cadrado> iter = cadrados.iterator();
-        while (iter.hasNext()) {
-            Cadrado tmp = iter.next();
+        Iterator<Cadrado> lblCadrado = cadrados.iterator();
+        while (lblCadrado.hasNext()) {
+            Cadrado tmp = lblCadrado.next();
             tmp.setY(tmp.getY() + Xogo.LADO_CADRADO);
         }
         return true;
