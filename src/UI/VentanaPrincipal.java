@@ -628,6 +628,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         PanelJuego.updateUI();
     }
 
+    public void borrarCadrado(javax.swing.JLabel cadrado){
+        PanelJuego.remove(cadrado);
+        PanelJuego.updateUI();
+    }
+    
     /**
      * @param args the command line arguments
      */

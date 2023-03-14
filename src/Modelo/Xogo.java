@@ -20,9 +20,10 @@ public class Xogo {
     private int MAX_X = 180;
     private int numeroLinas;
     private boolean pausa = false;
-    private ArrayList<Cadrado> cadradoschan = new ArrayList<>();
+    private ArrayList<Cadrado> cadradosChan = new ArrayList<>();
     private Ficha fichaActual;
     private VentanaPrincipal ventana;
+    private ArrayList<Cadrado> cadradosborrar = new ArrayList<>();
 
     public Ficha getFichaActual() {
         return fichaActual;
@@ -49,11 +50,11 @@ public class Xogo {
             return false;
         }
 
-        Iterator<Cadrado> chan = cadradoschan.iterator();
+        Iterator<Cadrado> chan = cadradosChan.iterator();
         while (chan.hasNext()) {
             Cadrado tmp = chan.next();
             if (obterCoordenadaX(tmp) == x && obterCoordenadaY(tmp) == y) {
-                
+
                 return false;
             }
         }
@@ -73,8 +74,9 @@ public class Xogo {
     public void engadirFichaAoChan() {
 
         for (int i = 0; i < fichaActual.getCadrados().size(); i++) {
-            cadradoschan.add(fichaActual.getCadrados().get(i));
+            cadradosChan.add(fichaActual.getCadrados().get(i));
         }
+        borrarLinasCompletas();
         xenerarNovaFicha();
     }
 
@@ -323,59 +325,47 @@ public class Xogo {
     public void borrarLinasCompletas() {
 
         int mismaY = 0;
-        Iterator<Cadrado> iter = cadradoschan.iterator();
-        Iterator<Cadrado> iter2 = cadradoschan.iterator();
+        Iterator<Cadrado> chan1 = cadradosChan.iterator();
+        Iterator<Cadrado> chan2 = cadradosChan.iterator();
 
-        while (iter.hasNext()) {
+        while (chan1.hasNext()) {
 
-            Cadrado tmp = iter.next();
-            while (iter2.hasNext()) {
+            Cadrado tmp = chan1.next();
+            while (chan2.hasNext()) {
 
-                Cadrado tmp2 = iter2.next();
+                Cadrado tmp2 = chan2.next();
                 if (obterCoordenadaY(tmp) == obterCoordenadaY(tmp2)) {
 
                     mismaY++;
                     if (mismaY == MAX_X / LADO_CADRADO) {
 
-                        borrarLina();
-                        mismaY = 0;
+                        borrarLina(obterCoordenadaY(tmp));
                     }
                 }
             }
             mismaY = 0;
         }
+        cadradosChan.removeAll(cadradosborrar);
+        cadradosborrar.clear();
     }
 
-    public void borrarLina() {
+    public void borrarLina(int altitud) {
 
         ArrayList<Cadrado> mismaY = new ArrayList<>();
 
-        Iterator<Cadrado> iter = cadradoschan.iterator();
-        Iterator<Cadrado> iter2 = cadradoschan.iterator();
+        Iterator<Cadrado> chan = cadradosChan.iterator();
 
-        while (iter.hasNext()) {
-
-            Cadrado tmp = iter.next();
-            while (iter2.hasNext()) {
-
-                Cadrado tmp2 = iter2.next();
-                if (obterCoordenadaY(tmp) == obterCoordenadaY(tmp2)) {
-
-                    mismaY.add(tmp);
-                    mismaY.add(tmp2);
-                    if (mismaY.size() == MAX_X / LADO_CADRADO) {
-
-                        numeroLinas++;
-                        Iterator<Cadrado> borrar = mismaY.iterator();
-                        while (borrar.hasNext()) {
-                            Cadrado borrado = borrar.next();
-                            //ventanaPrincipal.borrarCadrado(borrado)
-                        }
-                    }
-                }
-                mismaY.clear();
+        while (chan.hasNext()) {
+            Cadrado tmp = chan.next();
+            if (obterCoordenadaY(tmp) == altitud) {
+                mismaY.add(tmp);
+                ventana.borrarCadrado(tmp.getlBlCadrado());
+            } else if (obterCoordenadaY(tmp) < altitud) {
+                tmp.setY(obterCoordenadaY(tmp) + LADO_CADRADO);
             }
         }
+        cadradosborrar.addAll(mismaY);
+
     }
 
     public boolean chocaFichaCoChan() {
@@ -387,14 +377,14 @@ public class Xogo {
             }
         }
         //Comprobamos se choca cos cadrados do chan
-        Iterator<Cadrado> chan = cadradoschan.iterator();
+        Iterator<Cadrado> chan = cadradosChan.iterator();
         while (chan.hasNext()) {//recorremos os cadrados no solo
             Cadrado tmp = chan.next();
             for (int i = 0; i < 4; i++) {// recorremos os cadrados da ficha
-                if (obterCoordenadaY(fichaActual.getCadrados().get(i)) == obterCoordenadaY(tmp)-LADO_CADRADO && obterCoordenadaX(fichaActual.getCadrados().get(i)) == obterCoordenadaX(tmp) ) {
+                if (obterCoordenadaY(fichaActual.getCadrados().get(i)) == obterCoordenadaY(tmp) - LADO_CADRADO && obterCoordenadaX(fichaActual.getCadrados().get(i)) == obterCoordenadaX(tmp)) {
                     //  ↑↑  Comprobamos se y da cadrado da ficha actual é igual o y do cadrado que comprobamos
-                        //  ↓↓  se coincide añadimos os cadrados da ficha ao chan
-                        engadirFichaAoChan();
+                    //  ↓↓  se coincide añadimos os cadrados da ficha ao chan
+                    engadirFichaAoChan();
                     return true;
                 }
 
