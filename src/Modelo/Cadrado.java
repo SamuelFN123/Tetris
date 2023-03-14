@@ -21,9 +21,9 @@ public class Cadrado {
     
     public Cadrado(Color corRecheo) {
         this.corRecheo = corRecheo;
-        this.lblCadrado.setBackground(corRecheo);
         this.lblCadrado.setSize(Xogo.LADO_CADRADO, Xogo.LADO_CADRADO);
         this.lblCadrado.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY));
+        this.lblCadrado.setBackground(corRecheo);
     }
     
     public int getX() {
@@ -53,7 +53,7 @@ public class Cadrado {
     public void darPosicion(int x, int y) {
         this.X = x;
         this.Y = y;
-        this.lblCadrado.setBounds(X, Y, Xogo.LADO_CADRADO, Xogo.LADO_CADRADO);
+        this.lblCadrado.setLocation(X, Y);
     }
     
     public JLabel getlBlCadrado() {

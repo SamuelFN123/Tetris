@@ -10,7 +10,7 @@ package Modelo;
  */
 public class FichaBarra extends Ficha {
 
-    boolean posicion0;
+    private boolean posicion0;
 
     public FichaBarra() {
         for (int i = 0; i < 4; i++) {
@@ -29,7 +29,7 @@ public class FichaBarra extends Ficha {
     }
 
     private void posicionInicial() {
-        this.cadrados.get(0).darPosicion(140, 0);
+        this.cadrados.get(0).darPosicion(80, 0);
         this.cadrados.get(1).darPosicion(this.cadrados.get(0).getX(), this.cadrados.get(0).getY() + Xogo.LADO_CADRADO);
         this.cadrados.get(2).darPosicion(this.cadrados.get(0).getX(), this.cadrados.get(0).getY() + 2 * Xogo.LADO_CADRADO);
         this.cadrados.get(3).darPosicion(this.cadrados.get(0).getX(), this.cadrados.get(0).getY() + 3 * Xogo.LADO_CADRADO);

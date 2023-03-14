@@ -17,7 +17,7 @@ public class Xogo {
     public final static int LADO_CADRADO = 20;
     private int MAX_Y = 500;
     //Linea perder 100Y
-    private int MAX_X = 300;
+    private int MAX_X = 180;
     private int numeroLinas;
     private boolean pausa = false;
     private ArrayList<Cadrado> cadradoschan = new ArrayList<>();

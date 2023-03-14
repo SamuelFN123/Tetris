@@ -14,12 +14,13 @@ import Modelo.Xogo;
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
 
-    public Xogo xogo;
-    public Timer timer;
+    private Xogo xogo;
+    private Timer timer;
     private int timerDelay = 1000;
-    public Timer timerContador;
-    int segundos = 0;
-    int minutos = 0;
+    private Timer timerContador;
+    private int segundos = 0;
+    private int minutos = 0;
+    private int puntuacion;
 
     /**
      * Creates new form VentanaPrincipal
@@ -73,9 +74,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         PantallaJuego.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         PantallaJuego.setTitle("Tetris");
         PantallaJuego.setBackground(new java.awt.Color(33, 202, 243));
-        PantallaJuego.setMaximumSize(new java.awt.Dimension(500, 550));
-        PantallaJuego.setMinimumSize(new java.awt.Dimension(500, 550));
-        PantallaJuego.setPreferredSize(new java.awt.Dimension(500, 550));
+        PantallaJuego.setMaximumSize(new java.awt.Dimension(400, 550));
+        PantallaJuego.setMinimumSize(new java.awt.Dimension(400, 550));
+        PantallaJuego.setPreferredSize(new java.awt.Dimension(400, 550));
         PantallaJuego.setResizable(false);
 
         FondoNombres.setBackground(new java.awt.Color(0, 0, 0));
@@ -192,9 +193,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         PanelJuego.setBackground(new java.awt.Color(0, 51, 51));
         PanelJuego.setFocusCycleRoot(true);
-        PanelJuego.setMaximumSize(new java.awt.Dimension(300, 500));
-        PanelJuego.setMinimumSize(new java.awt.Dimension(300, 500));
-        PanelJuego.setPreferredSize(new java.awt.Dimension(300, 500));
+        PanelJuego.setMaximumSize(new java.awt.Dimension(180, 500));
+        PanelJuego.setMinimumSize(new java.awt.Dimension(180, 500));
+        PanelJuego.setPreferredSize(new java.awt.Dimension(180, 500));
         PanelJuego.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 PanelJuegoKeyPressed(evt);
@@ -205,7 +206,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         PanelJuego.setLayout(PanelJuegoLayout);
         PanelJuegoLayout.setHorizontalGroup(
             PanelJuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 180, Short.MAX_VALUE)
         );
         PanelJuegoLayout.setVerticalGroup(
             PanelJuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -220,14 +221,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addComponent(PanelJuego, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(FondoNombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(32, Short.MAX_VALUE))
         );
         PantallaJuegoLayout.setVerticalGroup(
             PantallaJuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PantallaJuegoLayout.createSequentialGroup()
-                .addComponent(PanelJuego, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
-            .addComponent(FondoNombres, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(PantallaJuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(PanelJuego, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(FondoNombres, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         PantallaAjustes.setTitle("Tetris");
@@ -537,7 +539,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_BotonCambiarColorActionPerformed
 
     private void BotonAceptarDificultadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAceptarDificultadActionPerformed
-
+        timerDelay=1000;
         PantallaDificultad.setVisible(false);
         timerDelay -= MarcadorDificultad.getValue() * 50;
     }//GEN-LAST:event_BotonAceptarDificultadActionPerformed
