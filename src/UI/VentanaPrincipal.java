@@ -65,6 +65,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         BotonAceptarColores = new javax.swing.JButton();
         BotonSalirColores = new javax.swing.JButton();
         PanelColores = new javax.swing.JColorChooser();
+        PantallaGameOver = new javax.swing.JDialog();
+        PanelGameOver = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        BotonReinicio = new javax.swing.JButton();
+        BotonSalir = new javax.swing.JButton();
         Inicio = new javax.swing.JPanel();
         Jugar = new javax.swing.JButton();
         Ajustes = new javax.swing.JButton();
@@ -427,6 +432,61 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jLabel1.setText("GAME OVER");
+
+        BotonReinicio.setText("Reiniciar");
+        BotonReinicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonReinicioActionPerformed(evt);
+            }
+        });
+
+        BotonSalir.setText("Salir");
+        BotonSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonSalirActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout PanelGameOverLayout = new javax.swing.GroupLayout(PanelGameOver);
+        PanelGameOver.setLayout(PanelGameOverLayout);
+        PanelGameOverLayout.setHorizontalGroup(
+            PanelGameOverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelGameOverLayout.createSequentialGroup()
+                .addGroup(PanelGameOverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelGameOverLayout.createSequentialGroup()
+                        .addGap(152, 152, 152)
+                        .addComponent(jLabel1))
+                    .addGroup(PanelGameOverLayout.createSequentialGroup()
+                        .addGap(101, 101, 101)
+                        .addComponent(BotonReinicio)
+                        .addGap(18, 18, 18)
+                        .addComponent(BotonSalir)))
+                .addContainerGap(134, Short.MAX_VALUE))
+        );
+        PanelGameOverLayout.setVerticalGroup(
+            PanelGameOverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelGameOverLayout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
+                .addGroup(PanelGameOverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BotonReinicio)
+                    .addComponent(BotonSalir))
+                .addGap(92, 92, 92))
+        );
+
+        javax.swing.GroupLayout PantallaGameOverLayout = new javax.swing.GroupLayout(PantallaGameOver.getContentPane());
+        PantallaGameOver.getContentPane().setLayout(PantallaGameOverLayout);
+        PantallaGameOverLayout.setHorizontalGroup(
+            PantallaGameOverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(PanelGameOver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        PantallaGameOverLayout.setVerticalGroup(
+            PantallaGameOverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(PanelGameOver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tetris");
 
@@ -509,6 +569,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void JugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JugarActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
         PanelJuego.removeAll();
         PantallaJuego.setVisible(true);
         PanelJuego.setFocusable(true);
@@ -552,6 +613,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void SalirJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirJuegoActionPerformed
         // TODO add your handling code here:
         PantallaJuego.setVisible(false);
+        this.setVisible(true);
         timer.stop();
         timerContador.stop();
     }//GEN-LAST:event_SalirJuegoActionPerformed
@@ -559,11 +621,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void AjustesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AjustesActionPerformed
         // TODO add your handling code here:
         PantallaAjustes.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_AjustesActionPerformed
 
     private void BotonSalirAjustesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSalirAjustesActionPerformed
         // TODO add your handling code here:
         PantallaAjustes.setVisible(false);
+        this.setVisible(true);
     }//GEN-LAST:event_BotonSalirAjustesActionPerformed
 
     private void BotonDificultadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonDificultadActionPerformed
@@ -586,6 +650,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         PanelDificultad.setBackground(PanelColores.getColor());
         Inicio.setBackground(PanelColores.getColor());
         PanelColoresFondo.setBackground(PanelColores.getColor());
+        PanelGameOver.setBackground(PanelColores.getColor());
     }//GEN-LAST:event_BotonAceptarColoresActionPerformed
 
     private void BotonPausaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonPausaActionPerformed
@@ -619,6 +684,20 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_PanelJuegoKeyPressed
+
+    private void BotonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSalirActionPerformed
+        // TODO add your handling code here:
+        PantallaGameOver.setVisible(false);
+    }//GEN-LAST:event_BotonSalirActionPerformed
+
+    private void BotonReinicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonReinicioActionPerformed
+        // TODO add your handling code here:
+        PantallaJuego.setVisible(true);
+        timer.start();
+        segundos=0;
+        minutos=0;
+        TiempoEtiqueta.setText("0:" + minutos + ":" + segundos);
+    }//GEN-LAST:event_BotonReinicioActionPerformed
 
     public void pintarCadrado(javax.swing.JLabel cadrado) {
 
@@ -700,6 +779,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton BotonCambiarColor;
     private javax.swing.JButton BotonDificultad;
     private javax.swing.JToggleButton BotonPausa;
+    private javax.swing.JButton BotonReinicio;
+    private javax.swing.JButton BotonSalir;
     private javax.swing.JButton BotonSalirAjustes;
     private javax.swing.JButton BotonSalirColores;
     private javax.swing.JButton BotonSalirDificultad;
@@ -713,10 +794,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JColorChooser PanelColores;
     private javax.swing.JPanel PanelColoresFondo;
     private javax.swing.JPanel PanelDificultad;
+    private javax.swing.JPanel PanelGameOver;
     private javax.swing.JPanel PanelJuego;
     private javax.swing.JDialog PantallaAjustes;
     private javax.swing.JDialog PantallaCambiarDeColor;
     private javax.swing.JDialog PantallaDificultad;
+    private javax.swing.JDialog PantallaGameOver;
     private javax.swing.JDialog PantallaJuego;
     private javax.swing.JPanel Puntos;
     private javax.swing.JLabel PuntosLabel;
@@ -725,5 +808,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel SiguienteFicha;
     private javax.swing.JLabel TiempoEtiqueta;
     private javax.swing.JLabel Titulo;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

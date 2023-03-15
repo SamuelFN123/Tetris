@@ -324,48 +324,45 @@ public class Xogo {
 
     public void borrarLinasCompletas() {
 
-        int mismaY = 0;
-        Iterator<Cadrado> chan1 = cadradosChan.iterator();
-        Iterator<Cadrado> chan2 = cadradosChan.iterator();
+        int altura = MAX_Y;
 
-        while (chan1.hasNext()) {
+        while (altura >= 0) {
 
-            Cadrado tmp = chan1.next();
-            while (chan2.hasNext()) {
-
-                Cadrado tmp2 = chan2.next();
-                if (obterCoordenadaY(tmp) == obterCoordenadaY(tmp2)) {
-
-                    mismaY++;
-                    if (mismaY == MAX_X / LADO_CADRADO) {
-
-                        borrarLina(obterCoordenadaY(tmp));
-                    }
-                }
-            }
-            mismaY = 0;
+            comprobarLina(altura);
+            cadradosborrar.clear();
+            altura -=LADO_CADRADO;
         }
-        cadradosChan.removeAll(cadradosborrar);
-        cadradosborrar.clear();
     }
 
-    public void borrarLina(int altitud) {
-
-        ArrayList<Cadrado> mismaY = new ArrayList<>();
-
-        Iterator<Cadrado> chan = cadradosChan.iterator();
-
-        while (chan.hasNext()) {
-            Cadrado tmp = chan.next();
-            if (obterCoordenadaY(tmp) == altitud) {
-                mismaY.add(tmp);
-                ventana.borrarCadrado(tmp.getlBlCadrado());
-            } else if (obterCoordenadaY(tmp) < altitud) {
-                tmp.setY(obterCoordenadaY(tmp) + LADO_CADRADO);
+    private void comprobarLina(int altura) {
+        
+        int mismaY = 0;
+        Iterator<Cadrado> chan1 = cadradosChan.iterator();
+        boolean linaBorrada = false;
+        while (chan1.hasNext() && !linaBorrada) {
+            
+            Cadrado tmp = chan1.next();
+            if (obterCoordenadaY(tmp) == altura) {
+                
+                mismaY++;
+                cadradosborrar.add(tmp);
+                if (mismaY == MAX_X / LADO_CADRADO) {
+                    linaBorrada=true;
+                    borrarLina();
+                }
             }
         }
-        cadradosborrar.addAll(mismaY);
+    }
 
+    public void borrarLina() {
+        
+        Iterator<Cadrado> borrar = cadradosborrar.iterator();
+        while(borrar.hasNext()){
+            ventana.borrarCadrado(borrar.next().getlBlCadrado());
+        }
+        
+        cadradosChan.removeAll(cadradosborrar);
+        cadradosborrar.clear();
     }
 
     public boolean chocaFichaCoChan() {
