@@ -65,8 +65,16 @@ public class Xogo {
         if (!(dentroTablero(y))) {
             return false;
         } else {
-            return true;
+            Iterator<Cadrado> chan = cadradosChan.iterator();
+            while (chan.hasNext()) {
+                Cadrado tmp = chan.next();
+                if (obterCoordenadaX(tmp) == x && obterCoordenadaY(tmp) == y) {
+
+                    return false;
+                }
+            }
         }
+        return true;
     }
 
     private boolean dentroTablero(int y) {
