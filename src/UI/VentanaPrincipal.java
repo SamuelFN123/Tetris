@@ -39,7 +39,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        PantallaJuego = new javax.swing.JDialog();
+        PantallaJuego = new javax.swing.JFrame();
         FondoNombres = new javax.swing.JPanel();
         SiguienteFicha = new javax.swing.JPanel();
         TiempoEtiqueta = new javax.swing.JLabel();
@@ -50,22 +50,22 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         LineasEliminadas = new javax.swing.JPanel();
         LineasEliminadasLabel = new javax.swing.JLabel();
         PanelJuego = new javax.swing.JPanel();
-        PantallaAjustes = new javax.swing.JDialog();
+        PantallaAjustes = new javax.swing.JFrame();
         PanelAjustes = new javax.swing.JPanel();
         BotonCambiarColor = new javax.swing.JButton();
         BotonDificultad = new javax.swing.JButton();
         BotonSalirAjustes = new javax.swing.JButton();
-        PantallaDificultad = new javax.swing.JDialog();
+        PantallaDificultad = new javax.swing.JFrame();
         PanelDificultad = new javax.swing.JPanel();
         BotonSalirDificultad = new javax.swing.JButton();
         BotonAceptarDificultad = new javax.swing.JButton();
         MarcadorDificultad = new javax.swing.JSlider();
-        PantallaCambiarDeColor = new javax.swing.JDialog();
+        PantallaCambiarDeColor = new javax.swing.JFrame();
         PanelColoresFondo = new javax.swing.JPanel();
         BotonAceptarColores = new javax.swing.JButton();
         BotonSalirColores = new javax.swing.JButton();
         PanelColores = new javax.swing.JColorChooser();
-        PantallaGameOver = new javax.swing.JDialog();
+        PantallaGameOver = new javax.swing.JFrame();
         PanelGameOver = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         BotonReinicio = new javax.swing.JButton();
@@ -76,12 +76,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         Salir = new javax.swing.JButton();
         Titulo = new javax.swing.JLabel();
 
-        PantallaJuego.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        PantallaJuego.setTitle("Tetris");
-        PantallaJuego.setBackground(new java.awt.Color(33, 202, 243));
-        PantallaJuego.setMaximumSize(new java.awt.Dimension(400, 550));
-        PantallaJuego.setMinimumSize(new java.awt.Dimension(400, 550));
-        PantallaJuego.setPreferredSize(new java.awt.Dimension(400, 550));
+        PantallaJuego.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        PantallaJuego.setMinimumSize(new java.awt.Dimension(370, 550));
         PantallaJuego.setResizable(false);
 
         FondoNombres.setBackground(new java.awt.Color(0, 0, 0));
@@ -237,8 +233,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addContainerGap(28, Short.MAX_VALUE))
         );
 
-        PantallaAjustes.setTitle("Tetris");
-        PantallaAjustes.setMinimumSize(new java.awt.Dimension(500, 500));
+        PantallaAjustes.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        PantallaAjustes.setMaximumSize(new java.awt.Dimension(350, 350));
+        PantallaAjustes.setMinimumSize(new java.awt.Dimension(350, 350));
+        PantallaAjustes.setResizable(false);
 
         BotonCambiarColor.setText("Cambiar color de fondo");
         BotonCambiarColor.addActionListener(new java.awt.event.ActionListener() {
@@ -268,15 +266,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             .addGroup(PanelAjustesLayout.createSequentialGroup()
                 .addGroup(PanelAjustesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelAjustesLayout.createSequentialGroup()
-                        .addGap(117, 117, 117)
+                        .addGap(79, 79, 79)
                         .addComponent(BotonCambiarColor))
                     .addGroup(PanelAjustesLayout.createSequentialGroup()
-                        .addGap(151, 151, 151)
+                        .addGap(108, 108, 108)
                         .addComponent(BotonDificultad, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PanelAjustesLayout.createSequentialGroup()
-                        .addGap(163, 163, 163)
+                        .addGap(118, 118, 118)
                         .addComponent(BotonSalirAjustes)))
-                .addContainerGap(339, Short.MAX_VALUE))
+                .addContainerGap(115, Short.MAX_VALUE))
         );
         PanelAjustesLayout.setVerticalGroup(
             PanelAjustesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -287,26 +285,23 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addComponent(BotonDificultad, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(BotonSalirAjustes)
-                .addContainerGap(295, Short.MAX_VALUE))
+                .addContainerGap(147, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout PantallaAjustesLayout = new javax.swing.GroupLayout(PantallaAjustes.getContentPane());
         PantallaAjustes.getContentPane().setLayout(PantallaAjustesLayout);
         PantallaAjustesLayout.setHorizontalGroup(
             PantallaAjustesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PantallaAjustesLayout.createSequentialGroup()
-                .addComponent(PanelAjustes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(PanelAjustes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         PantallaAjustesLayout.setVerticalGroup(
             PantallaAjustesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PantallaAjustesLayout.createSequentialGroup()
-                .addComponent(PanelAjustes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(PanelAjustes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        PantallaDificultad.setTitle("Tetris");
-        PantallaDificultad.setMinimumSize(new java.awt.Dimension(500, 500));
+        PantallaDificultad.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        PantallaDificultad.setMinimumSize(new java.awt.Dimension(550, 350));
+        PantallaDificultad.setResizable(false);
 
         BotonSalirDificultad.setText("Salir");
         BotonSalirDificultad.addActionListener(new java.awt.event.ActionListener() {
@@ -353,7 +348,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addGroup(PanelDificultadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BotonSalirDificultad, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BotonAceptarDificultad, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(270, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout PantallaDificultadLayout = new javax.swing.GroupLayout(PantallaDificultad.getContentPane());
@@ -361,18 +356,19 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         PantallaDificultadLayout.setHorizontalGroup(
             PantallaDificultadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PantallaDificultadLayout.createSequentialGroup()
-                .addComponent(PanelDificultad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(PanelDificultad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         PantallaDificultadLayout.setVerticalGroup(
             PantallaDificultadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PantallaDificultadLayout.createSequentialGroup()
-                .addComponent(PanelDificultad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(PanelDificultad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
-        PantallaCambiarDeColor.setTitle("Tetris");
-        PantallaCambiarDeColor.setMinimumSize(new java.awt.Dimension(500, 500));
+        PantallaCambiarDeColor.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        PantallaCambiarDeColor.setMinimumSize(new java.awt.Dimension(700, 450));
+        PantallaCambiarDeColor.setResizable(false);
 
         PanelColoresFondo.setMinimumSize(new java.awt.Dimension(500, 500));
 
@@ -395,24 +391,20 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         PanelColoresFondoLayout.setHorizontalGroup(
             PanelColoresFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelColoresFondoLayout.createSequentialGroup()
-                .addGap(74, 74, 74)
+                .addGap(62, 62, 62)
                 .addComponent(BotonAceptarColores)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 322, Short.MAX_VALUE)
                 .addComponent(BotonSalirColores)
-                .addGap(139, 139, 139))
-            .addGroup(PanelColoresFondoLayout.createSequentialGroup()
-                .addComponent(PanelColores, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 12, Short.MAX_VALUE))
+                .addGap(124, 124, 124))
         );
         PanelColoresFondoLayout.setVerticalGroup(
             PanelColoresFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelColoresFondoLayout.createSequentialGroup()
-                .addComponent(PanelColores, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(14, 14, 14)
                 .addGroup(PanelColoresFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BotonAceptarColores)
                     .addComponent(BotonSalirColores))
-                .addContainerGap(137, Short.MAX_VALUE))
+                .addContainerGap(463, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout PantallaCambiarDeColorLayout = new javax.swing.GroupLayout(PantallaCambiarDeColor.getContentPane());
@@ -420,17 +412,26 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         PantallaCambiarDeColorLayout.setHorizontalGroup(
             PantallaCambiarDeColorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PantallaCambiarDeColorLayout.createSequentialGroup()
-                .addGap(49, 49, 49)
+                .addContainerGap()
+                .addComponent(PanelColores, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(335, Short.MAX_VALUE))
+            .addGroup(PantallaCambiarDeColorLayout.createSequentialGroup()
                 .addComponent(PanelColoresFondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(280, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         PantallaCambiarDeColorLayout.setVerticalGroup(
             PantallaCambiarDeColorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PantallaCambiarDeColorLayout.createSequentialGroup()
-                .addContainerGap(328, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(PanelColores, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(PanelColoresFondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(305, 305, 305))
         );
+
+        PantallaGameOver.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        PantallaGameOver.setMinimumSize(new java.awt.Dimension(250, 250));
+        PantallaGameOver.setResizable(false);
 
         jLabel1.setText("GAME OVER");
 
@@ -453,23 +454,22 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         PanelGameOverLayout.setHorizontalGroup(
             PanelGameOverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelGameOverLayout.createSequentialGroup()
-                .addGroup(PanelGameOverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelGameOverLayout.createSequentialGroup()
-                        .addGap(152, 152, 152)
-                        .addComponent(jLabel1))
-                    .addGroup(PanelGameOverLayout.createSequentialGroup()
-                        .addGap(101, 101, 101)
-                        .addComponent(BotonReinicio)
-                        .addGap(18, 18, 18)
-                        .addComponent(BotonSalir)))
-                .addContainerGap(134, Short.MAX_VALUE))
+                .addGap(35, 35, 35)
+                .addComponent(BotonReinicio)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addComponent(BotonSalir)
+                .addGap(35, 35, 35))
+            .addGroup(PanelGameOverLayout.createSequentialGroup()
+                .addGap(102, 102, 102)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PanelGameOverLayout.setVerticalGroup(
             PanelGameOverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelGameOverLayout.createSequentialGroup()
-                .addGap(60, 60, 60)
+                .addContainerGap(60, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
+                .addGap(59, 59, 59)
                 .addGroup(PanelGameOverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BotonReinicio)
                     .addComponent(BotonSalir))
@@ -489,6 +489,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tetris");
+        setResizable(false);
 
         Jugar.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         Jugar.setText("Jugar");
@@ -597,17 +598,20 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void BotonCambiarColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonCambiarColorActionPerformed
         // TODO add your handling code here:
         PantallaCambiarDeColor.setVisible(true);
+        PantallaAjustes.setVisible(false);
     }//GEN-LAST:event_BotonCambiarColorActionPerformed
 
     private void BotonAceptarDificultadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAceptarDificultadActionPerformed
         timerDelay=1000;
         PantallaDificultad.setVisible(false);
+        PantallaAjustes.setVisible(true);
         timerDelay -= MarcadorDificultad.getValue() * 50;
     }//GEN-LAST:event_BotonAceptarDificultadActionPerformed
 
     private void BotonSalirDificultadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSalirDificultadActionPerformed
         // TODO add your handling code here:
         PantallaDificultad.setVisible(false);
+        PantallaAjustes.setVisible(true);
     }//GEN-LAST:event_BotonSalirDificultadActionPerformed
 
     private void SalirJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirJuegoActionPerformed
@@ -633,15 +637,19 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void BotonDificultadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonDificultadActionPerformed
         // TODO add your handling code here:
         PantallaDificultad.setVisible(true);
+        PantallaAjustes.setVisible(false);
     }//GEN-LAST:event_BotonDificultadActionPerformed
 
     private void BotonSalirColoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSalirColoresActionPerformed
         // TODO add your handling code here:
         PantallaCambiarDeColor.setVisible(false);
+        PantallaAjustes.setVisible(true);
     }//GEN-LAST:event_BotonSalirColoresActionPerformed
 
     private void BotonAceptarColoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAceptarColoresActionPerformed
         // TODO add your handling code here:
+        PantallaCambiarDeColor.setVisible(false);
+        PantallaAjustes.setVisible(true);
         PanelJuego.setBackground(PanelColores.getColor());
         SiguienteFicha.setBackground(PanelColores.getColor());
         Puntos.setBackground(PanelColores.getColor());
@@ -796,11 +804,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel PanelDificultad;
     private javax.swing.JPanel PanelGameOver;
     private javax.swing.JPanel PanelJuego;
-    private javax.swing.JDialog PantallaAjustes;
-    private javax.swing.JDialog PantallaCambiarDeColor;
-    private javax.swing.JDialog PantallaDificultad;
-    private javax.swing.JDialog PantallaGameOver;
-    private javax.swing.JDialog PantallaJuego;
+    private javax.swing.JFrame PantallaAjustes;
+    private javax.swing.JFrame PantallaCambiarDeColor;
+    private javax.swing.JFrame PantallaDificultad;
+    private javax.swing.JFrame PantallaGameOver;
+    private javax.swing.JFrame PantallaJuego;
     private javax.swing.JPanel Puntos;
     private javax.swing.JLabel PuntosLabel;
     private javax.swing.JButton Salir;
