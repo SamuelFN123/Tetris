@@ -50,6 +50,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         LineasEliminadas = new javax.swing.JPanel();
         LineasEliminadasLabel = new javax.swing.JLabel();
         PanelJuego = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
         PantallaAjustes = new javax.swing.JFrame();
         PanelAjustes = new javax.swing.JPanel();
         BotonCambiarColor = new javax.swing.JButton();
@@ -70,6 +71,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         BotonReinicio = new javax.swing.JButton();
         BotonSalir = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
         Inicio = new javax.swing.JPanel();
         Jugar = new javax.swing.JButton();
         Ajustes = new javax.swing.JButton();
@@ -203,15 +205,28 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setBackground(new java.awt.Color(255, 0, 0));
+        jButton1.setForeground(new java.awt.Color(255, 0, 0));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PanelJuegoLayout = new javax.swing.GroupLayout(PanelJuego);
         PanelJuego.setLayout(PanelJuegoLayout);
         PanelJuegoLayout.setHorizontalGroup(
             PanelJuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 180, Short.MAX_VALUE)
+            .addGroup(PanelJuegoLayout.createSequentialGroup()
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         PanelJuegoLayout.setVerticalGroup(
             PanelJuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
+            .addGroup(PanelJuegoLayout.createSequentialGroup()
+                .addGap(96, 96, 96)
+                .addComponent(jButton1)
+                .addContainerGap(397, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout PantallaJuegoLayout = new javax.swing.GroupLayout(PantallaJuego.getContentPane());
@@ -230,11 +245,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addGroup(PantallaJuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(PanelJuego, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(FondoNombres, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         PantallaAjustes.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        PantallaAjustes.setMaximumSize(new java.awt.Dimension(350, 350));
         PantallaAjustes.setMinimumSize(new java.awt.Dimension(350, 350));
         PantallaAjustes.setResizable(false);
 
@@ -487,6 +501,17 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             .addComponent(PanelGameOver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tetris");
         setResizable(false);
@@ -707,6 +732,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         TiempoEtiqueta.setText("0:" + minutos + ":" + segundos);
     }//GEN-LAST:event_BotonReinicioActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     public void pintarCadrado(javax.swing.JLabel cadrado) {
 
         PanelJuego.add(cadrado);
@@ -816,6 +845,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel SiguienteFicha;
     private javax.swing.JLabel TiempoEtiqueta;
     private javax.swing.JLabel Titulo;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
