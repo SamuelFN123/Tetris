@@ -61,6 +61,18 @@ public class Xogo {
         return true;
     }
 
+    private boolean ePosicionValida(int y) {
+        if (!(dentroTablero(y))) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    private boolean dentroTablero(int y) {
+        return !(y >= MAX_Y);
+    }
+
     private boolean dentroTablero(int x, int y) {
         if (x >= MAX_X || x < 0) {
             return false;
@@ -324,48 +336,74 @@ public class Xogo {
 
     public void borrarLinasCompletas() {
 
-        int mismaY = 0;
-        Iterator<Cadrado> chan1 = cadradosChan.iterator();
-        Iterator<Cadrado> chan2 = cadradosChan.iterator();
+        int altura = MAX_Y - LADO_CADRADO;
 
-        while (chan1.hasNext()) {
+        while (altura >= 0) {
 
-            Cadrado tmp = chan1.next();
-            while (chan2.hasNext()) {
+            if (comprobarLina(altura)) {
 
-                Cadrado tmp2 = chan2.next();
-                if (obterCoordenadaY(tmp) == obterCoordenadaY(tmp2)) {
+                borrarLina();
+                altura -= LADO_CADRADO;
+            } else if (!cadradosborrar.isEmpty()) {
 
-                    mismaY++;
-                    if (mismaY == MAX_X / LADO_CADRADO) {
-
-                        borrarLina(obterCoordenadaY(tmp));
-                    }
-                }
+                cadradosChan.removeAll(cadradosborrar);
+                cadradosborrar.clear();
+                altura += LADO_CADRADO;
+                moverRestantesAbaixo(altura);
+                altura = -1;
+            } else {
+                altura = -1;
             }
-            mismaY = 0;
         }
-        cadradosChan.removeAll(cadradosborrar);
-        cadradosborrar.clear();
     }
 
-    public void borrarLina(int altitud) {
+    private boolean comprobarLina(int altura) {
 
-        ArrayList<Cadrado> mismaY = new ArrayList<>();
-
+        int mismaY = 0;
+        ArrayList<Cadrado> borratemporal = new ArrayList<>();
         Iterator<Cadrado> chan = cadradosChan.iterator();
+        boolean borrarLinea = false;
+        while (chan.hasNext() && !borrarLinea) {
 
-        while (chan.hasNext()) {
             Cadrado tmp = chan.next();
-            if (obterCoordenadaY(tmp) == altitud) {
-                mismaY.add(tmp);
-                ventana.borrarCadrado(tmp.getlBlCadrado());
-            } else if (obterCoordenadaY(tmp) < altitud) {
-                tmp.setY(obterCoordenadaY(tmp) + LADO_CADRADO);
+            if (obterCoordenadaY(tmp) == altura) {
+
+                mismaY++;
+                borratemporal.add(tmp);
+                if (mismaY == MAX_X / LADO_CADRADO) {
+
+                    cadradosborrar.addAll(borratemporal);
+                    borrarLinea = true;
+                }
             }
         }
-        cadradosborrar.addAll(mismaY);
+        borratemporal.clear();
+        return borrarLinea;
+    }
 
+    public void borrarLina() {
+
+        Iterator<Cadrado> borrar = cadradosborrar.iterator();
+        while (borrar.hasNext()) {
+            Cadrado borrado = borrar.next();
+            ventana.borrarCadrado(borrado.getlBlCadrado());
+        }
+
+    }
+
+    private void moverRestantesAbaixo(int altura) {
+        Iterator<Cadrado> chan = cadradosChan.iterator();
+        while (chan.hasNext()) {
+
+            Cadrado tmp = chan.next();
+            int y = obterCoordenadaY(tmp);
+
+            int diferencia = altura - y;
+            while (!ePosicionValida(MAX_Y - diferencia)) {
+                diferencia += LADO_CADRADO;
+            }
+            tmp.setY(MAX_Y - diferencia);
+        }
     }
 
     public boolean chocaFichaCoChan() {
