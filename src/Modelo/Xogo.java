@@ -24,6 +24,7 @@ public class Xogo {
     private Ficha fichaActual;
     private VentanaPrincipal ventana;
     private ArrayList<Cadrado> cadradosborrar = new ArrayList<>();
+    private boolean lineaVacia = true;
 
     public Ficha getFichaActual() {
         return fichaActual;
@@ -50,6 +51,7 @@ public class Xogo {
             return false;
         }
 
+        //comproba se vai chocar horizontalmente co chan
         Iterator<Cadrado> chan = cadradosChan.iterator();
         while (chan.hasNext()) {
             Cadrado tmp = chan.next();
@@ -65,16 +67,8 @@ public class Xogo {
         if (!(dentroTablero(y))) {
             return false;
         } else {
-            Iterator<Cadrado> chan = cadradosChan.iterator();
-            while (chan.hasNext()) {
-                Cadrado tmp = chan.next();
-                if (obterCoordenadaX(tmp) == x && obterCoordenadaY(tmp) == y) {
-
-                    return false;
-                }
-            }
+            return true;
         }
-        return true;
     }
 
     private boolean dentroTablero(int y) {
@@ -94,6 +88,9 @@ public class Xogo {
     public void engadirFichaAoChan() {
 
         for (int i = 0; i < fichaActual.getCadrados().size(); i++) {
+            if(obterCoordenadaY(fichaActual.getCadrados().get(i))<100){
+                System.out.println("lose");
+            }
             cadradosChan.add(fichaActual.getCadrados().get(i));
         }
         borrarLinasCompletas();
@@ -352,21 +349,24 @@ public class Xogo {
 
                 borrarLina();
                 altura -= LADO_CADRADO;
+            } else if (lineaVacia) {
+                altura = -1;
+                
             } else if (!cadradosborrar.isEmpty()) {
 
                 cadradosChan.removeAll(cadradosborrar);
-                cadradosborrar.clear();
-                altura += LADO_CADRADO;
                 moverRestantesAbaixo(altura);
-                altura = -1;
+                cadradosborrar.clear();
+                
             } else {
-                altura = -1;
+                altura -= LADO_CADRADO;
             }
         }
     }
 
     private boolean comprobarLina(int altura) {
 
+        lineaVacia = true;
         int mismaY = 0;
         ArrayList<Cadrado> borratemporal = new ArrayList<>();
         Iterator<Cadrado> chan = cadradosChan.iterator();
@@ -376,12 +376,14 @@ public class Xogo {
             Cadrado tmp = chan.next();
             if (obterCoordenadaY(tmp) == altura) {
 
+                lineaVacia = false;
                 mismaY++;
                 borratemporal.add(tmp);
                 if (mismaY == MAX_X / LADO_CADRADO) {
 
                     cadradosborrar.addAll(borratemporal);
                     borrarLinea = true;
+                    numeroLinas++;
                 }
             }
         }
@@ -401,28 +403,39 @@ public class Xogo {
 
     private void moverRestantesAbaixo(int altura) {
         Iterator<Cadrado> chan = cadradosChan.iterator();
+        int alturaLineaBorrada = linea();
         while (chan.hasNext()) {
 
             Cadrado tmp = chan.next();
             int y = obterCoordenadaY(tmp);
 
             int diferencia = altura - y;
-            while (!ePosicionValida(MAX_Y - diferencia)) {
-                diferencia += LADO_CADRADO;
+            if (diferencia >= 0) {
+                while (!ePosicionValida(alturaLineaBorrada - diferencia)) {
+
+                    diferencia += LADO_CADRADO;
+                }
+                tmp.setY(alturaLineaBorrada - diferencia);
             }
-            tmp.setY(MAX_Y - diferencia);
         }
     }
 
-    public boolean chocaFichaCoChan() {
-        //Comproba se choca co borde do panel
-        for (int i = 0; i < 4; i++) {
-            if (fichaActual.getCadrados().get(i).getY() == MAX_Y) {
-                engadirFichaAoChan();
-                return true;
+    private int linea() {
+
+        Iterator<Cadrado> chan = cadradosborrar.iterator();
+        int y = 0;
+        while (chan.hasNext()) {
+            Cadrado tmp = chan.next();
+            int y_temp = obterCoordenadaY(tmp);
+            if (y_temp > y) {
+                y = y_temp;
             }
         }
-        //Comprobamos se choca cos cadrados do chan
+        return y;
+    }
+
+    public boolean chocaFichaCoChan() {
+
         Iterator<Cadrado> chan = cadradosChan.iterator();
         while (chan.hasNext()) {//recorremos os cadrados no solo
             Cadrado tmp = chan.next();
