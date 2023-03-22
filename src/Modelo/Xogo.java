@@ -172,8 +172,7 @@ public class Xogo {
 
     private boolean comprobarAlrededor() {
 
-        boolean continua = comprobarPosicion(fichaActual.getPosicion());
-        return continua;
+        return comprobarPosicion(fichaActual.getPosicion());
     }
 
     private boolean comprobarPosicion(int posicion) {
@@ -374,9 +373,10 @@ public class Xogo {
 
                 borrarLina();
                 altura -= LADO_CADRADO;
+                //↓↓ paramos de comprobar se non hay mas cadrados
             } else if (lineaVacia) {
                 altura = -1;
-
+                //↓↓ se temos cadrados para borrar facemolo
             } else if (!cadradosborrar.isEmpty()) {
 
                 cadradosChan.removeAll(cadradosborrar);
@@ -397,6 +397,8 @@ public class Xogo {
         ArrayList<Cadrado> borratemporal = new ArrayList<>();
         Iterator<Cadrado> chan = cadradosChan.iterator();
         boolean borrarLinea = false;
+        
+        //recorremos chan se ainda non borramos
         while (chan.hasNext() && !borrarLinea) {
 
             Cadrado tmp = chan.next();
@@ -407,15 +409,21 @@ public class Xogo {
                 borratemporal.add(tmp);
                 if (mismaY == MAX_X / LADO_CADRADO) {
 
-                    cadradosborrar.addAll(borratemporal);
-                    borrarLinea = true;
-                    numeroLinas++;
-                    numeroLinasChange = true;
+                    borrarLinea = linaBorrada(borratemporal);
                 }
             }
         }
         comprobarDificultade();
         borratemporal.clear();
+        return borrarLinea;
+    }
+
+    private boolean linaBorrada(ArrayList<Cadrado> borratemporal) {
+        boolean borrarLinea;
+        cadradosborrar.addAll(borratemporal);
+        borrarLinea = true;
+        numeroLinas++;
+        numeroLinasChange = true;
         return borrarLinea;
     }
 
@@ -438,18 +446,16 @@ public class Xogo {
 
     private void moverRestantesAbaixo(int altura) {
         Iterator<Cadrado> chan = cadradosChan.iterator();
+        //↓↓    calculamos ata onde ten que baixar(altura linea mais baja borrada)
         int alturaLineaBorrada = linea();
         while (chan.hasNext()) {
 
             Cadrado tmp = chan.next();
             int y = obterCoordenadaY(tmp);
 
+            //↓↓    diferenza altura cadrados que tenen que bajar e súa altura actual
             int diferencia = altura - y;
             if (diferencia >= 0) {
-                while (!ePosicionValida(alturaLineaBorrada - diferencia)) {
-
-                    diferencia += LADO_CADRADO;
-                }
                 tmp.setY(alturaLineaBorrada - diferencia);
             }
         }
@@ -476,7 +482,7 @@ public class Xogo {
             Cadrado tmp = chan.next();
             for (int i = 0; i < 4; i++) {// recorremos os cadrados da ficha
                 if (obterCoordenadaY(fichaActual.getCadrados().get(i)) == obterCoordenadaY(tmp) - LADO_CADRADO && obterCoordenadaX(fichaActual.getCadrados().get(i)) == obterCoordenadaX(tmp)) {
-                    //  ↑↑  Comprobamos se y da cadrado da ficha actual é igual o y do cadrado que comprobamos
+                    //  ↑↑  Comprobamos se y do cadrado da ficha actual é igual o y do cadrado que comprobamos
                     //  ↓↓  se coincide añadimos os cadrados da ficha ao chan
                     engadirFichaAoChan();
                     return true;
