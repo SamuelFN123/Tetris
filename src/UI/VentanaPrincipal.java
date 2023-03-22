@@ -47,6 +47,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         BotonPausa = new javax.swing.JToggleButton();
         Puntos = new javax.swing.JPanel();
         PuntosLabel = new javax.swing.JLabel();
+        labelPuntuacion = new javax.swing.JLabel();
         LineasEliminadas = new javax.swing.JPanel();
         LineasEliminadasLabel = new javax.swing.JLabel();
         ContadorLineas = new javax.swing.JLabel();
@@ -72,6 +73,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         LabelGameOver = new javax.swing.JLabel();
         BotonReinicio = new javax.swing.JButton();
         BotonSalir = new javax.swing.JButton();
+        puntuacionGameOver = new javax.swing.JLabel();
         Inicio = new javax.swing.JPanel();
         Jugar = new javax.swing.JButton();
         Ajustes = new javax.swing.JButton();
@@ -134,6 +136,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         PuntosLabel.setText("Puntos:");
         PuntosLabel.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
+        labelPuntuacion.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        labelPuntuacion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelPuntuacion.setText("0");
+
         javax.swing.GroupLayout PuntosLayout = new javax.swing.GroupLayout(Puntos);
         Puntos.setLayout(PuntosLayout);
         PuntosLayout.setHorizontalGroup(
@@ -142,13 +148,19 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(PuntosLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(PuntosLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(labelPuntuacion, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PuntosLayout.setVerticalGroup(
             PuntosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PuntosLayout.createSequentialGroup()
-                .addGap(9, 9, 9)
-                .addComponent(PuntosLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
-                .addContainerGap())
+                .addContainerGap()
+                .addComponent(PuntosLabel)
+                .addGap(12, 12, 12)
+                .addComponent(labelPuntuacion, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(9, Short.MAX_VALUE))
         );
 
         LineasEliminadasLabel.setText("Lineas Eliminadas:");
@@ -468,7 +480,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         PantallaGameOver.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         PantallaGameOver.setMaximumSize(new java.awt.Dimension(380, 350));
         PantallaGameOver.setMinimumSize(new java.awt.Dimension(380, 350));
-        PantallaGameOver.setUndecorated(true);
         PantallaGameOver.setPreferredSize(new java.awt.Dimension(380, 350));
         PantallaGameOver.setResizable(false);
 
@@ -493,6 +504,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        puntuacionGameOver.setForeground(new java.awt.Color(255, 255, 255));
+        puntuacionGameOver.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        puntuacionGameOver.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 255, 255)));
+
         javax.swing.GroupLayout PanelGameOverLayout = new javax.swing.GroupLayout(PanelGameOver);
         PanelGameOver.setLayout(PanelGameOverLayout);
         PanelGameOverLayout.setHorizontalGroup(
@@ -504,8 +519,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addComponent(BotonSalir)
                 .addGap(81, 81, 81))
             .addGroup(PanelGameOverLayout.createSequentialGroup()
-                .addGap(132, 132, 132)
-                .addComponent(LabelGameOver, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(PanelGameOverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelGameOverLayout.createSequentialGroup()
+                        .addGap(132, 132, 132)
+                        .addComponent(LabelGameOver, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanelGameOverLayout.createSequentialGroup()
+                        .addGap(113, 113, 113)
+                        .addComponent(puntuacionGameOver, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PanelGameOverLayout.setVerticalGroup(
@@ -513,7 +533,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             .addGroup(PanelGameOverLayout.createSequentialGroup()
                 .addGap(86, 86, 86)
                 .addComponent(LabelGameOver, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
+                .addGap(27, 27, 27)
+                .addComponent(puntuacionGameOver, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addGroup(PanelGameOverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BotonSalir)
                     .addComponent(BotonReinicio))
@@ -654,6 +676,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         PantallaJuego.setVisible(true);
         PanelJuego.setFocusable(true);
         PanelJuego.requestFocus();
+        labelPuntuacion.setText("0");
     }
 
     private void resetTimerLabel() {
@@ -768,7 +791,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void BotonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSalirActionPerformed
         // TODO add your handling code here:
-        PantallaGameOver.setVisible(false);
+        System.exit(0);
     }//GEN-LAST:event_BotonSalirActionPerformed
 
     private void BotonReinicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonReinicioActionPerformed
@@ -802,6 +825,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         ContadorLineas.setText(numeroLinas+"");
     }
     
+    public void mostrarPuntuacion(int puntuacion){
+        labelPuntuacion.setText(puntuacion+"");
+    }
+    
     public void subirDificultade() {
         if (timerDelay >= 200) {
             timerDelay -= 150;
@@ -815,6 +842,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         timerContador.stop();
         PantallaJuego.setVisible(false);
         PantallaGameOver.setVisible(true);
+        puntuacionGameOver.setText("Puntuacion: "+labelPuntuacion.getText());
         
     }
 
@@ -858,6 +886,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
             xogo.moverFichaAbaixo();
             pintaFicha();
+            xogo.incrementarPuntuacion();
         });
     }
     private void iniciarTimerContador() {
@@ -914,6 +943,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel SiguienteFicha;
     private javax.swing.JLabel TiempoEtiqueta;
     private javax.swing.JLabel Titulo;
+    private javax.swing.JLabel labelPuntuacion;
     private javax.swing.JButton lineaGameOver;
+    private javax.swing.JLabel puntuacionGameOver;
     // End of variables declaration//GEN-END:variables
 }
