@@ -16,9 +16,9 @@ public class Xogo {
 
     public final static int LADO_CADRADO = 20;
     private int MAX_Y = 500;
-    //Linea perder 100Y
     private int MAX_X = 180;
-    private int numeroLinas;
+    private int numeroLinas = 0;
+    private boolean numeroLinasChange = false;
     private boolean pausa = false;
     private ArrayList<Cadrado> cadradosChan = new ArrayList<>();
     private Ficha fichaActual;
@@ -40,6 +40,30 @@ public class Xogo {
 
     public void setPausa(boolean pausa) {
         this.pausa = pausa;
+    }
+
+    public int getMAX_Y() {
+        return MAX_Y;
+    }
+
+    public void setMAX_Y(int MAX_Y) {
+        this.MAX_Y = MAX_Y;
+    }
+
+    public int getMAX_X() {
+        return MAX_X;
+    }
+
+    public void setMAX_X(int MAX_X) {
+        this.MAX_X = MAX_X;
+    }
+
+    public int getNumeroLinas() {
+        return numeroLinas;
+    }
+
+    public void setNumeroLinas(int numeroLinas) {
+        this.numeroLinas = numeroLinas;
     }
 
     public boolean ePosicionValida(int x, int y) {
@@ -88,13 +112,14 @@ public class Xogo {
     public void engadirFichaAoChan() {
 
         for (int i = 0; i < fichaActual.getCadrados().size(); i++) {
-            if(obterCoordenadaY(fichaActual.getCadrados().get(i))<100){
-                System.out.println("lose");
+            if (obterCoordenadaY(fichaActual.getCadrados().get(i)) < 100) {
+                ventana.mostrarFinDoXogo();
             }
             cadradosChan.add(fichaActual.getCadrados().get(i));
         }
         borrarLinasCompletas();
         xenerarNovaFicha();
+        ventana.pintaFicha();
     }
 
     public void xenerarNovaFicha() {
@@ -351,17 +376,18 @@ public class Xogo {
                 altura -= LADO_CADRADO;
             } else if (lineaVacia) {
                 altura = -1;
-                
+
             } else if (!cadradosborrar.isEmpty()) {
 
                 cadradosChan.removeAll(cadradosborrar);
                 moverRestantesAbaixo(altura);
                 cadradosborrar.clear();
-                
+
             } else {
                 altura -= LADO_CADRADO;
             }
         }
+        ventana.mostrarNumeroLinas(numeroLinas);
     }
 
     private boolean comprobarLina(int altura) {
@@ -384,9 +410,11 @@ public class Xogo {
                     cadradosborrar.addAll(borratemporal);
                     borrarLinea = true;
                     numeroLinas++;
+                    numeroLinasChange = true;
                 }
             }
         }
+        comprobarDificultade();
         borratemporal.clear();
         return borrarLinea;
     }
@@ -399,6 +427,13 @@ public class Xogo {
             ventana.borrarCadrado(borrado.getlBlCadrado());
         }
 
+    }
+
+    private void comprobarDificultade() {
+        if (numeroLinas % 5 == 0 && numeroLinas != 0 && numeroLinasChange) {
+            ventana.subirDificultade();
+        }
+        numeroLinasChange = false;
     }
 
     private void moverRestantesAbaixo(int altura) {

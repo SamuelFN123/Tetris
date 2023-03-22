@@ -15,7 +15,7 @@ import Modelo.Xogo;
 public class VentanaPrincipal extends javax.swing.JFrame {
 
     private Xogo xogo;
-    private Timer timer;
+    private Timer timerFicha;
     private int timerDelay = 1000;
     private Timer timerContador;
     private int segundos = 0;
@@ -49,8 +49,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         PuntosLabel = new javax.swing.JLabel();
         LineasEliminadas = new javax.swing.JPanel();
         LineasEliminadasLabel = new javax.swing.JLabel();
+        ContadorLineas = new javax.swing.JLabel();
         PanelJuego = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        lineaGameOver = new javax.swing.JButton();
         PantallaAjustes = new javax.swing.JFrame();
         PanelAjustes = new javax.swing.JPanel();
         BotonCambiarColor = new javax.swing.JButton();
@@ -68,10 +69,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         PanelColores = new javax.swing.JColorChooser();
         PantallaGameOver = new javax.swing.JFrame();
         PanelGameOver = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        LabelGameOver = new javax.swing.JLabel();
         BotonReinicio = new javax.swing.JButton();
         BotonSalir = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
         Inicio = new javax.swing.JPanel();
         Jugar = new javax.swing.JButton();
         Ajustes = new javax.swing.JButton();
@@ -79,6 +79,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         Titulo = new javax.swing.JLabel();
 
         PantallaJuego.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        PantallaJuego.setBackground(new java.awt.Color(0, 51, 51));
         PantallaJuego.setMinimumSize(new java.awt.Dimension(370, 550));
         PantallaJuego.setResizable(false);
 
@@ -153,6 +154,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         LineasEliminadasLabel.setText("Lineas Eliminadas:");
         LineasEliminadasLabel.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
+        ContadorLineas.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        ContadorLineas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ContadorLineas.setText("0");
+
         javax.swing.GroupLayout LineasEliminadasLayout = new javax.swing.GroupLayout(LineasEliminadas);
         LineasEliminadas.setLayout(LineasEliminadasLayout);
         LineasEliminadasLayout.setHorizontalGroup(
@@ -161,12 +166,18 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(LineasEliminadasLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(LineasEliminadasLayout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(ContadorLineas, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         LineasEliminadasLayout.setVerticalGroup(
             LineasEliminadasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LineasEliminadasLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(LineasEliminadasLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 65, Short.MAX_VALUE)
+                .addComponent(LineasEliminadasLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ContadorLineas, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -191,8 +202,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addComponent(Puntos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(LineasEliminadas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(117, Short.MAX_VALUE))
+                .addContainerGap(118, Short.MAX_VALUE))
         );
+
+        FondoNombresLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {LineasEliminadas, Puntos});
 
         PanelJuego.setBackground(new java.awt.Color(0, 51, 51));
         PanelJuego.setFocusCycleRoot(true);
@@ -205,11 +218,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(255, 0, 0));
-        jButton1.setForeground(new java.awt.Color(255, 0, 0));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        lineaGameOver.setBackground(new java.awt.Color(255, 0, 0));
+        lineaGameOver.setForeground(new java.awt.Color(255, 0, 0));
+        lineaGameOver.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 0)));
+        lineaGameOver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                lineaGameOverActionPerformed(evt);
             }
         });
 
@@ -217,17 +231,17 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         PanelJuego.setLayout(PanelJuegoLayout);
         PanelJuegoLayout.setHorizontalGroup(
             PanelJuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelJuegoLayout.createSequentialGroup()
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(lineaGameOver, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
         );
         PanelJuegoLayout.setVerticalGroup(
             PanelJuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelJuegoLayout.createSequentialGroup()
-                .addGap(96, 96, 96)
-                .addComponent(jButton1)
-                .addContainerGap(397, Short.MAX_VALUE))
+                .addGap(99, 99, 99)
+                .addComponent(lineaGameOver)
+                .addContainerGap(399, Short.MAX_VALUE))
         );
+
+        lineaGameOver.getAccessibleContext().setAccessibleParent(PantallaJuego);
 
         javax.swing.GroupLayout PantallaJuegoLayout = new javax.swing.GroupLayout(PantallaJuego.getContentPane());
         PantallaJuego.getContentPane().setLayout(PantallaJuegoLayout);
@@ -251,6 +265,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         PantallaAjustes.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         PantallaAjustes.setMinimumSize(new java.awt.Dimension(350, 350));
         PantallaAjustes.setResizable(false);
+
+        PanelAjustes.setBackground(new java.awt.Color(0, 51, 51));
 
         BotonCambiarColor.setText("Cambiar color de fondo");
         BotonCambiarColor.addActionListener(new java.awt.event.ActionListener() {
@@ -317,6 +333,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         PantallaDificultad.setMinimumSize(new java.awt.Dimension(550, 350));
         PantallaDificultad.setResizable(false);
 
+        PanelDificultad.setBackground(new java.awt.Color(0, 51, 51));
+
         BotonSalirDificultad.setText("Salir");
         BotonSalirDificultad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -331,6 +349,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        MarcadorDificultad.setForeground(new java.awt.Color(255, 255, 255));
         MarcadorDificultad.setMajorTickSpacing(1);
         MarcadorDificultad.setMaximum(10);
         MarcadorDificultad.setMinorTickSpacing(1);
@@ -384,6 +403,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         PantallaCambiarDeColor.setMinimumSize(new java.awt.Dimension(700, 450));
         PantallaCambiarDeColor.setResizable(false);
 
+        PanelColoresFondo.setBackground(new java.awt.Color(0, 51, 51));
         PanelColoresFondo.setMinimumSize(new java.awt.Dimension(500, 500));
 
         BotonAceptarColores.setText("Aceptar");
@@ -421,6 +441,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addContainerGap(463, Short.MAX_VALUE))
         );
 
+        PanelColores.setBackground(new java.awt.Color(0, 102, 102));
+
         javax.swing.GroupLayout PantallaCambiarDeColorLayout = new javax.swing.GroupLayout(PantallaCambiarDeColor.getContentPane());
         PantallaCambiarDeColor.getContentPane().setLayout(PantallaCambiarDeColorLayout);
         PantallaCambiarDeColorLayout.setHorizontalGroup(
@@ -444,10 +466,18 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         );
 
         PantallaGameOver.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        PantallaGameOver.setMinimumSize(new java.awt.Dimension(250, 250));
+        PantallaGameOver.setMaximumSize(new java.awt.Dimension(380, 350));
+        PantallaGameOver.setMinimumSize(new java.awt.Dimension(380, 350));
+        PantallaGameOver.setUndecorated(true);
+        PantallaGameOver.setPreferredSize(new java.awt.Dimension(380, 350));
         PantallaGameOver.setResizable(false);
 
-        jLabel1.setText("GAME OVER");
+        PanelGameOver.setBackground(new java.awt.Color(0, 0, 0));
+
+        LabelGameOver.setForeground(new java.awt.Color(255, 255, 255));
+        LabelGameOver.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LabelGameOver.setText("GAME OVER");
+        LabelGameOver.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 255, 255)));
 
         BotonReinicio.setText("Reiniciar");
         BotonReinicio.addActionListener(new java.awt.event.ActionListener() {
@@ -467,27 +497,27 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         PanelGameOver.setLayout(PanelGameOverLayout);
         PanelGameOverLayout.setHorizontalGroup(
             PanelGameOverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelGameOverLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelGameOverLayout.createSequentialGroup()
+                .addGap(68, 68, 68)
                 .addComponent(BotonReinicio)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
                 .addComponent(BotonSalir)
-                .addGap(35, 35, 35))
+                .addGap(81, 81, 81))
             .addGroup(PanelGameOverLayout.createSequentialGroup()
-                .addGap(102, 102, 102)
-                .addComponent(jLabel1)
+                .addGap(132, 132, 132)
+                .addComponent(LabelGameOver, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PanelGameOverLayout.setVerticalGroup(
             PanelGameOverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelGameOverLayout.createSequentialGroup()
-                .addContainerGap(60, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(59, 59, 59)
+                .addGap(86, 86, 86)
+                .addComponent(LabelGameOver, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
                 .addGroup(PanelGameOverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BotonReinicio)
-                    .addComponent(BotonSalir))
-                .addGap(92, 92, 92))
+                    .addComponent(BotonSalir)
+                    .addComponent(BotonReinicio))
+                .addGap(116, 116, 116))
         );
 
         javax.swing.GroupLayout PantallaGameOverLayout = new javax.swing.GroupLayout(PantallaGameOver.getContentPane());
@@ -501,20 +531,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             .addComponent(PanelGameOver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tetris");
         setResizable(false);
+
+        Inicio.setBackground(new java.awt.Color(0, 51, 51));
 
         Jugar.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         Jugar.setText("Jugar");
@@ -541,6 +562,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
 
         Titulo.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
+        Titulo.setForeground(new java.awt.Color(255, 255, 255));
+        Titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Titulo.setText("TETRIS ");
 
         javax.swing.GroupLayout InicioLayout = new javax.swing.GroupLayout(Inicio);
@@ -563,9 +586,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         InicioLayout.setVerticalGroup(
             InicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InicioLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(12, Short.MAX_VALUE)
                 .addComponent(Titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Jugar, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(Ajustes, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -594,26 +617,50 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JugarActionPerformed
-        // TODO add your handling code here:
-        this.setVisible(false);
-        PanelJuego.removeAll();
-        PantallaJuego.setVisible(true);
-        PanelJuego.setFocusable(true);
-        PanelJuego.requestFocus();
-        segundos = 0;
-        minutos = 0;
-        TiempoEtiqueta.setText("0:" + minutos + ":" + segundos);
+        iniciarPartida();
+        resetTimerLabel();
+        crearXogo();
+        comprobarTimers();
+    }//GEN-LAST:event_JugarActionPerformed
+
+    private void crearXogo() {
         xogo = new Xogo(this);
         xogo.xenerarNovaFicha();
+        pintaFicha();
+    }
+
+    public void pintaFicha() {
         for (int i = 0; i < 4; i++) {
             pintarCadrado(xogo.getFichaActual().getCadrados().get(i).getlBlCadrado());
         }
-        if (timer == null || !timer.isRunning()) {
-            timerTicks();
-            timer.start();
+    }
+
+    private void comprobarTimers() {
+        if (timerFicha == null || !timerFicha.isRunning()) {
+            iniciarTimerFicha();
+            iniciarTimerContador();
+            timerFicha.start();
             timerContador.start();
         }
-    }//GEN-LAST:event_JugarActionPerformed
+    }
+
+    private void iniciarPartida() {
+        // TODO add your handling code here:
+        if(this.isVisible()){
+        this.setVisible(false);
+        }
+        PanelJuego.removeAll();
+        PanelJuego.add(lineaGameOver);
+        PantallaJuego.setVisible(true);
+        PanelJuego.setFocusable(true);
+        PanelJuego.requestFocus();
+    }
+
+    private void resetTimerLabel() {
+        segundos = 0;
+        minutos = 0;
+        TiempoEtiqueta.setText("0:" + minutos + ":" + segundos);
+    }
 
     private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
         // TODO add your handling code here:
@@ -627,7 +674,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_BotonCambiarColorActionPerformed
 
     private void BotonAceptarDificultadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAceptarDificultadActionPerformed
-        timerDelay=1000;
+        timerDelay = 1000;
         PantallaDificultad.setVisible(false);
         PantallaAjustes.setVisible(true);
         timerDelay -= MarcadorDificultad.getValue() * 50;
@@ -643,8 +690,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         PantallaJuego.setVisible(false);
         this.setVisible(true);
-        timer.stop();
+        timerFicha.stop();
         timerContador.stop();
+        timerDelay=1000;
     }//GEN-LAST:event_SalirJuegoActionPerformed
 
     private void AjustesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AjustesActionPerformed
@@ -689,11 +737,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void BotonPausaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonPausaActionPerformed
         // TODO add your handling code here:
         if (BotonPausa.isSelected()) {
-            timer.stop();
+            timerFicha.stop();
             timerContador.stop();
             xogo.setPausa(true);
         } else {
-            timer.start();
+            timerFicha.start();
             timerContador.start();
             xogo.setPausa(false);
             PanelJuego.requestFocus();
@@ -725,30 +773,51 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void BotonReinicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonReinicioActionPerformed
         // TODO add your handling code here:
+        PantallaGameOver.setVisible(false);
         PantallaJuego.setVisible(true);
-        timer.start();
-        segundos=0;
-        minutos=0;
-        TiempoEtiqueta.setText("0:" + minutos + ":" + segundos);
+        timerFicha.start();
+        resetTimerLabel();
+        timerContador.start();
+        iniciarPartida();
+        crearXogo();
     }//GEN-LAST:event_BotonReinicioActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void lineaGameOverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lineaGameOverActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_lineaGameOverActionPerformed
 
     public void pintarCadrado(javax.swing.JLabel cadrado) {
 
         PanelJuego.add(cadrado);
-
         cadrado.setOpaque(true);
         PanelJuego.updateUI();
     }
 
-    public void borrarCadrado(javax.swing.JLabel cadrado){
+    public void borrarCadrado(javax.swing.JLabel cadrado) {
         PanelJuego.remove(cadrado);
         PanelJuego.updateUI();
     }
+
+    public void mostrarNumeroLinas(int numeroLinas){
+        ContadorLineas.setText(numeroLinas+"");
+    }
     
+    public void subirDificultade() {
+        if (timerDelay >= 200) {
+            timerDelay -= 150;
+            timerFicha.setDelay(timerDelay);
+        }
+    }
+    
+    public void mostrarFinDoXogo(){
+        
+        timerFicha.stop();
+        timerContador.stop();
+        PantallaJuego.setVisible(false);
+        PantallaGameOver.setVisible(true);
+        
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -784,16 +853,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
     }
 
-    private void timerTicks() {
-        this.timer = new Timer(timerDelay, (ActionEvent e) -> {
+    private void iniciarTimerFicha() {
+        this.timerFicha = new Timer(timerDelay, (ActionEvent e) -> {
 
             xogo.moverFichaAbaixo();
-            for (int i = 0; i < 4; i++) {
-                pintarCadrado(xogo.getFichaActual().getCadrados().get(i).getlBlCadrado());
-            }
-
-            // xogo.fichaActual.updateLabelPos();
+            pintaFicha();
         });
+    }
+    private void iniciarTimerContador() {
         this.timerContador = new Timer(1000, (ActionEvent e) -> {
 
             //  xogo.moverFichaAbaixo();
@@ -821,9 +888,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton BotonSalirAjustes;
     private javax.swing.JButton BotonSalirColores;
     private javax.swing.JButton BotonSalirDificultad;
+    private javax.swing.JLabel ContadorLineas;
     private javax.swing.JPanel FondoNombres;
     private javax.swing.JPanel Inicio;
     private javax.swing.JButton Jugar;
+    private javax.swing.JLabel LabelGameOver;
     private javax.swing.JPanel LineasEliminadas;
     private javax.swing.JLabel LineasEliminadasLabel;
     private javax.swing.JSlider MarcadorDificultad;
@@ -845,8 +914,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel SiguienteFicha;
     private javax.swing.JLabel TiempoEtiqueta;
     private javax.swing.JLabel Titulo;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton lineaGameOver;
     // End of variables declaration//GEN-END:variables
 }
