@@ -81,28 +81,21 @@ public class Xogo {
             return false;
         }
 
-        //comproba se vai chocar horizontalmente co chan
-        Iterator<Cadrado> chan = cadradosChan.iterator();
-        while (chan.hasNext()) {
-            Cadrado tmp = chan.next();
-            if (obterCoordenadaX(tmp) == x && obterCoordenadaY(tmp) == y) {
-
-                return false;
-            }
+        if (choqueHorizontal(x, y)) {
+            return false;
         }
         return true;
     }
 
-    private boolean ePosicionValida(int y) {
-        if (!(dentroTablero(y))) {
-            return false;
-        } else {
-            return true;
+    private boolean choqueHorizontal(int x, int y) {
+        Iterator<Cadrado> chan = cadradosChan.iterator();
+        while (chan.hasNext()) {
+            Cadrado tmp = chan.next();
+            if (obterCoordenadaX(tmp) == x && obterCoordenadaY(tmp) == y) {
+                return true;
+            }
         }
-    }
-
-    private boolean dentroTablero(int y) {
-        return !(y >= MAX_Y);
+        return false;
     }
 
     private boolean dentroTablero(int x, int y) {
@@ -383,13 +376,15 @@ public class Xogo {
             } else if (lineaVacia) {
                 altura = -1;
                 //↓↓ se temos cadrados para borrar facemolo
-            } else if (!cadradosborrar.isEmpty()) {
-
+            }  else {
+                if(!cadradosborrar.isEmpty()){
+                    
                 cadradosChan.removeAll(cadradosborrar);
                 moverRestantesAbaixo(altura);
                 cadradosborrar.clear();
-
-            } else {
+                altura += LADO_CADRADO;
+                }
+                //sumamos e restamos porque ao baixar cadrados temos que comprobar a mesma altura
                 altura -= LADO_CADRADO;
             }
         }
@@ -446,7 +441,7 @@ public class Xogo {
     }
 
     private void comprobarDificultade() {
-        if (numeroLinas % 5 == 0 && numeroLinas != 0 && numeroLinasChange) {
+        if (numeroLinas % 5 == 0 && numeroLinasChange) {
             ventana.subirDificultade();
         }
         numeroLinasChange = false;
