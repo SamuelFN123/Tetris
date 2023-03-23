@@ -15,7 +15,7 @@ import UI.VentanaPrincipal;
 public class Xogo {
 
     public final static int LADO_CADRADO = 20;
-    private int puntuacion=0;
+    private int puntuacion = 0;
     private int MAX_Y = 500;
     private int MAX_X = 180;
     private int numeroLinas = 0;
@@ -67,11 +67,11 @@ public class Xogo {
         this.numeroLinas = numeroLinas;
     }
 
-    public void incrementarPuntuacion(){
-        puntuacion +=10;
+    public void incrementarPuntuacion() {
+        puntuacion += 10;
         ventana.mostrarPuntuacion(puntuacion);
     }
-    
+
     public boolean ePosicionValida(int x, int y) {
 
         if (!(dentroTablero(x, y))) {
@@ -404,7 +404,7 @@ public class Xogo {
         ArrayList<Cadrado> borratemporal = new ArrayList<>();
         Iterator<Cadrado> chan = cadradosChan.iterator();
         boolean borrarLinea = false;
-        
+
         //recorremos chan se ainda non borramos
         while (chan.hasNext() && !borrarLinea) {
 
@@ -431,7 +431,7 @@ public class Xogo {
         borrarLinea = true;
         numeroLinas++;
         numeroLinasChange = true;
-        puntuacion +=100;
+        puntuacion += 100;
         return borrarLinea;
     }
 

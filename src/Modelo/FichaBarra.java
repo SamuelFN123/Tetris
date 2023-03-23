@@ -39,11 +39,11 @@ public class FichaBarra extends Ficha {
 
         //  ↓↓ Si estamos en vertical rotamos de esta forma
         if (posicion0) {
-            posicion0=false;
+            posicion0 = false;
             return rotar0();
 
         } else {
-            posicion0=true;
+            posicion0 = true;
             return rotar1();
         }
     }

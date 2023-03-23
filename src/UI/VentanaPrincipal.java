@@ -16,12 +16,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private Xogo xogo;
     private Timer timerFicha;
-    private int timerDelay=1000;
-    private int lastDelay=timerDelay;
+    private int timerDelay = 1000;
+    private int lastDelay = timerDelay;
     private Timer timerContador;
     private int segundos = 0;
     private int minutos = 0;
-    private final int defaultDelay=timerDelay;
+    private final int defaultDelay = timerDelay;
 
     /**
      * Creates new form VentanaPrincipal
@@ -40,194 +40,194 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        PantallaJuego = new javax.swing.JFrame();
-        FondoNombres = new javax.swing.JPanel();
-        SiguienteFicha = new javax.swing.JPanel();
-        TiempoEtiqueta = new javax.swing.JLabel();
-        SalirJuego = new javax.swing.JButton();
-        BotonPausa = new javax.swing.JToggleButton();
-        Puntos = new javax.swing.JPanel();
-        PuntosLabel = new javax.swing.JLabel();
+        pantallaJuego = new javax.swing.JFrame();
+        fondoNombres = new javax.swing.JPanel();
+        siguienteFicha = new javax.swing.JPanel();
+        tiempoEtiqueta = new javax.swing.JLabel();
+        salirJuego = new javax.swing.JButton();
+        botonPausa = new javax.swing.JToggleButton();
+        puntos = new javax.swing.JPanel();
+        puntosLabel = new javax.swing.JLabel();
         labelPuntuacion = new javax.swing.JLabel();
-        LineasEliminadas = new javax.swing.JPanel();
-        LineasEliminadasLabel = new javax.swing.JLabel();
-        ContadorLineas = new javax.swing.JLabel();
-        PanelJuego = new javax.swing.JPanel();
+        lineasEliminadas = new javax.swing.JPanel();
+        lineasEliminadasLabel = new javax.swing.JLabel();
+        contadorLineas = new javax.swing.JLabel();
+        panelJuego = new javax.swing.JPanel();
         lineaGameOver = new javax.swing.JButton();
-        PantallaAjustes = new javax.swing.JFrame();
-        PanelAjustes = new javax.swing.JPanel();
-        BotonCambiarColor = new javax.swing.JButton();
-        BotonDificultad = new javax.swing.JButton();
-        BotonSalirAjustes = new javax.swing.JButton();
-        PantallaDificultad = new javax.swing.JFrame();
-        PanelDificultad = new javax.swing.JPanel();
-        BotonSalirDificultad = new javax.swing.JButton();
-        BotonAceptarDificultad = new javax.swing.JButton();
-        MarcadorDificultad = new javax.swing.JSlider();
-        PantallaCambiarDeColor = new javax.swing.JFrame();
-        PanelColoresFondo = new javax.swing.JPanel();
+        pantallaAjustes = new javax.swing.JFrame();
+        panelAjustes = new javax.swing.JPanel();
+        botonCambiarColor = new javax.swing.JButton();
+        botonDificultad = new javax.swing.JButton();
+        botonSalirAjustes = new javax.swing.JButton();
+        pantallaDificultad = new javax.swing.JFrame();
+        panelDificultad = new javax.swing.JPanel();
+        botonSalirDificultad = new javax.swing.JButton();
+        botonAceptarDificultad = new javax.swing.JButton();
+        marcadorDificultad = new javax.swing.JSlider();
+        pantallaCambiarDeColor = new javax.swing.JFrame();
+        panelColoresFondo = new javax.swing.JPanel();
         BotonAceptarColores = new javax.swing.JButton();
         BotonSalirColores = new javax.swing.JButton();
-        PanelColores = new javax.swing.JColorChooser();
-        PantallaGameOver = new javax.swing.JFrame();
-        PanelGameOver = new javax.swing.JPanel();
-        LabelGameOver = new javax.swing.JLabel();
-        BotonReinicio = new javax.swing.JButton();
-        BotonSalir = new javax.swing.JButton();
+        panelColores = new javax.swing.JColorChooser();
+        pantallaGameOver = new javax.swing.JFrame();
+        panelGameOver = new javax.swing.JPanel();
+        labelGameOver = new javax.swing.JLabel();
+        botonReinicio = new javax.swing.JButton();
+        botonSalir = new javax.swing.JButton();
         puntuacionGameOver = new javax.swing.JLabel();
-        Inicio = new javax.swing.JPanel();
-        Jugar = new javax.swing.JButton();
-        Ajustes = new javax.swing.JButton();
-        Salir = new javax.swing.JButton();
-        Titulo = new javax.swing.JLabel();
+        inicio = new javax.swing.JPanel();
+        jugar = new javax.swing.JButton();
+        ajustes = new javax.swing.JButton();
+        salir = new javax.swing.JButton();
+        titulo = new javax.swing.JLabel();
 
-        PantallaJuego.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        PantallaJuego.setBackground(new java.awt.Color(0, 51, 51));
-        PantallaJuego.setMinimumSize(new java.awt.Dimension(370, 550));
-        PantallaJuego.setResizable(false);
+        pantallaJuego.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        pantallaJuego.setBackground(new java.awt.Color(0, 51, 51));
+        pantallaJuego.setMinimumSize(new java.awt.Dimension(370, 550));
+        pantallaJuego.setResizable(false);
 
-        FondoNombres.setBackground(new java.awt.Color(0, 0, 0));
-        FondoNombres.setMaximumSize(new java.awt.Dimension(162, 500));
-        FondoNombres.setMinimumSize(new java.awt.Dimension(162, 500));
-        FondoNombres.setPreferredSize(new java.awt.Dimension(162, 500));
+        fondoNombres.setBackground(new java.awt.Color(0, 0, 0));
+        fondoNombres.setMaximumSize(new java.awt.Dimension(162, 500));
+        fondoNombres.setMinimumSize(new java.awt.Dimension(162, 500));
+        fondoNombres.setPreferredSize(new java.awt.Dimension(162, 500));
 
-        TiempoEtiqueta.setText("00:00:00");
+        tiempoEtiqueta.setText("00:00:00");
 
-        SalirJuego.setText("Salir");
-        SalirJuego.addActionListener(new java.awt.event.ActionListener() {
+        salirJuego.setText("Salir");
+        salirJuego.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SalirJuegoActionPerformed(evt);
+                salirJuegoActionPerformed(evt);
             }
         });
 
-        BotonPausa.setText("| |");
-        BotonPausa.addActionListener(new java.awt.event.ActionListener() {
+        botonPausa.setText("| |");
+        botonPausa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonPausaActionPerformed(evt);
+                botonPausaActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout SiguienteFichaLayout = new javax.swing.GroupLayout(SiguienteFicha);
-        SiguienteFicha.setLayout(SiguienteFichaLayout);
-        SiguienteFichaLayout.setHorizontalGroup(
-            SiguienteFichaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(SiguienteFichaLayout.createSequentialGroup()
+        javax.swing.GroupLayout siguienteFichaLayout = new javax.swing.GroupLayout(siguienteFicha);
+        siguienteFicha.setLayout(siguienteFichaLayout);
+        siguienteFichaLayout.setHorizontalGroup(
+            siguienteFichaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(siguienteFichaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(TiempoEtiqueta, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tiempoEtiqueta, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(33, Short.MAX_VALUE))
-            .addGroup(SiguienteFichaLayout.createSequentialGroup()
-                .addComponent(SalirJuego, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(siguienteFichaLayout.createSequentialGroup()
+                .addComponent(salirJuego, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BotonPausa, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(botonPausa, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
-        SiguienteFichaLayout.setVerticalGroup(
-            SiguienteFichaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(SiguienteFichaLayout.createSequentialGroup()
+        siguienteFichaLayout.setVerticalGroup(
+            siguienteFichaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(siguienteFichaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(TiempoEtiqueta, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tiempoEtiqueta, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(SiguienteFichaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(SalirJuego)
-                    .addComponent(BotonPausa))
+                .addGroup(siguienteFichaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(salirJuego)
+                    .addComponent(botonPausa))
                 .addGap(0, 6, Short.MAX_VALUE))
         );
 
-        PuntosLabel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        PuntosLabel.setText("Puntos:");
-        PuntosLabel.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        puntosLabel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        puntosLabel.setText("Puntos:");
+        puntosLabel.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         labelPuntuacion.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         labelPuntuacion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelPuntuacion.setText("0");
 
-        javax.swing.GroupLayout PuntosLayout = new javax.swing.GroupLayout(Puntos);
-        Puntos.setLayout(PuntosLayout);
-        PuntosLayout.setHorizontalGroup(
-            PuntosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PuntosLayout.createSequentialGroup()
+        javax.swing.GroupLayout puntosLayout = new javax.swing.GroupLayout(puntos);
+        puntos.setLayout(puntosLayout);
+        puntosLayout.setHorizontalGroup(
+            puntosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(puntosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(PuntosLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(puntosLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(PuntosLayout.createSequentialGroup()
+            .addGroup(puntosLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(labelPuntuacion, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        PuntosLayout.setVerticalGroup(
-            PuntosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PuntosLayout.createSequentialGroup()
+        puntosLayout.setVerticalGroup(
+            puntosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, puntosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(PuntosLabel)
+                .addComponent(puntosLabel)
                 .addGap(12, 12, 12)
                 .addComponent(labelPuntuacion, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(9, Short.MAX_VALUE))
         );
 
-        LineasEliminadasLabel.setText("Lineas Eliminadas:");
-        LineasEliminadasLabel.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        lineasEliminadasLabel.setText("Lineas Eliminadas:");
+        lineasEliminadasLabel.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
-        ContadorLineas.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        ContadorLineas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        ContadorLineas.setText("0");
+        contadorLineas.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        contadorLineas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        contadorLineas.setText("0");
 
-        javax.swing.GroupLayout LineasEliminadasLayout = new javax.swing.GroupLayout(LineasEliminadas);
-        LineasEliminadas.setLayout(LineasEliminadasLayout);
-        LineasEliminadasLayout.setHorizontalGroup(
-            LineasEliminadasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(LineasEliminadasLayout.createSequentialGroup()
+        javax.swing.GroupLayout lineasEliminadasLayout = new javax.swing.GroupLayout(lineasEliminadas);
+        lineasEliminadas.setLayout(lineasEliminadasLayout);
+        lineasEliminadasLayout.setHorizontalGroup(
+            lineasEliminadasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(lineasEliminadasLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(LineasEliminadasLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lineasEliminadasLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(LineasEliminadasLayout.createSequentialGroup()
+            .addGroup(lineasEliminadasLayout.createSequentialGroup()
                 .addGap(35, 35, 35)
-                .addComponent(ContadorLineas, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(contadorLineas, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        LineasEliminadasLayout.setVerticalGroup(
-            LineasEliminadasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(LineasEliminadasLayout.createSequentialGroup()
+        lineasEliminadasLayout.setVerticalGroup(
+            lineasEliminadasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(lineasEliminadasLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(LineasEliminadasLabel)
+                .addComponent(lineasEliminadasLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ContadorLineas, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+                .addComponent(contadorLineas, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout FondoNombresLayout = new javax.swing.GroupLayout(FondoNombres);
-        FondoNombres.setLayout(FondoNombresLayout);
-        FondoNombresLayout.setHorizontalGroup(
-            FondoNombresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FondoNombresLayout.createSequentialGroup()
+        javax.swing.GroupLayout fondoNombresLayout = new javax.swing.GroupLayout(fondoNombres);
+        fondoNombres.setLayout(fondoNombresLayout);
+        fondoNombresLayout.setHorizontalGroup(
+            fondoNombresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoNombresLayout.createSequentialGroup()
                 .addContainerGap(20, Short.MAX_VALUE)
-                .addGroup(FondoNombresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(LineasEliminadas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Puntos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(SiguienteFicha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(fondoNombresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(lineasEliminadas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(puntos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(siguienteFicha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(19, 19, 19))
         );
-        FondoNombresLayout.setVerticalGroup(
-            FondoNombresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(FondoNombresLayout.createSequentialGroup()
+        fondoNombresLayout.setVerticalGroup(
+            fondoNombresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fondoNombresLayout.createSequentialGroup()
                 .addGap(51, 51, 51)
-                .addComponent(SiguienteFicha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(siguienteFicha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(88, 88, 88)
-                .addComponent(Puntos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(puntos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(LineasEliminadas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lineasEliminadas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(118, Short.MAX_VALUE))
         );
 
-        FondoNombresLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {LineasEliminadas, Puntos});
+        fondoNombresLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lineasEliminadas, puntos});
 
-        PanelJuego.setBackground(new java.awt.Color(0, 51, 51));
-        PanelJuego.setFocusCycleRoot(true);
-        PanelJuego.setMaximumSize(new java.awt.Dimension(180, 500));
-        PanelJuego.setMinimumSize(new java.awt.Dimension(180, 500));
-        PanelJuego.setPreferredSize(new java.awt.Dimension(180, 500));
-        PanelJuego.addKeyListener(new java.awt.event.KeyAdapter() {
+        panelJuego.setBackground(new java.awt.Color(0, 51, 51));
+        panelJuego.setFocusCycleRoot(true);
+        panelJuego.setMaximumSize(new java.awt.Dimension(180, 500));
+        panelJuego.setMinimumSize(new java.awt.Dimension(180, 500));
+        panelJuego.setPreferredSize(new java.awt.Dimension(180, 500));
+        panelJuego.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                PanelJuegoKeyPressed(evt);
+                panelJuegoKeyPressed(evt);
             }
         });
 
@@ -240,184 +240,184 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout PanelJuegoLayout = new javax.swing.GroupLayout(PanelJuego);
-        PanelJuego.setLayout(PanelJuegoLayout);
-        PanelJuegoLayout.setHorizontalGroup(
-            PanelJuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout panelJuegoLayout = new javax.swing.GroupLayout(panelJuego);
+        panelJuego.setLayout(panelJuegoLayout);
+        panelJuegoLayout.setHorizontalGroup(
+            panelJuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(lineaGameOver, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
         );
-        PanelJuegoLayout.setVerticalGroup(
-            PanelJuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelJuegoLayout.createSequentialGroup()
+        panelJuegoLayout.setVerticalGroup(
+            panelJuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelJuegoLayout.createSequentialGroup()
                 .addGap(99, 99, 99)
                 .addComponent(lineaGameOver)
                 .addContainerGap(399, Short.MAX_VALUE))
         );
 
-        lineaGameOver.getAccessibleContext().setAccessibleParent(PantallaJuego);
+        lineaGameOver.getAccessibleContext().setAccessibleParent(pantallaJuego);
 
-        javax.swing.GroupLayout PantallaJuegoLayout = new javax.swing.GroupLayout(PantallaJuego.getContentPane());
-        PantallaJuego.getContentPane().setLayout(PantallaJuegoLayout);
-        PantallaJuegoLayout.setHorizontalGroup(
-            PantallaJuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PantallaJuegoLayout.createSequentialGroup()
-                .addComponent(PanelJuego, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        javax.swing.GroupLayout pantallaJuegoLayout = new javax.swing.GroupLayout(pantallaJuego.getContentPane());
+        pantallaJuego.getContentPane().setLayout(pantallaJuegoLayout);
+        pantallaJuegoLayout.setHorizontalGroup(
+            pantallaJuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pantallaJuegoLayout.createSequentialGroup()
+                .addComponent(panelJuego, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(FondoNombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(fondoNombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(32, Short.MAX_VALUE))
         );
-        PantallaJuegoLayout.setVerticalGroup(
-            PantallaJuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PantallaJuegoLayout.createSequentialGroup()
-                .addGroup(PantallaJuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(PanelJuego, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(FondoNombres, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        pantallaJuegoLayout.setVerticalGroup(
+            pantallaJuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pantallaJuegoLayout.createSequentialGroup()
+                .addGroup(pantallaJuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelJuego, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fondoNombres, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        PantallaAjustes.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        PantallaAjustes.setMinimumSize(new java.awt.Dimension(350, 350));
-        PantallaAjustes.setResizable(false);
+        pantallaAjustes.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        pantallaAjustes.setMinimumSize(new java.awt.Dimension(350, 350));
+        pantallaAjustes.setResizable(false);
 
-        PanelAjustes.setBackground(new java.awt.Color(0, 51, 51));
+        panelAjustes.setBackground(new java.awt.Color(0, 51, 51));
 
-        BotonCambiarColor.setText("Cambiar color de fondo");
-        BotonCambiarColor.addActionListener(new java.awt.event.ActionListener() {
+        botonCambiarColor.setText("Cambiar color de fondo");
+        botonCambiarColor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonCambiarColorActionPerformed(evt);
+                botonCambiarColorActionPerformed(evt);
             }
         });
 
-        BotonDificultad.setText("dificultad");
-        BotonDificultad.addActionListener(new java.awt.event.ActionListener() {
+        botonDificultad.setText("dificultad");
+        botonDificultad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonDificultadActionPerformed(evt);
+                botonDificultadActionPerformed(evt);
             }
         });
 
-        BotonSalirAjustes.setText("Salir");
-        BotonSalirAjustes.addActionListener(new java.awt.event.ActionListener() {
+        botonSalirAjustes.setText("Salir");
+        botonSalirAjustes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonSalirAjustesActionPerformed(evt);
+                botonSalirAjustesActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout PanelAjustesLayout = new javax.swing.GroupLayout(PanelAjustes);
-        PanelAjustes.setLayout(PanelAjustesLayout);
-        PanelAjustesLayout.setHorizontalGroup(
-            PanelAjustesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelAjustesLayout.createSequentialGroup()
-                .addGroup(PanelAjustesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelAjustesLayout.createSequentialGroup()
+        javax.swing.GroupLayout panelAjustesLayout = new javax.swing.GroupLayout(panelAjustes);
+        panelAjustes.setLayout(panelAjustesLayout);
+        panelAjustesLayout.setHorizontalGroup(
+            panelAjustesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelAjustesLayout.createSequentialGroup()
+                .addGroup(panelAjustesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelAjustesLayout.createSequentialGroup()
                         .addGap(79, 79, 79)
-                        .addComponent(BotonCambiarColor))
-                    .addGroup(PanelAjustesLayout.createSequentialGroup()
+                        .addComponent(botonCambiarColor))
+                    .addGroup(panelAjustesLayout.createSequentialGroup()
                         .addGap(108, 108, 108)
-                        .addComponent(BotonDificultad, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PanelAjustesLayout.createSequentialGroup()
+                        .addComponent(botonDificultad, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelAjustesLayout.createSequentialGroup()
                         .addGap(118, 118, 118)
-                        .addComponent(BotonSalirAjustes)))
+                        .addComponent(botonSalirAjustes)))
                 .addContainerGap(115, Short.MAX_VALUE))
         );
-        PanelAjustesLayout.setVerticalGroup(
-            PanelAjustesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelAjustesLayout.createSequentialGroup()
+        panelAjustesLayout.setVerticalGroup(
+            panelAjustesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAjustesLayout.createSequentialGroup()
                 .addGap(55, 55, 55)
-                .addComponent(BotonCambiarColor, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(botonCambiarColor, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(BotonDificultad, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(botonDificultad, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(BotonSalirAjustes)
+                .addComponent(botonSalirAjustes)
                 .addContainerGap(147, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout PantallaAjustesLayout = new javax.swing.GroupLayout(PantallaAjustes.getContentPane());
-        PantallaAjustes.getContentPane().setLayout(PantallaAjustesLayout);
-        PantallaAjustesLayout.setHorizontalGroup(
-            PantallaAjustesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PanelAjustes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        javax.swing.GroupLayout pantallaAjustesLayout = new javax.swing.GroupLayout(pantallaAjustes.getContentPane());
+        pantallaAjustes.getContentPane().setLayout(pantallaAjustesLayout);
+        pantallaAjustesLayout.setHorizontalGroup(
+            pantallaAjustesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelAjustes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        PantallaAjustesLayout.setVerticalGroup(
-            PantallaAjustesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PanelAjustes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        pantallaAjustesLayout.setVerticalGroup(
+            pantallaAjustesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelAjustes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        PantallaDificultad.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        PantallaDificultad.setMinimumSize(new java.awt.Dimension(550, 350));
-        PantallaDificultad.setResizable(false);
+        pantallaDificultad.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        pantallaDificultad.setMinimumSize(new java.awt.Dimension(550, 350));
+        pantallaDificultad.setResizable(false);
 
-        PanelDificultad.setBackground(new java.awt.Color(0, 51, 51));
+        panelDificultad.setBackground(new java.awt.Color(0, 51, 51));
 
-        BotonSalirDificultad.setText("Salir");
-        BotonSalirDificultad.addActionListener(new java.awt.event.ActionListener() {
+        botonSalirDificultad.setText("Salir");
+        botonSalirDificultad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonSalirDificultadActionPerformed(evt);
+                botonSalirDificultadActionPerformed(evt);
             }
         });
 
-        BotonAceptarDificultad.setText("Aceptar");
-        BotonAceptarDificultad.addActionListener(new java.awt.event.ActionListener() {
+        botonAceptarDificultad.setText("Aceptar");
+        botonAceptarDificultad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonAceptarDificultadActionPerformed(evt);
+                botonAceptarDificultadActionPerformed(evt);
             }
         });
 
-        MarcadorDificultad.setForeground(new java.awt.Color(255, 255, 255));
-        MarcadorDificultad.setMajorTickSpacing(1);
-        MarcadorDificultad.setMaximum(10);
-        MarcadorDificultad.setMinorTickSpacing(1);
-        MarcadorDificultad.setPaintLabels(true);
-        MarcadorDificultad.setPaintTicks(true);
-        MarcadorDificultad.setValue(0);
+        marcadorDificultad.setForeground(new java.awt.Color(255, 255, 255));
+        marcadorDificultad.setMajorTickSpacing(1);
+        marcadorDificultad.setMaximum(10);
+        marcadorDificultad.setMinorTickSpacing(1);
+        marcadorDificultad.setPaintLabels(true);
+        marcadorDificultad.setPaintTicks(true);
+        marcadorDificultad.setValue(0);
 
-        javax.swing.GroupLayout PanelDificultadLayout = new javax.swing.GroupLayout(PanelDificultad);
-        PanelDificultad.setLayout(PanelDificultadLayout);
-        PanelDificultadLayout.setHorizontalGroup(
-            PanelDificultadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelDificultadLayout.createSequentialGroup()
+        javax.swing.GroupLayout panelDificultadLayout = new javax.swing.GroupLayout(panelDificultad);
+        panelDificultad.setLayout(panelDificultadLayout);
+        panelDificultadLayout.setHorizontalGroup(
+            panelDificultadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelDificultadLayout.createSequentialGroup()
                 .addGap(163, 163, 163)
-                .addComponent(MarcadorDificultad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(marcadorDificultad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelDificultadLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDificultadLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addComponent(BotonAceptarDificultad, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(botonAceptarDificultad, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 188, Short.MAX_VALUE)
-                .addComponent(BotonSalirDificultad, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(botonSalirDificultad, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39))
         );
-        PanelDificultadLayout.setVerticalGroup(
-            PanelDificultadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelDificultadLayout.createSequentialGroup()
+        panelDificultadLayout.setVerticalGroup(
+            panelDificultadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelDificultadLayout.createSequentialGroup()
                 .addGap(66, 66, 66)
-                .addComponent(MarcadorDificultad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(marcadorDificultad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(99, 99, 99)
-                .addGroup(PanelDificultadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BotonSalirDificultad, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BotonAceptarDificultad, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panelDificultadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botonSalirDificultad, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonAceptarDificultad, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(28, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout PantallaDificultadLayout = new javax.swing.GroupLayout(PantallaDificultad.getContentPane());
-        PantallaDificultad.getContentPane().setLayout(PantallaDificultadLayout);
-        PantallaDificultadLayout.setHorizontalGroup(
-            PantallaDificultadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PantallaDificultadLayout.createSequentialGroup()
-                .addComponent(PanelDificultad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        javax.swing.GroupLayout pantallaDificultadLayout = new javax.swing.GroupLayout(pantallaDificultad.getContentPane());
+        pantallaDificultad.getContentPane().setLayout(pantallaDificultadLayout);
+        pantallaDificultadLayout.setHorizontalGroup(
+            pantallaDificultadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pantallaDificultadLayout.createSequentialGroup()
+                .addComponent(panelDificultad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
-        PantallaDificultadLayout.setVerticalGroup(
-            PantallaDificultadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PantallaDificultadLayout.createSequentialGroup()
-                .addComponent(PanelDificultad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        pantallaDificultadLayout.setVerticalGroup(
+            pantallaDificultadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pantallaDificultadLayout.createSequentialGroup()
+                .addComponent(panelDificultad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        PantallaCambiarDeColor.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        PantallaCambiarDeColor.setMinimumSize(new java.awt.Dimension(700, 450));
-        PantallaCambiarDeColor.setResizable(false);
+        pantallaCambiarDeColor.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        pantallaCambiarDeColor.setMinimumSize(new java.awt.Dimension(700, 450));
+        pantallaCambiarDeColor.setResizable(false);
 
-        PanelColoresFondo.setBackground(new java.awt.Color(0, 51, 51));
-        PanelColoresFondo.setMinimumSize(new java.awt.Dimension(500, 500));
+        panelColoresFondo.setBackground(new java.awt.Color(0, 51, 51));
+        panelColoresFondo.setMinimumSize(new java.awt.Dimension(500, 500));
 
         BotonAceptarColores.setText("Aceptar");
         BotonAceptarColores.addActionListener(new java.awt.event.ActionListener() {
@@ -433,73 +433,75 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout PanelColoresFondoLayout = new javax.swing.GroupLayout(PanelColoresFondo);
-        PanelColoresFondo.setLayout(PanelColoresFondoLayout);
-        PanelColoresFondoLayout.setHorizontalGroup(
-            PanelColoresFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelColoresFondoLayout.createSequentialGroup()
+        javax.swing.GroupLayout panelColoresFondoLayout = new javax.swing.GroupLayout(panelColoresFondo);
+        panelColoresFondo.setLayout(panelColoresFondoLayout);
+        panelColoresFondoLayout.setHorizontalGroup(
+            panelColoresFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelColoresFondoLayout.createSequentialGroup()
                 .addGap(62, 62, 62)
                 .addComponent(BotonAceptarColores)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 322, Short.MAX_VALUE)
                 .addComponent(BotonSalirColores)
                 .addGap(124, 124, 124))
         );
-        PanelColoresFondoLayout.setVerticalGroup(
-            PanelColoresFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelColoresFondoLayout.createSequentialGroup()
+        panelColoresFondoLayout.setVerticalGroup(
+            panelColoresFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelColoresFondoLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addGroup(PanelColoresFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panelColoresFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BotonAceptarColores)
                     .addComponent(BotonSalirColores))
                 .addContainerGap(463, Short.MAX_VALUE))
         );
 
-        PanelColores.setBackground(new java.awt.Color(0, 102, 102));
+        panelColores.setBackground(new java.awt.Color(0, 102, 102));
 
-        javax.swing.GroupLayout PantallaCambiarDeColorLayout = new javax.swing.GroupLayout(PantallaCambiarDeColor.getContentPane());
-        PantallaCambiarDeColor.getContentPane().setLayout(PantallaCambiarDeColorLayout);
-        PantallaCambiarDeColorLayout.setHorizontalGroup(
-            PantallaCambiarDeColorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PantallaCambiarDeColorLayout.createSequentialGroup()
+        javax.swing.GroupLayout pantallaCambiarDeColorLayout = new javax.swing.GroupLayout(pantallaCambiarDeColor.getContentPane());
+        pantallaCambiarDeColor.getContentPane().setLayout(pantallaCambiarDeColorLayout);
+        pantallaCambiarDeColorLayout.setHorizontalGroup(
+            pantallaCambiarDeColorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pantallaCambiarDeColorLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(PanelColores, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelColores, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(335, Short.MAX_VALUE))
-            .addGroup(PantallaCambiarDeColorLayout.createSequentialGroup()
-                .addComponent(PanelColoresFondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(pantallaCambiarDeColorLayout.createSequentialGroup()
+                .addComponent(panelColoresFondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
-        PantallaCambiarDeColorLayout.setVerticalGroup(
-            PantallaCambiarDeColorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PantallaCambiarDeColorLayout.createSequentialGroup()
+        pantallaCambiarDeColorLayout.setVerticalGroup(
+            pantallaCambiarDeColorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pantallaCambiarDeColorLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(PanelColores, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelColores, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(PanelColoresFondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelColoresFondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(305, 305, 305))
         );
 
-        PantallaGameOver.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        PantallaGameOver.setMinimumSize(new java.awt.Dimension(380, 350));
-        PantallaGameOver.setResizable(false);
+        pantallaGameOver.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        pantallaGameOver.setMaximumSize(new java.awt.Dimension(380, 350));
+        pantallaGameOver.setMinimumSize(new java.awt.Dimension(380, 350));
+        pantallaGameOver.setPreferredSize(new java.awt.Dimension(380, 350));
+        pantallaGameOver.setResizable(false);
 
-        PanelGameOver.setBackground(new java.awt.Color(0, 0, 0));
+        panelGameOver.setBackground(new java.awt.Color(0, 0, 0));
 
-        LabelGameOver.setForeground(new java.awt.Color(255, 255, 255));
-        LabelGameOver.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        LabelGameOver.setText("GAME OVER");
-        LabelGameOver.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 255, 255)));
+        labelGameOver.setForeground(new java.awt.Color(255, 255, 255));
+        labelGameOver.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelGameOver.setText("GAME OVER");
+        labelGameOver.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 255, 255)));
 
-        BotonReinicio.setText("Reiniciar");
-        BotonReinicio.addActionListener(new java.awt.event.ActionListener() {
+        botonReinicio.setText("Reiniciar");
+        botonReinicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonReinicioActionPerformed(evt);
+                botonReinicioActionPerformed(evt);
             }
         });
 
-        BotonSalir.setText("Salir");
-        BotonSalir.addActionListener(new java.awt.event.ActionListener() {
+        botonSalir.setText("Salir");
+        botonSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonSalirActionPerformed(evt);
+                botonSalirActionPerformed(evt);
             }
         });
 
@@ -507,114 +509,114 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         puntuacionGameOver.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         puntuacionGameOver.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 255, 255)));
 
-        javax.swing.GroupLayout PanelGameOverLayout = new javax.swing.GroupLayout(PanelGameOver);
-        PanelGameOver.setLayout(PanelGameOverLayout);
-        PanelGameOverLayout.setHorizontalGroup(
-            PanelGameOverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelGameOverLayout.createSequentialGroup()
+        javax.swing.GroupLayout panelGameOverLayout = new javax.swing.GroupLayout(panelGameOver);
+        panelGameOver.setLayout(panelGameOverLayout);
+        panelGameOverLayout.setHorizontalGroup(
+            panelGameOverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelGameOverLayout.createSequentialGroup()
                 .addGap(68, 68, 68)
-                .addComponent(BotonReinicio)
+                .addComponent(botonReinicio)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
-                .addComponent(BotonSalir)
+                .addComponent(botonSalir)
                 .addGap(81, 81, 81))
-            .addGroup(PanelGameOverLayout.createSequentialGroup()
-                .addGroup(PanelGameOverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelGameOverLayout.createSequentialGroup()
+            .addGroup(panelGameOverLayout.createSequentialGroup()
+                .addGroup(panelGameOverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelGameOverLayout.createSequentialGroup()
                         .addGap(132, 132, 132)
-                        .addComponent(LabelGameOver, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PanelGameOverLayout.createSequentialGroup()
+                        .addComponent(labelGameOver, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelGameOverLayout.createSequentialGroup()
                         .addGap(113, 113, 113)
                         .addComponent(puntuacionGameOver, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        PanelGameOverLayout.setVerticalGroup(
-            PanelGameOverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelGameOverLayout.createSequentialGroup()
+        panelGameOverLayout.setVerticalGroup(
+            panelGameOverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelGameOverLayout.createSequentialGroup()
                 .addGap(86, 86, 86)
-                .addComponent(LabelGameOver, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(labelGameOver, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addComponent(puntuacionGameOver, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addGroup(PanelGameOverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BotonSalir)
-                    .addComponent(BotonReinicio))
+                .addGroup(panelGameOverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botonSalir)
+                    .addComponent(botonReinicio))
                 .addGap(116, 116, 116))
         );
 
-        javax.swing.GroupLayout PantallaGameOverLayout = new javax.swing.GroupLayout(PantallaGameOver.getContentPane());
-        PantallaGameOver.getContentPane().setLayout(PantallaGameOverLayout);
-        PantallaGameOverLayout.setHorizontalGroup(
-            PantallaGameOverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PanelGameOver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        javax.swing.GroupLayout pantallaGameOverLayout = new javax.swing.GroupLayout(pantallaGameOver.getContentPane());
+        pantallaGameOver.getContentPane().setLayout(pantallaGameOverLayout);
+        pantallaGameOverLayout.setHorizontalGroup(
+            pantallaGameOverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelGameOver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        PantallaGameOverLayout.setVerticalGroup(
-            PantallaGameOverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PanelGameOver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        pantallaGameOverLayout.setVerticalGroup(
+            pantallaGameOverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelGameOver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tetris");
         setResizable(false);
 
-        Inicio.setBackground(new java.awt.Color(0, 51, 51));
+        inicio.setBackground(new java.awt.Color(0, 51, 51));
 
-        Jugar.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        Jugar.setText("Jugar");
-        Jugar.addActionListener(new java.awt.event.ActionListener() {
+        jugar.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        jugar.setText("Jugar");
+        jugar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JugarActionPerformed(evt);
+                jugarActionPerformed(evt);
             }
         });
 
-        Ajustes.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        Ajustes.setText("Ajustes");
-        Ajustes.addActionListener(new java.awt.event.ActionListener() {
+        ajustes.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        ajustes.setText("Ajustes");
+        ajustes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AjustesActionPerformed(evt);
+                ajustesActionPerformed(evt);
             }
         });
 
-        Salir.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        Salir.setText("Salir");
-        Salir.addActionListener(new java.awt.event.ActionListener() {
+        salir.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        salir.setText("Salir");
+        salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SalirActionPerformed(evt);
+                salirActionPerformed(evt);
             }
         });
 
-        Titulo.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
-        Titulo.setForeground(new java.awt.Color(255, 255, 255));
-        Titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Titulo.setText("TETRIS ");
+        titulo.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
+        titulo.setForeground(new java.awt.Color(255, 255, 255));
+        titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        titulo.setText("TETRIS ");
 
-        javax.swing.GroupLayout InicioLayout = new javax.swing.GroupLayout(Inicio);
-        Inicio.setLayout(InicioLayout);
-        InicioLayout.setHorizontalGroup(
-            InicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(InicioLayout.createSequentialGroup()
-                .addGroup(InicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(InicioLayout.createSequentialGroup()
+        javax.swing.GroupLayout inicioLayout = new javax.swing.GroupLayout(inicio);
+        inicio.setLayout(inicioLayout);
+        inicioLayout.setHorizontalGroup(
+            inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(inicioLayout.createSequentialGroup()
+                .addGroup(inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(inicioLayout.createSequentialGroup()
                         .addGap(78, 78, 78)
-                        .addGroup(InicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(Salir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Ajustes, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
-                            .addComponent(Jugar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(InicioLayout.createSequentialGroup()
+                        .addGroup(inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(salir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ajustes, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
+                            .addComponent(jugar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(inicioLayout.createSequentialGroup()
                         .addGap(95, 95, 95)
-                        .addComponent(Titulo)))
+                        .addComponent(titulo)))
                 .addContainerGap(82, Short.MAX_VALUE))
         );
-        InicioLayout.setVerticalGroup(
-            InicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InicioLayout.createSequentialGroup()
+        inicioLayout.setVerticalGroup(
+            inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, inicioLayout.createSequentialGroup()
                 .addContainerGap(12, Short.MAX_VALUE)
-                .addComponent(Titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Jugar, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jugar, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(Ajustes, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ajustes, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(Salir, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(51, 51, 51))
         );
 
@@ -622,27 +624,27 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Inicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(inicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(Inicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(inicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        Inicio.getAccessibleContext().setAccessibleName("");
-        Inicio.getAccessibleContext().setAccessibleDescription("");
+        inicio.getAccessibleContext().setAccessibleName("");
+        inicio.getAccessibleContext().setAccessibleDescription("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JugarActionPerformed
+    private void jugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jugarActionPerformed
         iniciarPartida();
         resetTimerLabel();
         crearXogo();
         comprobarTimers();
-    }//GEN-LAST:event_JugarActionPerformed
+    }//GEN-LAST:event_jugarActionPerformed
 
     private void crearXogo() {
         xogo = new Xogo(this);
@@ -667,99 +669,99 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void iniciarPartida() {
         // TODO add your handling code here:
-        if(this.isVisible()){
-        this.setVisible(false);
+        if (this.isVisible()) {
+            this.setVisible(false);
         }
-        PanelJuego.removeAll();
-        PanelJuego.add(lineaGameOver);
-        PantallaJuego.setVisible(true);
-        PanelJuego.setFocusable(true);
-        PanelJuego.requestFocus();
+        panelJuego.removeAll();
+        panelJuego.add(lineaGameOver);
+        pantallaJuego.setVisible(true);
+        panelJuego.setFocusable(true);
+        panelJuego.requestFocus();
         labelPuntuacion.setText("0");
     }
 
     private void resetTimerLabel() {
         segundos = 0;
         minutos = 0;
-        TiempoEtiqueta.setText("0:" + minutos + ":" + segundos);
+        tiempoEtiqueta.setText("0:" + minutos + ":" + segundos);
     }
 
-    private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
+    private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
         // TODO add your handling code here:
         System.exit(0);
-    }//GEN-LAST:event_SalirActionPerformed
+    }//GEN-LAST:event_salirActionPerformed
 
-    private void BotonCambiarColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonCambiarColorActionPerformed
+    private void botonCambiarColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCambiarColorActionPerformed
         // TODO add your handling code here:
-        PantallaCambiarDeColor.setVisible(true);
-        PantallaAjustes.setVisible(false);
-    }//GEN-LAST:event_BotonCambiarColorActionPerformed
+        pantallaCambiarDeColor.setVisible(true);
+        pantallaAjustes.setVisible(false);
+    }//GEN-LAST:event_botonCambiarColorActionPerformed
 
-    private void BotonAceptarDificultadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAceptarDificultadActionPerformed
+    private void botonAceptarDificultadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAceptarDificultadActionPerformed
         timerDelay = defaultDelay;
-        PantallaDificultad.setVisible(false);
-        PantallaAjustes.setVisible(true);
-        timerDelay -= MarcadorDificultad.getValue() * 50;
+        pantallaDificultad.setVisible(false);
+        pantallaAjustes.setVisible(true);
+        timerDelay -= marcadorDificultad.getValue() * 50;
         lastDelay = timerDelay;
-    }//GEN-LAST:event_BotonAceptarDificultadActionPerformed
+    }//GEN-LAST:event_botonAceptarDificultadActionPerformed
 
-    private void BotonSalirDificultadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSalirDificultadActionPerformed
+    private void botonSalirDificultadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSalirDificultadActionPerformed
         // TODO add your handling code here:
-        PantallaDificultad.setVisible(false);
-        PantallaAjustes.setVisible(true);
-    }//GEN-LAST:event_BotonSalirDificultadActionPerformed
+        pantallaDificultad.setVisible(false);
+        pantallaAjustes.setVisible(true);
+    }//GEN-LAST:event_botonSalirDificultadActionPerformed
 
-    private void SalirJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirJuegoActionPerformed
+    private void salirJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirJuegoActionPerformed
         // TODO add your handling code here:
-        PantallaJuego.setVisible(false);
+        pantallaJuego.setVisible(false);
         this.setVisible(true);
         timerFicha.stop();
         timerContador.stop();
         timerDelay = lastDelay;
-    }//GEN-LAST:event_SalirJuegoActionPerformed
+    }//GEN-LAST:event_salirJuegoActionPerformed
 
-    private void AjustesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AjustesActionPerformed
+    private void ajustesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajustesActionPerformed
         // TODO add your handling code here:
-        PantallaAjustes.setVisible(true);
+        pantallaAjustes.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_AjustesActionPerformed
+    }//GEN-LAST:event_ajustesActionPerformed
 
-    private void BotonSalirAjustesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSalirAjustesActionPerformed
+    private void botonSalirAjustesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSalirAjustesActionPerformed
         // TODO add your handling code here:
-        PantallaAjustes.setVisible(false);
+        pantallaAjustes.setVisible(false);
         this.setVisible(true);
-    }//GEN-LAST:event_BotonSalirAjustesActionPerformed
+    }//GEN-LAST:event_botonSalirAjustesActionPerformed
 
-    private void BotonDificultadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonDificultadActionPerformed
+    private void botonDificultadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonDificultadActionPerformed
         // TODO add your handling code here:
-        PantallaDificultad.setVisible(true);
-        PantallaAjustes.setVisible(false);
-    }//GEN-LAST:event_BotonDificultadActionPerformed
+        pantallaDificultad.setVisible(true);
+        pantallaAjustes.setVisible(false);
+    }//GEN-LAST:event_botonDificultadActionPerformed
 
     private void BotonSalirColoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSalirColoresActionPerformed
         // TODO add your handling code here:
-        PantallaCambiarDeColor.setVisible(false);
-        PantallaAjustes.setVisible(true);
+        pantallaCambiarDeColor.setVisible(false);
+        pantallaAjustes.setVisible(true);
     }//GEN-LAST:event_BotonSalirColoresActionPerformed
 
     private void BotonAceptarColoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAceptarColoresActionPerformed
         // TODO add your handling code here:
-        PantallaCambiarDeColor.setVisible(false);
-        PantallaAjustes.setVisible(true);
-        PanelJuego.setBackground(PanelColores.getColor());
-        SiguienteFicha.setBackground(PanelColores.getColor());
-        Puntos.setBackground(PanelColores.getColor());
-        LineasEliminadas.setBackground(PanelColores.getColor());
-        PanelAjustes.setBackground(PanelColores.getColor());
-        PanelDificultad.setBackground(PanelColores.getColor());
-        Inicio.setBackground(PanelColores.getColor());
-        PanelColoresFondo.setBackground(PanelColores.getColor());
-        PanelGameOver.setBackground(PanelColores.getColor());
+        pantallaCambiarDeColor.setVisible(false);
+        pantallaAjustes.setVisible(true);
+        panelJuego.setBackground(panelColores.getColor());
+        siguienteFicha.setBackground(panelColores.getColor());
+        puntos.setBackground(panelColores.getColor());
+        lineasEliminadas.setBackground(panelColores.getColor());
+        panelAjustes.setBackground(panelColores.getColor());
+        panelDificultad.setBackground(panelColores.getColor());
+        inicio.setBackground(panelColores.getColor());
+        panelColoresFondo.setBackground(panelColores.getColor());
+        panelGameOver.setBackground(panelColores.getColor());
     }//GEN-LAST:event_BotonAceptarColoresActionPerformed
 
-    private void BotonPausaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonPausaActionPerformed
+    private void botonPausaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonPausaActionPerformed
         // TODO add your handling code here:
-        if (BotonPausa.isSelected()) {
+        if (botonPausa.isSelected()) {
             timerFicha.stop();
             timerContador.stop();
             xogo.setPausa(true);
@@ -767,11 +769,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             timerFicha.start();
             timerContador.start();
             xogo.setPausa(false);
-            PanelJuego.requestFocus();
+            panelJuego.requestFocus();
         }
-    }//GEN-LAST:event_BotonPausaActionPerformed
+    }//GEN-LAST:event_botonPausaActionPerformed
 
-    private void PanelJuegoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PanelJuegoKeyPressed
+    private void panelJuegoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_panelJuegoKeyPressed
 
         if (!xogo.isPausa()) {
             if (evt.getKeyChar() == 'a') {
@@ -787,23 +789,23 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 xogo.moverFichaAbaixo();
             }
         }
-    }//GEN-LAST:event_PanelJuegoKeyPressed
+    }//GEN-LAST:event_panelJuegoKeyPressed
 
-    private void BotonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSalirActionPerformed
+    private void botonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSalirActionPerformed
         // TODO add your handling code here:
         System.exit(0);
-    }//GEN-LAST:event_BotonSalirActionPerformed
+    }//GEN-LAST:event_botonSalirActionPerformed
 
-    private void BotonReinicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonReinicioActionPerformed
+    private void botonReinicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonReinicioActionPerformed
         // TODO add your handling code here:
-        PantallaGameOver.setVisible(false);
-        PantallaJuego.setVisible(true);
+        pantallaGameOver.setVisible(false);
+        pantallaJuego.setVisible(true);
         timerFicha.start();
         resetTimerLabel();
         timerContador.start();
         iniciarPartida();
         crearXogo();
-    }//GEN-LAST:event_BotonReinicioActionPerformed
+    }//GEN-LAST:event_botonReinicioActionPerformed
 
     private void lineaGameOverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lineaGameOverActionPerformed
         // TODO add your handling code here:
@@ -811,39 +813,39 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     public void pintarCadrado(javax.swing.JLabel cadrado) {
 
-        PanelJuego.add(cadrado);
+        panelJuego.add(cadrado);
         cadrado.setOpaque(true);
-        PanelJuego.updateUI();
+        panelJuego.updateUI();
     }
 
     public void borrarCadrado(javax.swing.JLabel cadrado) {
-        PanelJuego.remove(cadrado);
-        PanelJuego.updateUI();
+        panelJuego.remove(cadrado);
+        panelJuego.updateUI();
     }
 
-    public void mostrarNumeroLinas(int numeroLinas){
-        ContadorLineas.setText(numeroLinas+"");
+    public void mostrarNumeroLinas(int numeroLinas) {
+        contadorLineas.setText(numeroLinas + "");
     }
-    
-    public void mostrarPuntuacion(int puntuacion){
-        labelPuntuacion.setText(puntuacion+"");
+
+    public void mostrarPuntuacion(int puntuacion) {
+        labelPuntuacion.setText(puntuacion + "");
     }
-    
+
     public void subirDificultade() {
         if (timerDelay >= 200) {
             timerDelay -= 150;
             timerFicha.setDelay(timerDelay);
         }
     }
-    
-    public void mostrarFinDoXogo(){
-        
+
+    public void mostrarFinDoXogo() {
+
         timerFicha.stop();
         timerContador.stop();
-        PantallaJuego.setVisible(false);
-        PantallaGameOver.setVisible(true);
-        puntuacionGameOver.setText("Puntuacion: "+labelPuntuacion.getText());
-        
+        pantallaJuego.setVisible(false);
+        pantallaGameOver.setVisible(true);
+        puntuacionGameOver.setText("Puntuacion: " + labelPuntuacion.getText());
+
     }
 
     /**
@@ -889,6 +891,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             xogo.incrementarPuntuacion();
         });
     }
+
     private void iniciarTimerContador() {
         this.timerContador = new Timer(1000, (ActionEvent e) -> {
 
@@ -899,52 +902,52 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 segundos = 0;
                 minutos++;
             }
-            TiempoEtiqueta.setText("0:" + minutos + ":" + segundos);
+            tiempoEtiqueta.setText("0:" + minutos + ":" + segundos);
 
         });
     }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Ajustes;
     private javax.swing.JButton BotonAceptarColores;
-    private javax.swing.JButton BotonAceptarDificultad;
-    private javax.swing.JButton BotonCambiarColor;
-    private javax.swing.JButton BotonDificultad;
-    private javax.swing.JToggleButton BotonPausa;
-    private javax.swing.JButton BotonReinicio;
-    private javax.swing.JButton BotonSalir;
-    private javax.swing.JButton BotonSalirAjustes;
     private javax.swing.JButton BotonSalirColores;
-    private javax.swing.JButton BotonSalirDificultad;
-    private javax.swing.JLabel ContadorLineas;
-    private javax.swing.JPanel FondoNombres;
-    private javax.swing.JPanel Inicio;
-    private javax.swing.JButton Jugar;
-    private javax.swing.JLabel LabelGameOver;
-    private javax.swing.JPanel LineasEliminadas;
-    private javax.swing.JLabel LineasEliminadasLabel;
-    private javax.swing.JSlider MarcadorDificultad;
-    private javax.swing.JPanel PanelAjustes;
-    private javax.swing.JColorChooser PanelColores;
-    private javax.swing.JPanel PanelColoresFondo;
-    private javax.swing.JPanel PanelDificultad;
-    private javax.swing.JPanel PanelGameOver;
-    private javax.swing.JPanel PanelJuego;
-    private javax.swing.JFrame PantallaAjustes;
-    private javax.swing.JFrame PantallaCambiarDeColor;
-    private javax.swing.JFrame PantallaDificultad;
-    private javax.swing.JFrame PantallaGameOver;
-    private javax.swing.JFrame PantallaJuego;
-    private javax.swing.JPanel Puntos;
-    private javax.swing.JLabel PuntosLabel;
-    private javax.swing.JButton Salir;
-    private javax.swing.JButton SalirJuego;
-    private javax.swing.JPanel SiguienteFicha;
-    private javax.swing.JLabel TiempoEtiqueta;
-    private javax.swing.JLabel Titulo;
+    private javax.swing.JButton ajustes;
+    private javax.swing.JButton botonAceptarDificultad;
+    private javax.swing.JButton botonCambiarColor;
+    private javax.swing.JButton botonDificultad;
+    private javax.swing.JToggleButton botonPausa;
+    private javax.swing.JButton botonReinicio;
+    private javax.swing.JButton botonSalir;
+    private javax.swing.JButton botonSalirAjustes;
+    private javax.swing.JButton botonSalirDificultad;
+    private javax.swing.JLabel contadorLineas;
+    private javax.swing.JPanel fondoNombres;
+    private javax.swing.JPanel inicio;
+    private javax.swing.JButton jugar;
+    private javax.swing.JLabel labelGameOver;
     private javax.swing.JLabel labelPuntuacion;
     private javax.swing.JButton lineaGameOver;
+    private javax.swing.JPanel lineasEliminadas;
+    private javax.swing.JLabel lineasEliminadasLabel;
+    private javax.swing.JSlider marcadorDificultad;
+    private javax.swing.JPanel panelAjustes;
+    private javax.swing.JColorChooser panelColores;
+    private javax.swing.JPanel panelColoresFondo;
+    private javax.swing.JPanel panelDificultad;
+    private javax.swing.JPanel panelGameOver;
+    private javax.swing.JPanel panelJuego;
+    private javax.swing.JFrame pantallaAjustes;
+    private javax.swing.JFrame pantallaCambiarDeColor;
+    private javax.swing.JFrame pantallaDificultad;
+    private javax.swing.JFrame pantallaGameOver;
+    private javax.swing.JFrame pantallaJuego;
+    private javax.swing.JPanel puntos;
+    private javax.swing.JLabel puntosLabel;
     private javax.swing.JLabel puntuacionGameOver;
+    private javax.swing.JButton salir;
+    private javax.swing.JButton salirJuego;
+    private javax.swing.JPanel siguienteFicha;
+    private javax.swing.JLabel tiempoEtiqueta;
+    private javax.swing.JLabel titulo;
     // End of variables declaration//GEN-END:variables
 }

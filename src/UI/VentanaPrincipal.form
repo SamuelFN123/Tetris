@@ -2,7 +2,7 @@
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
-    <Container class="javax.swing.JFrame" name="PantallaJuego">
+    <Container class="javax.swing.JFrame" name="pantallaJuego">
       <Properties>
         <Property name="defaultCloseOperation" type="int" value="3"/>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -18,9 +18,9 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <Component id="PanelJuego" min="-2" max="-2" attributes="0"/>
+                  <Component id="panelJuego" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="FondoNombres" min="-2" max="-2" attributes="0"/>
+                  <Component id="fondoNombres" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="32" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -29,8 +29,8 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="PanelJuego" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="FondoNombres" alignment="0" max="-2" attributes="0"/>
+                      <Component id="panelJuego" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="fondoNombres" alignment="0" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -38,7 +38,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Container class="javax.swing.JPanel" name="FondoNombres">
+        <Container class="javax.swing.JPanel" name="fondoNombres">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
@@ -60,9 +60,9 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace pref="20" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="LineasEliminadas" max="32767" attributes="0"/>
-                          <Component id="Puntos" max="32767" attributes="0"/>
-                          <Component id="SiguienteFicha" min="-2" max="-2" attributes="0"/>
+                          <Component id="lineasEliminadas" max="32767" attributes="0"/>
+                          <Component id="puntos" max="32767" attributes="0"/>
+                          <Component id="siguienteFicha" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                   </Group>
@@ -72,31 +72,31 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-                      <Component id="SiguienteFicha" min="-2" max="-2" attributes="0"/>
+                      <Component id="siguienteFicha" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
-                      <Component id="Puntos" linkSize="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="puntos" linkSize="1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="LineasEliminadas" linkSize="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="lineasEliminadas" linkSize="1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="118" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Container class="javax.swing.JPanel" name="SiguienteFicha">
+            <Container class="javax.swing.JPanel" name="siguienteFicha">
 
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="TiempoEtiqueta" min="-2" pref="84" max="-2" attributes="0"/>
+                          <Component id="tiempoEtiqueta" min="-2" pref="84" max="-2" attributes="0"/>
                           <EmptySpace pref="33" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
-                          <Component id="SalirJuego" min="-2" pref="57" max="-2" attributes="0"/>
+                          <Component id="salirJuego" min="-2" pref="57" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="BotonPausa" min="-2" pref="54" max="-2" attributes="0"/>
+                          <Component id="botonPausa" min="-2" pref="54" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -105,11 +105,11 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="TiempoEtiqueta" min="-2" pref="26" max="-2" attributes="0"/>
+                          <Component id="tiempoEtiqueta" min="-2" pref="26" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="SalirJuego" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="BotonPausa" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="salirJuego" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="botonPausa" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="6" max="32767" attributes="0"/>
                       </Group>
@@ -117,37 +117,37 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="TiempoEtiqueta">
+                <Component class="javax.swing.JLabel" name="tiempoEtiqueta">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="00:00:00"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="SalirJuego">
+                <Component class="javax.swing.JButton" name="salirJuego">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Salir"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SalirJuegoActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="salirJuegoActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JToggleButton" name="BotonPausa">
+                <Component class="javax.swing.JToggleButton" name="botonPausa">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="| |"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonPausaActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonPausaActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="Puntos">
+            <Container class="javax.swing.JPanel" name="puntos">
 
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="PuntosLabel" max="32767" attributes="0"/>
+                          <Component id="puntosLabel" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -161,7 +161,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="PuntosLabel" min="-2" max="-2" attributes="0"/>
+                          <Component id="puntosLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                           <Component id="labelPuntuacion" min="-2" pref="35" max="-2" attributes="0"/>
                           <EmptySpace pref="9" max="32767" attributes="0"/>
@@ -170,7 +170,7 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="PuntosLabel">
+                <Component class="javax.swing.JLabel" name="puntosLabel">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="12" style="0"/>
@@ -190,19 +190,19 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="LineasEliminadas">
+            <Container class="javax.swing.JPanel" name="lineasEliminadas">
 
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="LineasEliminadasLabel" max="32767" attributes="0"/>
+                          <Component id="lineasEliminadasLabel" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                          <Component id="ContadorLineas" min="-2" pref="49" max="-2" attributes="0"/>
+                          <Component id="contadorLineas" min="-2" pref="49" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -211,22 +211,22 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="LineasEliminadasLabel" min="-2" max="-2" attributes="0"/>
+                          <Component id="lineasEliminadasLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="ContadorLineas" pref="42" max="32767" attributes="0"/>
+                          <Component id="contadorLineas" pref="42" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="LineasEliminadasLabel">
+                <Component class="javax.swing.JLabel" name="lineasEliminadasLabel">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Lineas Eliminadas:"/>
                     <Property name="verticalAlignment" type="int" value="1"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="ContadorLineas">
+                <Component class="javax.swing.JLabel" name="contadorLineas">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="24" style="0"/>
@@ -239,7 +239,7 @@
             </Container>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="PanelJuego">
+        <Container class="javax.swing.JPanel" name="panelJuego">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="33" red="0" type="rgb"/>
@@ -256,7 +256,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="PanelJuegoKeyPressed"/>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="panelJuegoKeyPressed"/>
           </Events>
 
           <Layout>
@@ -294,7 +294,7 @@
               </Properties>
               <AccessibilityProperties>
                 <Property name="AccessibleContext.accessibleParent" type="javax.accessibility.Accessible" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                  <ComponentRef name="PantallaJuego"/>
+                  <ComponentRef name="pantallaJuego"/>
                 </Property>
               </AccessibilityProperties>
               <Events>
@@ -305,7 +305,7 @@
         </Container>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JFrame" name="PantallaAjustes">
+    <Container class="javax.swing.JFrame" name="pantallaAjustes">
       <Properties>
         <Property name="defaultCloseOperation" type="int" value="3"/>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -317,17 +317,17 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="PanelAjustes" max="32767" attributes="0"/>
+              <Component id="panelAjustes" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="PanelAjustes" alignment="1" max="32767" attributes="0"/>
+              <Component id="panelAjustes" alignment="1" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Container class="javax.swing.JPanel" name="PanelAjustes">
+        <Container class="javax.swing.JPanel" name="panelAjustes">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="33" red="0" type="rgb"/>
@@ -341,15 +341,15 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
-                              <Component id="BotonCambiarColor" min="-2" max="-2" attributes="0"/>
+                              <Component id="botonCambiarColor" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
-                              <Component id="BotonDificultad" min="-2" pref="94" max="-2" attributes="0"/>
+                              <Component id="botonDificultad" min="-2" pref="94" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="118" max="-2" attributes="0"/>
-                              <Component id="BotonSalirAjustes" min="-2" max="-2" attributes="0"/>
+                              <Component id="botonSalirAjustes" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="115" max="32767" attributes="0"/>
@@ -360,46 +360,46 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-                      <Component id="BotonCambiarColor" min="-2" pref="54" max="-2" attributes="0"/>
+                      <Component id="botonCambiarColor" min="-2" pref="54" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="BotonDificultad" min="-2" pref="35" max="-2" attributes="0"/>
+                      <Component id="botonDificultad" min="-2" pref="35" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="BotonSalirAjustes" min="-2" max="-2" attributes="0"/>
+                      <Component id="botonSalirAjustes" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="147" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="BotonCambiarColor">
+            <Component class="javax.swing.JButton" name="botonCambiarColor">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cambiar color de fondo"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonCambiarColorActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonCambiarColorActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="BotonDificultad">
+            <Component class="javax.swing.JButton" name="botonDificultad">
               <Properties>
                 <Property name="text" type="java.lang.String" value="dificultad"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonDificultadActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonDificultadActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="BotonSalirAjustes">
+            <Component class="javax.swing.JButton" name="botonSalirAjustes">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Salir"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonSalirAjustesActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonSalirAjustesActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
         </Container>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JFrame" name="PantallaDificultad">
+    <Container class="javax.swing.JFrame" name="pantallaDificultad">
       <Properties>
         <Property name="defaultCloseOperation" type="int" value="3"/>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -412,7 +412,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Component id="PanelDificultad" max="32767" attributes="0"/>
+                  <Component id="panelDificultad" max="32767" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -420,14 +420,14 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Component id="PanelDificultad" max="32767" attributes="0"/>
+                  <Component id="panelDificultad" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Container class="javax.swing.JPanel" name="PanelDificultad">
+        <Container class="javax.swing.JPanel" name="panelDificultad">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="33" red="0" type="rgb"/>
@@ -439,14 +439,14 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="163" max="-2" attributes="0"/>
-                      <Component id="MarcadorDificultad" min="-2" max="-2" attributes="0"/>
+                      <Component id="marcadorDificultad" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                      <Component id="BotonAceptarDificultad" min="-2" pref="162" max="-2" attributes="0"/>
+                      <Component id="botonAceptarDificultad" min="-2" pref="162" max="-2" attributes="0"/>
                       <EmptySpace pref="188" max="32767" attributes="0"/>
-                      <Component id="BotonSalirDificultad" min="-2" pref="153" max="-2" attributes="0"/>
+                      <Component id="botonSalirDificultad" min="-2" pref="153" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -455,11 +455,11 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
-                      <Component id="MarcadorDificultad" min="-2" max="-2" attributes="0"/>
+                      <Component id="marcadorDificultad" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="99" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="BotonSalirDificultad" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
-                          <Component id="BotonAceptarDificultad" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
+                          <Component id="botonSalirDificultad" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
+                          <Component id="botonAceptarDificultad" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="28" max="32767" attributes="0"/>
                   </Group>
@@ -467,23 +467,23 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="BotonSalirDificultad">
+            <Component class="javax.swing.JButton" name="botonSalirDificultad">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Salir"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonSalirDificultadActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonSalirDificultadActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="BotonAceptarDificultad">
+            <Component class="javax.swing.JButton" name="botonAceptarDificultad">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Aceptar"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonAceptarDificultadActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonAceptarDificultadActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JSlider" name="MarcadorDificultad">
+            <Component class="javax.swing.JSlider" name="marcadorDificultad">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -500,7 +500,7 @@
         </Container>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JFrame" name="PantallaCambiarDeColor">
+    <Container class="javax.swing.JFrame" name="pantallaCambiarDeColor">
       <Properties>
         <Property name="defaultCloseOperation" type="int" value="3"/>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -514,11 +514,11 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="PanelColores" min="-2" pref="640" max="-2" attributes="0"/>
+                  <Component id="panelColores" min="-2" pref="640" max="-2" attributes="0"/>
                   <EmptySpace pref="335" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
-                  <Component id="PanelColoresFondo" min="-2" max="-2" attributes="0"/>
+                  <Component id="panelColoresFondo" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -527,16 +527,16 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
-                  <Component id="PanelColores" min="-2" pref="322" max="-2" attributes="0"/>
+                  <Component id="panelColores" min="-2" pref="322" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="PanelColoresFondo" min="-2" max="-2" attributes="0"/>
+                  <Component id="panelColoresFondo" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="305" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Container class="javax.swing.JPanel" name="PanelColoresFondo">
+        <Container class="javax.swing.JPanel" name="panelColoresFondo">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="33" red="0" type="rgb"/>
@@ -590,7 +590,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JColorChooser" name="PanelColores">
+        <Component class="javax.swing.JColorChooser" name="panelColores">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="0" type="rgb"/>
@@ -599,10 +599,16 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JFrame" name="PantallaGameOver">
+    <Container class="javax.swing.JFrame" name="pantallaGameOver">
       <Properties>
         <Property name="defaultCloseOperation" type="int" value="3"/>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[380, 350]"/>
+        </Property>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[380, 350]"/>
+        </Property>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[380, 350]"/>
         </Property>
         <Property name="resizable" type="boolean" value="false"/>
@@ -611,17 +617,17 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="PanelGameOver" alignment="0" max="32767" attributes="0"/>
+              <Component id="panelGameOver" alignment="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="PanelGameOver" alignment="0" max="32767" attributes="0"/>
+              <Component id="panelGameOver" alignment="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Container class="javax.swing.JPanel" name="PanelGameOver">
+        <Container class="javax.swing.JPanel" name="panelGameOver">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
@@ -633,16 +639,16 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
-                      <Component id="BotonReinicio" min="-2" max="-2" attributes="0"/>
+                      <Component id="botonReinicio" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="84" max="32767" attributes="0"/>
-                      <Component id="BotonSalir" min="-2" max="-2" attributes="0"/>
+                      <Component id="botonSalir" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="132" max="-2" attributes="0"/>
-                              <Component id="LabelGameOver" min="-2" pref="95" max="-2" attributes="0"/>
+                              <Component id="labelGameOver" min="-2" pref="95" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="113" max="-2" attributes="0"/>
@@ -657,13 +663,13 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
-                      <Component id="LabelGameOver" min="-2" pref="35" max="-2" attributes="0"/>
+                      <Component id="labelGameOver" min="-2" pref="35" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       <Component id="puntuacionGameOver" min="-2" pref="35" max="-2" attributes="0"/>
                       <EmptySpace pref="28" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="BotonSalir" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="BotonReinicio" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="botonSalir" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="botonReinicio" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
                   </Group>
@@ -671,7 +677,7 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="LabelGameOver">
+            <Component class="javax.swing.JLabel" name="labelGameOver">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -687,20 +693,20 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="BotonReinicio">
+            <Component class="javax.swing.JButton" name="botonReinicio">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Reiniciar"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonReinicioActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonReinicioActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="BotonSalir">
+            <Component class="javax.swing.JButton" name="botonSalir">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Salir"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonSalirActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonSalirActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="puntuacionGameOver">
@@ -747,20 +753,20 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="Inicio" min="-2" max="-2" attributes="0"/>
+          <Component id="inicio" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="Inicio" min="-2" max="-2" attributes="0"/>
+              <Component id="inicio" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="Inicio">
+    <Container class="javax.swing.JPanel" name="inicio">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="33" green="33" red="0" type="rgb"/>
@@ -779,14 +785,14 @@
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="Salir" max="32767" attributes="0"/>
-                              <Component id="Ajustes" alignment="0" pref="165" max="32767" attributes="0"/>
-                              <Component id="Jugar" max="32767" attributes="0"/>
+                              <Component id="salir" max="32767" attributes="0"/>
+                              <Component id="ajustes" alignment="0" pref="165" max="32767" attributes="0"/>
+                              <Component id="jugar" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
-                          <Component id="Titulo" min="-2" max="-2" attributes="0"/>
+                          <Component id="titulo" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="82" max="32767" attributes="0"/>
@@ -797,20 +803,20 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace pref="12" max="32767" attributes="0"/>
-                  <Component id="Titulo" min="-2" pref="76" max="-2" attributes="0"/>
+                  <Component id="titulo" min="-2" pref="76" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="Jugar" min="-2" pref="53" max="-2" attributes="0"/>
+                  <Component id="jugar" min="-2" pref="53" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="Ajustes" min="-2" pref="56" max="-2" attributes="0"/>
+                  <Component id="ajustes" min="-2" pref="56" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="Salir" min="-2" pref="55" max="-2" attributes="0"/>
+                  <Component id="salir" min="-2" pref="55" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="Jugar">
+        <Component class="javax.swing.JButton" name="jugar">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="24" style="0"/>
@@ -818,10 +824,10 @@
             <Property name="text" type="java.lang.String" value="Jugar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JugarActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jugarActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="Ajustes">
+        <Component class="javax.swing.JButton" name="ajustes">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="24" style="0"/>
@@ -829,10 +835,10 @@
             <Property name="text" type="java.lang.String" value="Ajustes"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AjustesActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ajustesActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="Salir">
+        <Component class="javax.swing.JButton" name="salir">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="24" style="0"/>
@@ -840,10 +846,10 @@
             <Property name="text" type="java.lang.String" value="Salir"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SalirActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="salirActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="Titulo">
+        <Component class="javax.swing.JLabel" name="titulo">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="36" style="0"/>
