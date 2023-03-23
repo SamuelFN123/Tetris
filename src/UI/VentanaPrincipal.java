@@ -7,6 +7,13 @@ package UI;
 import java.awt.event.ActionEvent;
 import javax.swing.Timer;
 import Modelo.Xogo;
+import java.io.File;
+import java.io.IOException;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 
 /**
  *
@@ -21,6 +28,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private int segundos = 0;
     private int minutos = 0;
     private int puntuacion;
+    private Clip clip;
 
     /**
      * Creates new form VentanaPrincipal
@@ -50,7 +58,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         LineasEliminadas = new javax.swing.JPanel();
         LineasEliminadasLabel = new javax.swing.JLabel();
         PanelJuego = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
         PantallaAjustes = new javax.swing.JFrame();
         PanelAjustes = new javax.swing.JPanel();
         BotonCambiarColor = new javax.swing.JButton();
@@ -71,7 +79,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         BotonReinicio = new javax.swing.JButton();
         BotonSalir = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
         Inicio = new javax.swing.JPanel();
         Jugar = new javax.swing.JButton();
         Ajustes = new javax.swing.JButton();
@@ -205,28 +212,25 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(255, 0, 0));
-        jButton1.setForeground(new java.awt.Color(255, 0, 0));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        jTextField1.setBackground(new java.awt.Color(255, 0, 0));
+        jTextField1.setForeground(new java.awt.Color(255, 0, 0));
+        jTextField1.setText("jTextField1");
+        jTextField1.setBorder(null);
 
         javax.swing.GroupLayout PanelJuegoLayout = new javax.swing.GroupLayout(PanelJuego);
         PanelJuego.setLayout(PanelJuegoLayout);
         PanelJuegoLayout.setHorizontalGroup(
             PanelJuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelJuegoLayout.createSequentialGroup()
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         PanelJuegoLayout.setVerticalGroup(
             PanelJuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelJuegoLayout.createSequentialGroup()
-                .addGap(96, 96, 96)
-                .addComponent(jButton1)
-                .addContainerGap(397, Short.MAX_VALUE))
+                .addGap(98, 98, 98)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(399, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout PantallaJuegoLayout = new javax.swing.GroupLayout(PantallaJuego.getContentPane());
@@ -243,12 +247,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             PantallaJuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PantallaJuegoLayout.createSequentialGroup()
                 .addGroup(PantallaJuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(PanelJuego, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(FondoNombres, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(FondoNombres, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(PantallaJuegoLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(PanelJuego, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         PantallaAjustes.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        PantallaAjustes.setMaximumSize(new java.awt.Dimension(350, 350));
         PantallaAjustes.setMinimumSize(new java.awt.Dimension(350, 350));
         PantallaAjustes.setResizable(false);
 
@@ -286,7 +293,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                         .addGap(108, 108, 108)
                         .addComponent(BotonDificultad, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PanelAjustesLayout.createSequentialGroup()
-                        .addGap(118, 118, 118)
+                        .addGap(122, 122, 122)
                         .addComponent(BotonSalirAjustes)))
                 .addContainerGap(115, Short.MAX_VALUE))
         );
@@ -310,7 +317,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         );
         PantallaAjustesLayout.setVerticalGroup(
             PantallaAjustesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PanelAjustes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(PanelAjustes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         PantallaDificultad.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -501,17 +508,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             .addComponent(PanelGameOver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tetris");
         setResizable(false);
@@ -595,6 +591,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void JugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JugarActionPerformed
         // TODO add your handling code here:
+        reproducirSon();
         this.setVisible(false);
         PanelJuego.removeAll();
         PantallaJuego.setVisible(true);
@@ -641,10 +638,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void SalirJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirJuegoActionPerformed
         // TODO add your handling code here:
+        clip.stop();
         PantallaJuego.setVisible(false);
         this.setVisible(true);
         timer.stop();
         timerContador.stop();
+        
     }//GEN-LAST:event_SalirJuegoActionPerformed
 
     private void AjustesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AjustesActionPerformed
@@ -670,7 +669,16 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         PantallaCambiarDeColor.setVisible(false);
         PantallaAjustes.setVisible(true);
     }//GEN-LAST:event_BotonSalirColoresActionPerformed
-
+    public void reproducirSon(){
+       try {
+        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("Musica.wav"));
+        clip = AudioSystem.getClip();
+        clip.open(audioInputStream);
+        clip.loop(ABORT);
+       } catch(UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
+         System.out.println("Error al reproducir el sonido.");
+       }
+     }
     private void BotonAceptarColoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAceptarColoresActionPerformed
         // TODO add your handling code here:
         PantallaCambiarDeColor.setVisible(false);
@@ -689,11 +697,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void BotonPausaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonPausaActionPerformed
         // TODO add your handling code here:
         if (BotonPausa.isSelected()) {
+            clip.stop();
             timer.stop();
             timerContador.stop();
             xogo.setPausa(true);
         } else {
             timer.start();
+            clip.start();
             timerContador.start();
             xogo.setPausa(false);
             PanelJuego.requestFocus();
@@ -731,10 +741,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         minutos=0;
         TiempoEtiqueta.setText("0:" + minutos + ":" + segundos);
     }//GEN-LAST:event_BotonReinicioActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     public void pintarCadrado(javax.swing.JLabel cadrado) {
 
@@ -845,8 +851,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel SiguienteFicha;
     private javax.swing.JLabel TiempoEtiqueta;
     private javax.swing.JLabel Titulo;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
