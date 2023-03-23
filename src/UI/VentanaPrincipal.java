@@ -16,11 +16,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private Xogo xogo;
     private Timer timerFicha;
-    private int timerDelay = 1000;
+    private int timerDelay=1000;
+    private int lastDelay=timerDelay;
     private Timer timerContador;
     private int segundos = 0;
     private int minutos = 0;
-    private int puntuacion;
+    private final int defaultDelay=timerDelay;
 
     /**
      * Creates new form VentanaPrincipal
@@ -367,7 +368,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         MarcadorDificultad.setMinorTickSpacing(1);
         MarcadorDificultad.setPaintLabels(true);
         MarcadorDificultad.setPaintTicks(true);
-        MarcadorDificultad.setValue(1);
+        MarcadorDificultad.setValue(0);
 
         javax.swing.GroupLayout PanelDificultadLayout = new javax.swing.GroupLayout(PanelDificultad);
         PanelDificultad.setLayout(PanelDificultadLayout);
@@ -478,9 +479,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         );
 
         PantallaGameOver.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        PantallaGameOver.setMaximumSize(new java.awt.Dimension(380, 350));
         PantallaGameOver.setMinimumSize(new java.awt.Dimension(380, 350));
-        PantallaGameOver.setPreferredSize(new java.awt.Dimension(380, 350));
         PantallaGameOver.setResizable(false);
 
         PanelGameOver.setBackground(new java.awt.Color(0, 0, 0));
@@ -697,10 +696,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_BotonCambiarColorActionPerformed
 
     private void BotonAceptarDificultadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAceptarDificultadActionPerformed
-        timerDelay = 1000;
+        timerDelay = defaultDelay;
         PantallaDificultad.setVisible(false);
         PantallaAjustes.setVisible(true);
         timerDelay -= MarcadorDificultad.getValue() * 50;
+        lastDelay = timerDelay;
     }//GEN-LAST:event_BotonAceptarDificultadActionPerformed
 
     private void BotonSalirDificultadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSalirDificultadActionPerformed
@@ -715,7 +715,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         this.setVisible(true);
         timerFicha.stop();
         timerContador.stop();
-        timerDelay=1000;
+        timerDelay = lastDelay;
     }//GEN-LAST:event_SalirJuegoActionPerformed
 
     private void AjustesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AjustesActionPerformed
