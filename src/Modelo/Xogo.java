@@ -437,7 +437,7 @@ public class Xogo {
             Cadrado borrado = borrar.next();
             ventana.borrarCadrado(borrado.getlBlCadrado());
         }
-
+        ventana.sonLinea();
     }
 
     private void comprobarDificultade() {

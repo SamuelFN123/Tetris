@@ -7,6 +7,13 @@ package UI;
 import java.awt.event.ActionEvent;
 import javax.swing.Timer;
 import Modelo.Xogo;
+import java.io.File;
+import java.io.IOException;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 
 /**
  *
@@ -15,6 +22,8 @@ import Modelo.Xogo;
 public class VentanaPrincipal extends javax.swing.JFrame {
 
     private Xogo xogo;
+    private Clip linea;
+    private Clip fondo;
     private Timer timerFicha;
     private int timerDelay = 1000;
     private int lastDelay = timerDelay;
@@ -678,6 +687,29 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         panelJuego.setFocusable(true);
         panelJuego.requestFocus();
         labelPuntuacion.setText("0");
+        reproducirSon();
+    }
+
+    private void reproducirSon() {
+        try {
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("Musica.wav"));
+            fondo = AudioSystem.getClip();
+            fondo.open(audioInputStream);
+            fondo.loop(ABORT);
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
+            System.out.println("Error al reproducir el sonido.");
+        }
+    }
+    
+    public void sonLinea() {
+        try {
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("linea-completa.wav"));
+            linea = AudioSystem.getClip();
+            linea.open(audioInputStream);
+            linea.start();
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
+            System.out.println("Error al reproducir el sonido.");
+        }
     }
 
     private void resetTimerLabel() {
@@ -718,6 +750,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         timerFicha.stop();
         timerContador.stop();
         timerDelay = lastDelay;
+        fondo.stop();
     }//GEN-LAST:event_salirJuegoActionPerformed
 
     private void ajustesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajustesActionPerformed
@@ -765,11 +798,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             timerFicha.stop();
             timerContador.stop();
             xogo.setPausa(true);
+            fondo.stop();
         } else {
             timerFicha.start();
             timerContador.start();
             xogo.setPausa(false);
             panelJuego.requestFocus();
+            fondo.loop(ABORT);
         }
     }//GEN-LAST:event_botonPausaActionPerformed
 
@@ -842,6 +877,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         timerFicha.stop();
         timerContador.stop();
+        fondo.stop();
         pantallaJuego.setVisible(false);
         pantallaGameOver.setVisible(true);
         puntuacionGameOver.setText("Puntuacion: " + labelPuntuacion.getText());
